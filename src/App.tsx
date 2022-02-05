@@ -1,29 +1,33 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { Container, Box, AppBar, Toolbar, Button } from '@mui/material';
+
+import MovieTable from 'component/MovieTable';
+import CreateFormDialog from 'component/CreateFormDialog';
+
+// import logo from './logo.svg';
 
 function App() {
-  const host = process.env.API_HOST;
-  console.log('HOST ==>', host);
+  // const host = process.env.REACT_APP_API_HOST;
+  const [open, setOpen] = React.useState(false);
+
+  const handleClickOpen = () => {
+    setOpen(true);
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit
-          <code>src/App.tsx</code>
-          and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Container maxWidth="lg">
+      <Box sx = {{ pt:'20px' }}>
+        <Box sx = {{ mb:'8px', display:'flex' }}>
+          <Button sx = {{ ml:'auto', mr:'0' }} variant='outlined' onClick = {handleClickOpen}>New</Button>
+        </Box>
+        <MovieTable />
+        <CreateFormDialog 
+          open = {open}  
+          onClose = {()=>{
+            setOpen(false);
+          }}/>
+      </Box>
+    </Container>
   );
 }
 
