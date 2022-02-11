@@ -1,20 +1,16 @@
 import React, { useEffect, useState } from 'react';
 import { Container, Box, AppBar, Toolbar, Button } from '@mui/material';
+import { Routes, Route } from 'react-router-dom';
 
 import MovieTable from 'component/MovieTable';
-import CreateFormDialog from 'component/CreateFormDialog';
+import CreateForm from 'component/CreateForm';
 import { getAllMovies } from 'api';
 
 // import logo from './logo.svg';
 
 function App() {
   // const host = process.env.REACT_APP_API_HOST;
-  const [open, setOpen] = React.useState(false);
   const [tableData, setTableData] = useState<any[]>([]);
-
-  const handleClickOpen = () => {
-    setOpen(true);
-  };
 
   useEffect(()=>{
     getAllMovies()
@@ -27,17 +23,10 @@ function App() {
 
   return (
     <Container maxWidth="lg">
-      <Box sx = {{ pt:'20px' }}>
-        <Box sx = {{ mb:'8px', display:'flex' }}>
-          <Button sx = {{ ml:'auto', mr:'0' }} variant='outlined' onClick = {handleClickOpen}>New</Button>
-        </Box>
-        <MovieTable tableData = {tableData}/>
-        <CreateFormDialog 
-          open = {open}  
-          onClose = {()=>{
-            setOpen(false);
-          }}/>
-      </Box>
+      <Routes>
+        <Route path="/" element={<MovieTable tableData = {tableData}/>} />
+        <Route path="/movies/create" element={<CreateForm />} />
+      </Routes>
     </Container>
   );
 }
