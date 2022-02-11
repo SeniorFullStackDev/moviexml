@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React, { useEffect, useState } from 'react';
 import { 
   Table, 
   TableBody, 
@@ -22,16 +22,31 @@ import DeleteIcon from '@mui/icons-material/Delete';
 
 import { saveAs } from 'file-saver';
 import config from 'api/config';
+import { getAllMovies, deleteMovie } from 'api';
+import ConfirmDialog from 'component/ConfirmDialog';
 
-interface Props {
-  tableData: any[];
-}
+export default function MovieTable() {
 
-export default function BasicTable({ tableData }: Props) {
+  const [tableData, setTableData] = useState<any[]>([]);
+
+  useEffect(()=>{
+    loadTable();
+  }, [])
+
+  const loadTable = () => {
+    getAllMovies()
+      .then(res=>{
+        setTableData(res.data);
+      }).catch((err:any)=>{
+        console.log(err);
+      })
+  }
+
+  const [openDialog, setOpenDialog] = React.useState(false);
+  const [activeMovie, setActiveMovie] = React.useState(0);
 
   const downloadXML = (data:any) => {
-    console.log(data);
-    // saveAs();
+
     const mecLink = `${config.host}/api/movies/xml/download/mec/${data.id}`;
     saveAs(mecLink, `${data.title}-MEC.xml`);
 
@@ -73,7 +88,11 @@ export default function BasicTable({ tableData }: Props) {
                   <IconButton>
                     <EditIcon />
                   </IconButton>
-                  <IconButton>
+                  <IconButton 
+                    onClick = {()=>{
+                      setActiveMovie(row.id);
+                      setOpenDialog(true);
+                    }}>
                     <DeleteIcon/>
                   </IconButton>
                 </TableCell>
@@ -82,6 +101,23 @@ export default function BasicTable({ tableData }: Props) {
           </TableBody>
         </Table>
       </TableContainer>
+
+      <ConfirmDialog 
+        open = {openDialog} 
+        onClose  = {()=>{
+          setOpenDialog(false);
+        }}
+        onCancel  = {()=>{
+          setOpenDialog(false);
+          setActiveMovie(0);
+        }}
+        onOkay  = {()=>{
+          if(activeMovie) deleteMovie(activeMovie);
+          setActiveMovie(0);
+          setOpenDialog(false);
+          loadTable();
+        }}
+      />
     </Box>
   );
 }

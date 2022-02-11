@@ -1,4 +1,4 @@
-import { getRequest, postRequest, putRequest } from './request'
+import { deleteRequest, getRequest, postRequest, putRequest } from './request'
 import config from './config';
 
 export const getAllMovies = () => {
@@ -11,4 +11,8 @@ export const createNewMovie = (payload) => {
 
 export const updateMovie = (id, payload) => {
   return  putRequest(`${config.host}/api/movies/${id}`, payload)
+}
+
+export const deleteMovie = (id) => {
+  return  deleteRequest(`${config.host}/api/movies/${id}`)
 }
