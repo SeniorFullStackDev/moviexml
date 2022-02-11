@@ -24,6 +24,7 @@ const Index = React.forwardRef(({ data }:Props, ref) => {
           formRef.current.isFormValid().then((isValid:boolean)=>{
             if(!isValid){
               formRef.current.submit();
+              return;
             }
           })
         }
@@ -98,14 +99,14 @@ const Index = React.forwardRef(({ data }:Props, ref) => {
               <Box sx = {{ pl:4 }}>
                 <CustomTextValidator
                   formData = {formDataRef.current} 
-                  label = "@Resolution *" 
-                  name = "BasicMetadata-type.LocalizedInfo.ArtReference.@Resolution" 
+                  label = "@resolution *" 
+                  name = "BasicMetadata-type.LocalizedInfo.ArtReference.@resolution" 
                   validators={['required']}
                   errorMessages={['this field is required']} />
                 <CustomTextValidator
                   formData = {formDataRef.current} 
-                  label = "@Purpose *" 
-                  name = "BasicMetadata-type.LocalizedInfo.ArtReference.@Purpose" 
+                  label = "@purpose *" 
+                  name = "BasicMetadata-type.LocalizedInfo.ArtReference.@purpose" 
                   validators={['required']}
                   errorMessages={['this field is required']} />
                 <CustomTextValidator

@@ -3,6 +3,11 @@ export const mec = {
     '@ContentID': 'md:cid:org:amzn_studios_example:HighCastle1_1',
     'LocalizedInfo': {
       '@Language': 'en-US',
+      'ArtReference': {
+        '@resolution':'2560x1920',
+        '@purpose':'boxart',
+        'value':'TheGreatMovie-US-4x3.jpg'
+      },
       'TitleDisplayUnlimited': 'The New World d',
       'Summary400': 'It\'s 1962, America has lost WWII; the east is the Greater Nazi Reich and the west, the Japanese Pacific States. Amidst this oppression there is new hope - films that seem to show a different world. When her sister gives her a film and is then murdered, a woman comes to believe the films hold the key to freedom and becomes obsessed with finding their mysterious guardian, The Man in the High Castle.',
       'Genre': {
@@ -54,7 +59,6 @@ export const mec = {
   '@Resolution': '2560x1920',
   '@Purpose': 'boxart',
   'Summary190': '',
-  'ArtReference': 'TheGreatMovie-US-4x3.jpg',
   'DisplayName': 'Alexa Davalos',
   '@language': 'en-US',
   'CompanyDisplayCredit': {

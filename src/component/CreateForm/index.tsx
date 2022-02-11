@@ -1,58 +1,86 @@
 import * as React from 'react';
-import Button from '@mui/material/Button';
-import TextField from '@mui/material/TextField';
-import Dialog from '@mui/material/Dialog';
-import DialogActions from '@mui/material/DialogActions';
-import DialogContent from '@mui/material/DialogContent';
-import DialogContentText from '@mui/material/DialogContentText';
-import DialogTitle from '@mui/material/DialogTitle';
-import Grid from '@mui/material/Grid';
-
-import Tabs from '@mui/material/Tabs';
-import Tab from '@mui/material/Tab';
-import Typography from '@mui/material/Typography';
-import Box from '@mui/material/Box';
+import { Button, Grid, Typography,Box,  Link } from '@mui/material';
 
 import MMCForm from './MMCForm';
 import MECForm from './MECForm';
 import { Divider } from '@mui/material';
-import { mec, mmc } from 'utils/demo';
+import { ValidatorForm } from 'react-material-ui-form-validator';
+import CustomTextValidator from 'component/CustomTextValidator';
 
+import { mec, mmc } from 'utils/demo';
+import { createNewMovie } from 'api'
 
 export default function CreateForm() {
 
-  const [value, setValue] = React.useState(0);
+  const formRef = React.useRef<any>();
   const MMCFormRef = React.useRef<any>();
   const MECFormRef = React.useRef<any>();
+  const [isRequesting, setIsRequesting] = React.useState(false);
 
-  const handleChange = (event: React.SyntheticEvent, newValue: number) => {
-    setValue(newValue);
-  };
+  const formDataRef = React.useRef<any>({});
 
   const handleSubmit = () => {
-    if(MECFormRef.current){
-      const mecData = MECFormRef.current.getFormData();
-      console.log(mecData);
+    const payload:any = {};
+
+    if(formDataRef.current){
+      if(formDataRef.current.title){
+        payload.title = formDataRef.current.title;
+      }else{
+        if(formRef.current) formRef.current.submit();
+        return;
+      }
     }
 
+    if(MECFormRef.current){
+      payload.mec = MECFormRef.current.getFormData();
+    }
     if(MMCFormRef.current){
-      const mmcData = MMCFormRef.current.getFormData();
-      console.log(mmcData);
+      payload.mmc = MMCFormRef.current.getFormData();
+    }
+    if(payload.title && payload.mmc && payload.mec){
+      setIsRequesting(true);
+      createNewMovie(payload).then((res:any)=>{
+        console.log(res.data);
+        setIsRequesting(false);
+      }).catch(err=>{
+        setIsRequesting(false);
+        console.log(err);
+      });
     }
   }
 
+  const onChangeForm = (e:any) => {
+    formDataRef.current = { ...formDataRef.current, [e.target.name]:e.target.value }
+  }
+
+
   return (
     <Box sx = {{ pt:'20px' }}>
-      <Typography variant='h5'>New Movie</Typography>
+      <Box sx = {{ mb:'8px', display:'flex' }}>
+        <Link href='/' underline="none">
+          <Button  variant='outlined'>Back</Button>
+        </Link>
+      </Box>
       <Box>
-        <TextField
-          autoFocus
-          margin="dense"
-          label="Movie title"
-          fullWidth
-          variant="standard"
-        />
-
+        <Box sx = {{ mb:'20px' }}>
+          <ValidatorForm
+            ref = {formRef}
+            autoComplete="off"
+            onChange = {onChangeForm}
+            onSubmit = {()=>{
+              return false;
+            }}
+          >
+            <Typography variant='h5'>New Movie</Typography>
+            <CustomTextValidator 
+              formData = {formDataRef.current} 
+              validators={['required']} 
+              errorMessages={['this field is required']} 
+              name="title" 
+              label="Movie Title *" />
+          </ValidatorForm>
+        </Box>
+        <Divider />
         <Box sx={{ width: '100%', mt:'20px' }}>
           <Grid container spacing={2}>
             <Grid item xs={12}>
@@ -66,7 +94,7 @@ export default function CreateForm() {
         </Box>
       </Box>
       <Box>
-        <Button onClick={handleSubmit} variant="outlined">Submit</Button>
+        <Button onClick={handleSubmit} variant="outlined" disabled = {isRequesting}>Submit</Button>
       </Box>
     </Box>
   );

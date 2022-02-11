@@ -22,6 +22,7 @@ const Index = React.forwardRef(({ data }:Props, ref) => {
           formRef.current.isFormValid().then((isValid:boolean)=>{
             if(!isValid){
               formRef.current.submit();
+              return;
             }
           })
           const source:any = {};

@@ -9,7 +9,8 @@ import {
   Paper,  
   Button,
   IconButton,
-  Box
+  Box,
+  Link
 } from '@mui/material';
 
 import RadioButtonCheckedIcon from '@mui/icons-material/RadioButtonChecked';
@@ -19,19 +20,17 @@ import DownloadIcon from '@mui/icons-material/Download';
 import EditIcon from '@mui/icons-material/Edit';
 import DeleteIcon from '@mui/icons-material/Delete';
 
-
 interface Props {
   tableData: any[];
 }
 
 export default function BasicTable({ tableData }: Props) {
-  const handleClickOpen = () => {
-    console.log('--handleClickOpen--');
-  };
   return (
     <Box sx = {{ pt:'20px' }}>
       <Box sx = {{ mb:'8px', display:'flex' }}>
-        <Button sx = {{ ml:'auto', mr:'0' }} variant='outlined' onClick = {handleClickOpen}>New</Button>
+        <Link href='/movies/create' underline="none" sx = {{ ml:'auto', mr:'0' }}>
+          <Button  variant='outlined'>New</Button>
+        </Link>
       </Box>
       <TableContainer component={Paper}>
         <Table sx={{ minWidth: 650 }} aria-label="simple table">
