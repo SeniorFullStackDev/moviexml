@@ -11,6 +11,7 @@ function App() {
       <Routes>
         <Route path="/" element={<MovieTable />} />
         <Route path="/movies/create" element={<CreateForm />} />
+        <Route path="/movies/edit/:id" element={<CreateForm />} />
       </Routes>
     </Container>
   );

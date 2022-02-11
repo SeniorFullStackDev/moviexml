@@ -1,4 +1,4 @@
-import React, { useImperativeHandle, useState } from 'react';
+import React, { useEffect, useImperativeHandle, useState } from 'react';
 import { Box, TextField, Typography  } from '@mui/material';
 import { ValidatorForm, TextValidator } from 'react-material-ui-form-validator';
 import { convertKeyString } from 'utils';
@@ -11,11 +11,15 @@ interface Props {
 
 const Index = React.forwardRef(({ data }:Props, ref) => {
 
-
-  console.log('MEC form data ==>', data)
   // const [formData, setFormData] = useState(data);
   const formDataRef = React.useRef(data || {});
   const formRef = React.useRef<any>();
+  const [count, setCount] = useState(0);
+
+  useEffect(()=>{
+    formDataRef.current = data;
+    setCount(count + 1);
+  }, [data])
 
   useImperativeHandle(ref, () => (
     {

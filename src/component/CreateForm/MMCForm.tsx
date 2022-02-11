@@ -15,6 +15,13 @@ const Index = React.forwardRef(({ data }:Props, ref) => {
   const formDataRef = React.useRef(data || {});
   const formRef = React.useRef<any>();
 
+  const [count, setCount] = useState(0);
+
+  useEffect(()=>{
+    formDataRef.current = data;
+    setCount(count + 1);
+  }, [data])
+
   useImperativeHandle(ref, () => (
     {
       getFormData: () => {

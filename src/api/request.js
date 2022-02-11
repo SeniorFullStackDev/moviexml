@@ -21,7 +21,7 @@ export const postRequest = (route, payloads) => {
 
 export const putRequest = (route, payloads) => {
   return new Promise((resolve, reject)=>
-    axios.post(route, payloads)
+    axios.put(route, payloads)
       .then((response)=>resolve(response))
       .catch((error)=>reject(error)));
 }

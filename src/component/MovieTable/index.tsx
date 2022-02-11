@@ -86,7 +86,9 @@ export default function MovieTable() {
                     <DownloadIcon />
                   </IconButton>
                   <IconButton>
-                    <EditIcon />
+                    <Link href = {`/movies/edit/${row.id}`}>
+                      <EditIcon />
+                    </Link>
                   </IconButton>
                   <IconButton 
                     onClick = {()=>{

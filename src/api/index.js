@@ -16,3 +16,7 @@ export const updateMovie = (id, payload) => {
 export const deleteMovie = (id) => {
   return  deleteRequest(`${config.host}/api/movies/${id}`)
 }
+
+export const getMovieDetail = (id) => {
+  return  getRequest(`${config.host}/api/movies/${id}`)
+}
