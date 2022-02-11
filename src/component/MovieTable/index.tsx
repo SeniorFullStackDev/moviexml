@@ -20,11 +20,24 @@ import DownloadIcon from '@mui/icons-material/Download';
 import EditIcon from '@mui/icons-material/Edit';
 import DeleteIcon from '@mui/icons-material/Delete';
 
+import { saveAs } from 'file-saver';
+import config from 'api/config';
+
 interface Props {
   tableData: any[];
 }
 
 export default function BasicTable({ tableData }: Props) {
+
+  const downloadXML = (data:any) => {
+    console.log(data);
+    // saveAs();
+    const mecLink = `${config.host}/api/movies/xml/download/mec/${data.id}`;
+    saveAs(mecLink, `${data.title}-MEC.xml`);
+
+    const mmcLink = `${config.host}/api/movies/xml/download/mmc/${data.id}`;
+    saveAs(mmcLink, `${data.title}-MMC.xml`);
+  }
   return (
     <Box sx = {{ pt:'20px' }}>
       <Box sx = {{ mb:'8px', display:'flex' }}>
@@ -54,7 +67,7 @@ export default function BasicTable({ tableData }: Props) {
                 <TableCell align="center">{row.mec?<RadioButtonCheckedIcon color='primary'/>:<RadioButtonUncheckedIcon />}</TableCell>
                 <TableCell align="center">{row.mmc?<RadioButtonCheckedIcon color='primary'/>:<RadioButtonUncheckedIcon />}</TableCell>
                 <TableCell align="center">
-                  <IconButton>
+                  <IconButton onClick = {()=>{downloadXML(row)}}>
                     <DownloadIcon />
                   </IconButton>
                   <IconButton>
