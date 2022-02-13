@@ -148,8 +148,8 @@ const Index = React.forwardRef(({ data }:Props, ref) => {
                   formData = {formDataRef.current} name="BasicMetadata-type.LocalizedInfo.Genre.@source" label="@source" />
                 <CustomTextValidator
                   formData = {formDataRef.current} 
-                  name="BasicMetadata-type.LocalizedInfo.Genre.@ID" 
-                  label="@ID *" 
+                  name="BasicMetadata-type.LocalizedInfo.Genre.@id" 
+                  label="@id *" 
                   validators={['required']}
                   errorMessages={['this field is required']} />
                 <CustomTextValidator

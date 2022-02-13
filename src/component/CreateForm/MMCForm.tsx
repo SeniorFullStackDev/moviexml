@@ -167,72 +167,75 @@ const Index = React.forwardRef(({ data }:Props, ref) => {
                   <CustomTextValidator formData = {formDataRef.current} validators={['required']} errorMessages={['this field is required']} name="Inventory.Subtitle.ContainerReference.ContainerLocation" label="ContainerLocation *"/><br/>
                 </Box>
               </Box>
+            </Box>
 
-              <Typography >Presentations *</Typography>
+            <Typography >Presentations *</Typography>
+            <Box sx = {{ pl:4 }}>
+              <Typography >Presentation *</Typography>
               <Box sx = {{ pl:4 }}>
-                <Typography >Presentation *</Typography>
+                <CustomTextValidator formData = {formDataRef.current} validators={['required']} errorMessages={['this field is required']} name="Presentations.Presentation.@PresentationID" label="@PresentationID *"/><br/>
+
+                <Typography >TrackMetadata</Typography>
                 <Box sx = {{ pl:4 }}>
-                  <CustomTextValidator formData = {formDataRef.current} validators={['required']} errorMessages={['this field is required']} name="Inventory.Presentation.@PresentationID" label="@PresentationID *"/><br/>
+                  <CustomTextValidator formData = {formDataRef.current} validators={['required']} errorMessages={['this field is required']} name="Presentations.Presentation.TrackMetadata.TrackSelectionNumber" label="TrackSelectionNumber *"/><br/>
 
-                  <Typography >TrackMetadata</Typography>
+                  <Typography >VideoTrackReference</Typography>
                   <Box sx = {{ pl:4 }}>
-                    <CustomTextValidator formData = {formDataRef.current} validators={['required']} errorMessages={['this field is required']} name="Inventory.Presentation.TrackMetadata.TrackSelectionNumber" label="TrackSelectionNumber *"/><br/>
+                    <CustomTextValidator formData = {formDataRef.current} validators={['required']} errorMessages={['this field is required']} name="Presentations.Presentation.TrackMetadata.VideoTrackReference.VideoTrackID" label="VideoTrackID *"/><br/>
+                  </Box>
 
-                    <Typography >VideoTrackReference</Typography>
-                    <Box sx = {{ pl:4 }}>
-                      <CustomTextValidator formData = {formDataRef.current} validators={['required']} errorMessages={['this field is required']} name="Inventory.Presentation.TrackMetadata.VideoTrackReference.VideoTrackID" label="VideoTrackID *"/><br/>
-                    </Box>
+                  <Typography >AudioTrackReference</Typography>
+                  <Box sx = {{ pl:4 }}>
+                    <CustomTextValidator formData = {formDataRef.current} validators={['required']} errorMessages={['this field is required']} name="Presentations.Presentation.TrackMetadata.AudioTrackReference.AudioTrackID" label="AudioTrackID *"/><br/>
+                  </Box>
 
-                    <Typography >AudioTrackReference</Typography>
-                    <Box sx = {{ pl:4 }}>
-                      <CustomTextValidator formData = {formDataRef.current} validators={['required']} errorMessages={['this field is required']} name="Inventory.Presentation.TrackMetadata.AudioTrackReference.AudioTrackID" label="AudioTrackID *"/><br/>
-                    </Box>
-
-                    <Typography >SubtitleTrackReference</Typography>
-                    <Box sx = {{ pl:4 }}>
-                      <CustomTextValidator formData = {formDataRef.current} validators={['required']} errorMessages={['this field is required']} name="Inventory.Presentation.TrackMetadata.SubtitleTrackReference.SubtitleTrackID" label="SubtitleTrackID *"/><br/>
-                    </Box>
-
+                  <Typography >SubtitleTrackReference</Typography>
+                  <Box sx = {{ pl:4 }}>
+                    <CustomTextValidator formData = {formDataRef.current} validators={['required']} errorMessages={['this field is required']} name="Presentations.Presentation.TrackMetadata.SubtitleTrackReference.SubtitleTrackID" label="SubtitleTrackID *"/><br/>
                   </Box>
 
                 </Box>
-              </Box>
 
-              <Typography >PlayableSequences</Typography>
-              <Box sx = {{ pl:4 }}>
-                <Typography >PlayableSequence</Typography>
-                <Box sx = {{ pl:4 }}>
-                  <CustomTextValidator formData = {formDataRef.current} validators={['required']} errorMessages={['this field is required']} name="Inventory.PlayableSequences.PlayableSequence.PlayableSequenceID" label="PlayableSequenceID *"/><br/>
-                  <Typography >Clip</Typography>
-                  <Box sx = {{ pl:4 }}>
-                    <CustomTextValidator formData = {formDataRef.current} validators={['required']} errorMessages={['this field is required']} name="Inventory.PlayableSequences.PlayableSequence.Clip.@sequence" label="@sequence *"/><br/>
-                    <CustomTextValidator formData = {formDataRef.current} validators={['required']} errorMessages={['this field is required']} name="Inventory.PlayableSequences.PlayableSequence.Clip.PresentationID" label="PresentationID *"/><br/>
-                  </Box>
-                </Box>
               </Box>
+            </Box>
 
-              <Typography >Experiences</Typography>
+            <Typography >PlayableSequences</Typography>
+            <Box sx = {{ pl:4 }}>
+              <Typography >PlayableSequence</Typography>
               <Box sx = {{ pl:4 }}>
-                <CustomTextValidator formData = {formDataRef.current} validators={['required']} errorMessages={['this field is required']} name="Inventory.Experiences.@ExperienceID" label="@ExperienceID *"/><br/>
-                <CustomTextValidator formData = {formDataRef.current} validators={['required']} errorMessages={['this field is required']} name="Inventory.Experiences.@version" label="@version *"/><br/>
-                <Typography >Audiovisual</Typography>
+                <CustomTextValidator formData = {formDataRef.current} validators={['required']} errorMessages={['this field is required']} name="PlayableSequences.PlayableSequence.@PlayableSequenceID" label="PlayableSequenceID *"/><br/>
+                <Typography >Clip</Typography>
                 <Box sx = {{ pl:4 }}>
-                  <CustomTextValidator formData = {formDataRef.current} validators={['required']} errorMessages={['this field is required']} name="Inventory.Experiences.Audiovisual.@ContentID" label="@ContentID *"/><br/>
-                  <CustomTextValidator formData = {formDataRef.current} validators={['required']} errorMessages={['this field is required']} name="Inventory.Experiences.Audiovisual.Type" label="Type *"/><br/>
-                  <CustomTextValidator formData = {formDataRef.current} validators={['required']} errorMessages={['this field is required']} name="Inventory.Experiences.Audiovisual.SubType" label="SubType *"/><br/>
-                  <CustomTextValidator formData = {formDataRef.current} validators={['required']} errorMessages={['this field is required']} name="Inventory.Experiences.Audiovisual.PlayableSequenceID" label="PlayableSequenceID *"/><br/>
-                </Box>
-              </Box>
-
-              <Typography >ALIDExperienceMaps</Typography>
-              <Box sx = {{ pl:4 }}>
-                <Typography >ALIDExperienceMap</Typography>
-                <Box sx = {{ pl:4 }}>
-                  <CustomTextValidator formData = {formDataRef.current} validators={['required']} errorMessages={['this field is required']} name="Inventory.ALIDExperienceMaps.ALIDExperienceMap.ALID" label="ALID *"/><br/>
-                  <CustomTextValidator formData = {formDataRef.current} validators={['required']} errorMessages={['this field is required']} name="Inventory.ALIDExperienceMaps.ALIDExperienceMap.ExperienceID" label="ExperienceID *"/><br/>
+                  <CustomTextValidator formData = {formDataRef.current} validators={['required']} errorMessages={['this field is required']} name="PlayableSequences.PlayableSequence.Clip.@sequence" label="@sequence *"/><br/>
+                  <CustomTextValidator formData = {formDataRef.current} validators={['required']} errorMessages={['this field is required']} name="PlayableSequences.PlayableSequence.Clip.PresentationID" label="PresentationID *"/><br/>
                 </Box>
               </Box>
             </Box>
+            <Typography >Experiences</Typography>
+            <Box sx = {{ pl:4 }}>
+              <Typography >Experience</Typography>
+              <Box sx = {{ pl:4 }}>
+                <CustomTextValidator formData = {formDataRef.current} validators={['required']} errorMessages={['this field is required']} name="Experiences.Experience.@ExperienceID" label="@ExperienceID *"/><br/>
+                <CustomTextValidator formData = {formDataRef.current} validators={['required']} errorMessages={['this field is required']} name="Experiences.Experience.@version" label="@version *"/><br/>
+                <Typography >Audiovisual</Typography>
+                <Box sx = {{ pl:4 }}>
+                  <CustomTextValidator formData = {formDataRef.current} validators={['required']} errorMessages={['this field is required']} name="Experiences.Experience.Audiovisual.@ContentID" label="@ContentID *"/><br/>
+                  <CustomTextValidator formData = {formDataRef.current} validators={['required']} errorMessages={['this field is required']} name="Experiences.Experience.Audiovisual.Type" label="Type *"/><br/>
+                  <CustomTextValidator formData = {formDataRef.current} validators={['required']} errorMessages={['this field is required']} name="Experiences.Experience.Audiovisual.SubType" label="SubType *"/><br/>
+                  <CustomTextValidator formData = {formDataRef.current} validators={['required']} errorMessages={['this field is required']} name="Experiences.Experience.Audiovisual.PlayableSequenceID" label="PlayableSequenceID *"/><br/>
+                </Box>
+              </Box>
+            </Box>
+
+            <Typography >ALIDExperienceMaps</Typography>
+            <Box sx = {{ pl:4 }}>
+              <Typography >ALIDExperienceMap</Typography>
+              <Box sx = {{ pl:4 }}>
+                <CustomTextValidator formData = {formDataRef.current} validators={['required']} errorMessages={['this field is required']} name="ALIDExperienceMaps.ALIDExperienceMap.ALID" label="ALID *"/><br/>
+                <CustomTextValidator formData = {formDataRef.current} validators={['required']} errorMessages={['this field is required']} name="ALIDExperienceMaps.ALIDExperienceMap.ExperienceID" label="ExperienceID *"/><br/>
+              </Box>
+            </Box>
+            
           </Box>
         </Box>
       </ValidatorForm>

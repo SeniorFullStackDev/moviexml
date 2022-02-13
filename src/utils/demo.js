@@ -11,7 +11,7 @@ export const mec = {
       'TitleDisplayUnlimited': 'The New World d',
       'Summary400': 'It\'s 1962, America has lost WWII; the east is the Greater Nazi Reich and the west, the Japanese Pacific States. Amidst this oppression there is new hope - films that seem to show a different world. When her sister gives her a film and is then murdered, a woman comes to believe the films hold the key to freedom and becomes obsessed with finding their mysterious guardian, The Man in the High Castle.',
       'Genre': {
-        '@ID': 'av_genre_drama'
+        '@id': 'av_genre_drama'
       },
       'TitleDisplay19': ''
     },
@@ -30,7 +30,7 @@ export const mec = {
     'RatingSet': {
       'Rating': {
         'Region': {
-          'Country': 'US'
+          'country': 'US'
         },
         'System': 'TVPG',
         'Value': 'TV-MA'
@@ -136,6 +136,8 @@ export const mmc = {
         'ContainerLocation': 'file://MIHC-101-subtitle-pt-BR.itt'
       }
     },
+  },
+  'Presentations':{ 
     'Presentation': {
       '@PresentationID': 'md:presentationid:org:amazon_studios:MIHC_101_STM:episode.presentation',
       'TrackMetadata': {
@@ -150,17 +152,19 @@ export const mmc = {
           'SubtitleTrackID': 'md:subtrackid:org:amazon_studios:MIHC_101_STM:episode.Subtitle.pt-BR'
         }
       }
-    },
-    'PlayableSequences': {
-      'PlayableSequence': {
-        'PlayableSequenceID': 'md:playablesequenceid:org:amazon_studios:MIHC_101_STM:episode.US',
-        'Clip': {
-          '@sequence': '0',
-          'PresentationID': 'md:presentationid:org:amazon_studios:MIHC_101_STM:episode.presentation'
-        }
+    } 
+  },
+  'PlayableSequences': {
+    'PlayableSequence': {
+      '@PlayableSequenceID': 'md:playablesequenceid:org:amazon_studios:MIHC_101_STM:episode.US',
+      'Clip': {
+        '@sequence': '0',
+        'PresentationID': 'md:presentationid:org:amazon_studios:MIHC_101_STM:episode.presentation'
       }
-    },
-    'Experiences': {
+    }
+  },
+  'Experiences': {
+    'Experience':{
       '@ExperienceID': 'md:experienceid:org:amazon_studios:MIHC_101_STM',
       '@version': '1.0',
       'Audiovisual': {
@@ -169,12 +173,12 @@ export const mmc = {
         'SubType': 'Episode',
         'PlayableSequenceID': 'md:playablesequenceid:org:amazon_studios:MIHC_101_STM:episode.US'
       }
-    },
-    'ALIDExperienceMaps': {
-      'ALIDExperienceMap': {
-        'ALID': 'md:alid:org:amazon_studios:MIHC_101_STM',
-        'ExperienceID': 'md:experienceid:org:amazon_studios:MIHC_101_STM'
-      }
+    }
+  },
+  'ALIDExperienceMaps': {
+    'ALIDExperienceMap': {
+      'ALID': 'md:alid:org:amazon_studios:MIHC_101_STM',
+      'ExperienceID': 'md:experienceid:org:amazon_studios:MIHC_101_STM'
     }
   }
 }
