@@ -79,6 +79,7 @@ export default function CreateForm() {
 
   const onChangeForm = (e:any) => {
     formDataRef.current = { ...formDataRef.current, [e.target.name]:e.target.value }
+    MECFormRef.current.setMovieTitle(e.target.value);
   }
 
   return (

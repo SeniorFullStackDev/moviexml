@@ -1,9 +1,11 @@
-import React, { useEffect, useImperativeHandle, useState } from 'react';
+import React, { useEffect, useImperativeHandle, useRef, useState } from 'react';
 import { Box, TextField, Typography  } from '@mui/material';
-import { ValidatorForm, TextValidator } from 'react-material-ui-form-validator';
+import { ValidatorForm, TextValidator, SelectValidator } from 'react-material-ui-form-validator';
 import { convertKeyString } from 'utils';
 import CustomTextValidator from 'component/CustomTextValidator';
+import MenuItem from '@mui/material/MenuItem';
 import _ from 'lodash';
+import languages from 'utils/languages.json';
 
 interface Props {
   data?:any
@@ -15,8 +17,12 @@ const Index = React.forwardRef(({ data }:Props, ref) => {
   const formDataRef = React.useRef(data || {});
   const formRef = React.useRef<any>();
   const [count, setCount] = useState(0);
+  // const [movieTitle, setMovieTitle] = useState<string>();
+
+  const contentIDRef = useRef<any>();
 
   useEffect(()=>{
+    console.log('languages --->', languages);
     formDataRef.current = data;
     setCount(count + 1);
   }, [data])
@@ -37,6 +43,13 @@ const Index = React.forwardRef(({ data }:Props, ref) => {
           _.set(source, key, formDataRef.current[key]);
         });
         return source;
+      },
+      setMovieTitle:(title:string)=>{
+        console.log('setMovieTitle--->', title);
+        // update @contentID
+        const expectedContentID = `md:cid:org:amzn_studios:${title}`;
+        if(contentIDRef.current) contentIDRef.current.setValue(expectedContentID);
+
       }
     }
   ), [data]);
@@ -63,6 +76,7 @@ const Index = React.forwardRef(({ data }:Props, ref) => {
           <Typography >BasicMetadata-type</Typography>
           <Box sx = {{ pl:4 }}>
             <CustomTextValidator
+              ref = {contentIDRef}
               formData = {formDataRef.current}
               validators={['required']}
               errorMessages={['this field is required']}
@@ -71,13 +85,15 @@ const Index = React.forwardRef(({ data }:Props, ref) => {
             />
             <Typography >LocalizedInfo</Typography>
             <Box sx = {{ pl:4 }}>
-              <CustomTextValidator
-                formData = {formDataRef.current}
+              <SelectValidator
+                defaultValue = "en-US"
                 validators={['required']}
                 errorMessages={['this field is required']}
                 name="BasicMetadata-type.LocalizedInfo.@Language"
                 label="@Language *"
-              />
+              >
+                { languages.map((ele:any)=><MenuItem key={ele.code} value={ele.code}>{ele.language}</MenuItem>) }
+              </SelectValidator>
               <br/>
               <CustomTextValidator
                 formData = {formDataRef.current}

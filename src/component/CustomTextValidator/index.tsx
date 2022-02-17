@@ -1,9 +1,18 @@
-import { useEffect, useState } from 'react';
+import React, { useEffect, useImperativeHandle, useState } from 'react';
 import { TextValidator } from 'react-material-ui-form-validator';
 import _ from 'lodash';
 
-const Index = (props:any) => {
+const Index = React.forwardRef((props:any, ref) => {
+  
   const [value, setValue] = useState(props.value || (props.formData?(_.get(props.formData, props.name, '')):''));
+
+  useImperativeHandle(ref, () => (
+    {
+      setValue:(value:string)=>{
+        setValue(value);
+      }
+    }
+  ), []);
 
   useEffect(()=>{
     if(props.formData){
@@ -16,6 +25,6 @@ const Index = (props:any) => {
       setValue(e.target.value);
     }} />
   )
-}
+});
 
 export default Index;

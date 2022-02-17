@@ -1,0 +1,822 @@
+[
+    {
+      "code": "af-ZA",
+      "language": "Afrikaans (South Africa), Afrikaans (Suid-Afrika)",
+      "other": null
+    },
+    {
+      "code": "am-ET",
+      "language": "Amharic (Ethiopia)",
+      "other": null
+    },
+    {
+      "code": "ar-DZ",
+      "language": "Arabic (Algeria)",
+      "other": null
+    },
+    {
+      "code": "ar-BH",
+      "language": "Arabic (Bahrain)",
+      "other": null
+    },
+    {
+      "code": "ar-EG",
+      "language": "Arabic (Egypt)",
+      "other": null
+    },
+    {
+      "code": "ar-IQ",
+      "language": "Arabic (Iraq)",
+      "other": null
+    },
+    {
+      "code": "ar-JO",
+      "language": "Arabic (Jordan)",
+      "other": null
+    },
+    {
+      "code": "ar-KW",
+      "language": "Arabic (Kuwait)",
+      "other": null
+    },
+    {
+      "code": "ar-LB",
+      "language": "Arabic (Lebanon)",
+      "other": null
+    },
+    {
+      "code": "ar-LY",
+      "language": "Arabic (Libya)",
+      "other": null
+    },
+    {
+      "code": "ar-MA",
+      "language": "Arabic (Morocco)",
+      "other": null
+    },
+    {
+      "code": "ar-OM",
+      "language": "Arabic (Oman)",
+      "other": null
+    },
+    {
+      "code": "ar-QA",
+      "language": "Arabic (Qatar)",
+      "other": null
+    },
+    {
+      "code": "ar-SA",
+      "language": "Arabic (Saudi Arabia)",
+      "other": null
+    },
+    {
+      "code": "ar-SY",
+      "language": "Arabic (Syria)",
+      "other": null
+    },
+    {
+      "code": "ar-TN",
+      "language": "Arabic (Tunisia)",
+      "other": null
+    },
+    {
+      "code": "ar-AE",
+      "language": "Arabic (United Arab Emirates)",
+      "other": null
+    },
+    {
+      "code": "ar-YE",
+      "language": "Arabic (Yemen)",
+      "other": null
+    },
+    {
+      "code": "az-AZ",
+      "language": "Azerbaijani (Azerbaijan)",
+      "other": null
+    },
+    {
+      "code": "be-BY",
+      "language": "Belarusian (Belarus)",
+      "other": null
+    },
+    {
+      "code": "bg-BG",
+      "language": "Bulgarian (Bulgaria)",
+      "other": null
+    },
+    {
+      "code": "bh-IN",
+      "language": "Bihari (India)",
+      "other": null
+    },
+    {
+      "code": "bi-VU",
+      "language": "Bislama (Vanuatu)",
+      "other": null
+    },
+    {
+      "code": "bn-BD",
+      "language": "Bengali (Bangladesh)",
+      "other": null
+    },
+    {
+      "code": "bn-IN",
+      "language": "Bengali (India)",
+      "other": null
+    },
+    {
+      "code": "ca-ES",
+      "language": "Catalan (Spain)",
+      "other": null
+    },
+    {
+      "code": "hr-HR",
+      "language": "Croatian (Croatia), Hrvatski (Hrvatska)",
+      "other": null
+    },
+    {
+      "code": "hy-AM",
+      "language": "Armenian (Armenia)",
+      "other": null
+    },
+    {
+      "code": "cs-CZ",
+      "language": "Czech (Czech Republic)",
+      "other": null
+    },
+    {
+      "code": "da-DK",
+      "language": "Danish (Denmark), Dansk (Danmark)",
+      "other": null
+    },
+    {
+      "code": "de-AT",
+      "language": "German (Austria), Deutsch",
+      "other": null
+    },
+    {
+      "code": "de-DE",
+      "language": "German (Germany), Deutsch (Deutschland)",
+      "other": null
+    },
+    {
+      "code": "de-LI",
+      "language": "German (Liechtenstein), Deutsch (Liechtenstein)",
+      "other": null
+    },
+    {
+      "code": "de-LU",
+      "language": "German (Luxembourg), Deutsch (Luxemburg)",
+      "other": null
+    },
+    {
+      "code": "de-CH",
+      "language": "German (Switzerland), Deutsch (Schweiz)",
+      "other": null
+    },
+    {
+      "code": "dv-MV",
+      "language": "Divehi (Maldives)",
+      "other": null
+    },
+    {
+      "code": "el-GR",
+      "language": "Greek (Greece)",
+      "other": null
+    },
+    {
+      "code": "en-AU",
+      "language": "English (Australia)",
+      "other": null
+    },
+    {
+      "code": "en-BZ",
+      "language": "English (Belize)",
+      "other": null
+    },
+    {
+      "code": "en-CA",
+      "language": "English (Canada)",
+      "other": null
+    },
+    {
+      "code": "en-IE",
+      "language": "English (Ireland)",
+      "other": null
+    },
+    {
+      "code": "en-IN",
+      "language": "English (India)",
+      "other": null
+    },
+    {
+      "code": "en-JM",
+      "language": "English (Jamaica)",
+      "other": null
+    },
+    {
+      "code": "en-NZ",
+      "language": "English (New Zealand)",
+      "other": null
+    },
+    {
+      "code": "en-PH",
+      "language": "English (Philippines)",
+      "other": null
+    },
+    {
+      "code": "en-ZA",
+      "language": "English (South Africa)",
+      "other": null
+    },
+    {
+      "code": "en-TT",
+      "language": "English (Trinidad & Tobago)",
+      "other": null
+    },
+    {
+      "code": "en-GB",
+      "language": "English (UK)",
+      "other": null
+    },
+    {
+      "code": "en-US",
+      "language": "English (US)",
+      "other": null
+    },
+    {
+      "code": "en-ZW",
+      "language": "English (Zimbabwe)",
+      "other": null
+    },
+    {
+      "code": "es-AR",
+      "language": "Spanish (Argentina)",
+      "other": null
+    },
+    {
+      "code": "es-BO",
+      "language": "Spanish (Bolivia)",
+      "other": null
+    },
+    {
+      "code": "es-CL",
+      "language": "Spanish (Chile)",
+      "other": null
+    },
+    {
+      "code": "es-CO",
+      "language": "Spanish (Colombia)",
+      "other": null
+    },
+    {
+      "code": "es-CR",
+      "language": "Spanish (Costa Rica)",
+      "other": null
+    },
+    {
+      "code": "es-DO",
+      "language": "Spanish (Dominican Republic)",
+      "other": null
+    },
+    {
+      "code": "es-EC",
+      "language": "Spanish (Ecuador)",
+      "other": null
+    },
+    {
+      "code": "es-ES",
+      "language": "Spanish (Spain)",
+      "other": null
+    },
+    {
+      "code": "es-GT",
+      "language": "Spanish (Guatemala)",
+      "other": null
+    },
+    {
+      "code": "es-HN",
+      "language": "Spanish (Honduras)",
+      "other": null
+    },
+    {
+      "code": "es-MX",
+      "language": "Spanish (Mexico)",
+      "other": null
+    },
+    {
+      "code": "es-NI",
+      "language": "Spanish (Nicaragua)",
+      "other": null
+    },
+    {
+      "code": "es-PA",
+      "language": "Spanish (Panama)",
+      "other": null
+    },
+    {
+      "code": "es-PE",
+      "language": "Spanish (Peru)",
+      "other": null
+    },
+    {
+      "code": "es-PR",
+      "language": "Spanish (Puerto Rico)",
+      "other": null
+    },
+    {
+      "code": "es-PY",
+      "language": "Spanish (Paraguay)",
+      "other": null
+    },
+    {
+      "code": "es-SV",
+      "language": "Spanish (El Salvador)",
+      "other": null
+    },
+    {
+      "code": "es-UY",
+      "language": "Spanish (Uruguay)",
+      "other": null
+    },
+    {
+      "code": "es-VE",
+      "language": "Spanish (Venezuela)",
+      "other": null
+    },
+    {
+      "code": "et-EE",
+      "language": "Estonian (Estonia)",
+      "other": null
+    },
+    {
+      "code": "eu-ES",
+      "language": "Basque (Spain), Euskara (Espainia)",
+      "other": null
+    },
+    {
+      "code": "fa-IR",
+      "language": "Persian (Iran)",
+      "other": null
+    },
+    {
+      "code": "fi-FI",
+      "language": "Finnish (Finland), Suomi (Suomi)",
+      "other": null
+    },
+    {
+      "code": "fo-FO",
+      "language": "Faroese (Faroe Islands)",
+      "other": null
+    },
+    {
+      "code": "fr-BE",
+      "language": "French (Belgium)",
+      "other": null
+    },
+    {
+      "code": "fr-CA",
+      "language": "French (Canada)",
+      "other": null
+    },
+    {
+      "code": "fr-CH",
+      "language": "French (Switzerland)",
+      "other": null
+    },
+    {
+      "code": "fr-FR",
+      "language": "French (France)",
+      "other": null
+    },
+    {
+      "code": "fr-LU",
+      "language": "French (Luxembourg)",
+      "other": null
+    },
+    {
+      "code": "fr-MC",
+      "language": "French (Monaco)",
+      "other": null
+    },
+    {
+      "code": "ga-IE",
+      "language": "Irish (Ireland)",
+      "other": null
+    },
+    {
+      "code": "gl-ES",
+      "language": "Galician (Spain)",
+      "other": null
+    },
+    {
+      "code": "gu-IN",
+      "language": "Gujarati (India)",
+      "other": null
+    },
+    {
+      "code": "he-IL",
+      "language": "Hebrew (Israel)",
+      "other": null
+    },
+    {
+      "code": "hi-JP",
+      "language": "Hindi (Japan)",
+      "other": null
+    },
+    {
+      "code": "hi-IN",
+      "language": "Hindi (India)",
+      "other": null
+    },
+    {
+      "code": "hu-HU",
+      "language": "Hungarian (Hungary)",
+      "other": null
+    },
+    {
+      "code": "id-ID",
+      "language": "Indonesian (Indonesia)",
+      "other": null
+    },
+    {
+      "code": "is-IS",
+      "language": "Icelandic (Iceland)",
+      "other": null
+    },
+    {
+      "code": "it-IT",
+      "language": "Italian (Italy), Italiano (Italia)",
+      "other": null
+    },
+    {
+      "code": "it-CH",
+      "language": "Italian (Switzerland), Italiano (Svizzera)",
+      "other": null
+    },
+    {
+      "code": "ja-JP",
+      "language": "Japanese (Japan)",
+      "other": null
+    },
+    {
+      "code": "ka-GE",
+      "language": "Georgian (Georgia)",
+      "other": null
+    },
+    {
+      "code": "kk-KZ",
+      "language": "Kazakh (Kazakhstan)",
+      "other": null
+    },
+    {
+      "code": "kn-IN",
+      "language": "Kannada (India)",
+      "other": null
+    },
+    {
+      "code": "km-KH",
+      "language": "Khmer (Cambodia)",
+      "other": null
+    },
+    {
+      "code": "ko-KR",
+      "language": "Korean (South Korea)",
+      "other": null
+    },
+    {
+      "code": "ky-KZ",
+      "language": "Kyrgyz (Kazakhstan)",
+      "other": null
+    },
+    {
+      "code": "lo-LA",
+      "language": "Lao (Lao People's Democratic Republic)",
+      "other": null
+    },
+    {
+      "code": "lb-LU",
+      "language": "Luxembourgish (Luxembourg)",
+      "other": null
+    },
+    {
+      "code": "lt-LT",
+      "language": "Lithuanian (Lithuania)",
+      "other": null
+    },
+    {
+      "code": "lv-LV",
+      "language": "Latvian (Latvia)",
+      "other": null
+    },
+    {
+      "code": "mh-MH",
+      "language": "Marshallese (Marshall Islands)",
+      "other": null
+    },
+    {
+      "code": "mk-MK",
+      "language": "Macedonian (Macedonia)",
+      "other": null
+    },
+    {
+      "code": "ml-IN",
+      "language": "Malayalam (India)",
+      "other": null
+    },
+    {
+      "code": "mn-MN",
+      "language": "Mongolian (Mongolia)",
+      "other": null
+    },
+    {
+      "code": "mr-IN",
+      "language": "Marathi (India)",
+      "other": null
+    },
+    {
+      "code": "ms-BN",
+      "language": "Malay (Brunei), Bahasa Melayu (Brunei)",
+      "other": null
+    },
+    {
+      "code": "ms-MY",
+      "language": "Malay (Malaysia), Bahasa Melayu (Malaysia)",
+      "other": null
+    },
+    {
+      "code": "mt-MT",
+      "language": "Maltese (Malta), Malti (Malta)",
+      "other": null
+    },
+    {
+      "code": "my-MM",
+      "language": "Burmese (Myanmar)",
+      "other": null
+    },
+    {
+      "code": "na-NR",
+      "language": "Nauruan (Nauru), dorerin Naoero (Naoero)",
+      "other": null
+    },
+    {
+      "code": "nb-NO",
+      "language": "Norwegian Bokm (Norway), Norsk Bokm (Norge)",
+      "other": null
+    },
+    {
+      "code": "ne-NP",
+      "language": "Nepali (Nepal)",
+      "other": null
+    },
+    {
+      "code": "nl-BE",
+      "language": "Dutch (Belgium)",
+      "other": null
+    },
+    {
+      "code": "nl-NL",
+      "language": "Dutch (Netherlands), Nederlands (Nederland)",
+      "other": null
+    },
+    {
+      "code": "nn-NO",
+      "language": "Norwegian Nynorsk (Norway), Nynorsk (Noreg)",
+      "other": null
+    },
+    {
+      "code": "or-IN",
+      "language": "Oriya (India)",
+      "other": null
+    },
+    {
+      "code": "pa-IN",
+      "language": "Punjabi (India)",
+      "other": null
+    },
+    {
+      "code": "pa-PK",
+      "language": "Punjabi (Pakistan)",
+      "other": null
+    },
+    {
+      "code": "pl-PL",
+      "language": "Polish (Poland), Polski (Polska)",
+      "other": null
+    },
+    {
+      "code": "pt-BR",
+      "language": "Portuguese (Brazil)",
+      "other": null
+    },
+    {
+      "code": "pt-PT",
+      "language": "Portuguese (Portugal)",
+      "other": null
+    },
+    {
+      "code": "ro-RO",
+      "language": "Romanian (Romania)",
+      "other": null
+    },
+    {
+      "code": "rw-RW",
+      "language": "Kinyarwanda (Rwanda), Kinyarwanda (U Rwanda)",
+      "other": null
+    },
+    {
+      "code": "ru-RU",
+      "language": "Russian (Russia)",
+      "other": null
+    },
+    {
+      "code": "sa-IN",
+      "language": "Sanskrit (India)",
+      "other": null
+    },
+    {
+      "code": "si-LK",
+      "language": "Sinhala (Sri Lanka)",
+      "other": null
+    },
+    {
+      "code": "sk-SK",
+      "language": "Slovak (Slovakia), Sloven (Slovensko)",
+      "other": null
+    },
+    {
+      "code": "sl-SI",
+      "language": "Slovenian (Slovenia), Sloven (Slovenija)",
+      "other": null
+    },
+    {
+      "code": "sm-WS",
+      "language": "Samoan (Samoa), Samoa (Samoa)",
+      "other": null
+    },
+    {
+      "code": "sn-ZW",
+      "language": "Shona (Zimbabwe)",
+      "other": null
+    },
+    {
+      "code": "so-SO",
+      "language": "Somali (Somalia), Somali (Soomaaliya)",
+      "other": null
+    },
+    {
+      "code": "sq-AL",
+      "language": "Albanian (Albania)",
+      "other": null
+    },
+    {
+      "code": "sr-RS",
+      "language": "Serbian (Serbia)",
+      "other": null
+    },
+    {
+      "code": "sw-KE",
+      "language": "Swahili (Kenya), Kiswahili (Kenya)",
+      "other": null
+    },
+    {
+      "code": "sv-FI",
+      "language": "Swedish (Finland), Svenska (Finland)",
+      "other": null
+    },
+    {
+      "code": "sv-SE",
+      "language": "Swedish (Sweden), Svenska (Sverige)",
+      "other": null
+    },
+    {
+      "code": "syr-SY",
+      "language": "Syriac (Syria)",
+      "other": null
+    },
+    {
+      "code": "ta-IN",
+      "language": "Tamil (India)",
+      "other": null
+    },
+    {
+      "code": "te-IN",
+      "language": "Telugu (India)",
+      "other": null
+    },
+    {
+      "code": "ti-ER",
+      "language": "Tigrinya (Eritrea)",
+      "other": null
+    },
+    {
+      "code": "tg-TJ",
+      "language": "Tajik (Tajikistan)",
+      "other": null
+    },
+    {
+      "code": "th-TH",
+      "language": "Thai (Thailand)",
+      "other": null
+    },
+    {
+      "code": "tk-TM",
+      "language": "Turkmen (Turkmenistan)",
+      "other": null
+    },
+    {
+      "code": "tr-TR",
+      "language": "Turkish (Turkey)",
+      "other": null
+    },
+    {
+      "code": "tt-RU",
+      "language": "Tatar (Russia)",
+      "other": null
+    },
+    {
+      "code": "uk-UA",
+      "language": "Ukrainian (Ukraine)",
+      "other": null
+    },
+    {
+      "code": "ur-PK",
+      "language": "Urdu (Pakistan)",
+      "other": null
+    },
+    {
+      "code": "uz-UZ",
+      "language": "Uzbek (Uzbekistan)",
+      "other": null
+    },
+    {
+      "code": "vi-VN",
+      "language": "Vietnamese (Vietnam)",
+      "other": null
+    },
+    {
+      "code": "fil-PH",
+      "language": "Filipino (Philippines), Filipino (Pilipinas)",
+      "other": null
+    },
+    {
+      "code": "kok-in",
+      "language": "Konkani (India)",
+      "other": null
+    },
+    {
+      "code": "mni-in",
+      "language": "Manipuri (India)",
+      "other": null
+    },
+    {
+      "code": "sdp-IN",
+      "language": "Sherdukpen (India), Mey nyuk (India)",
+      "other": null
+    },
+    {
+      "code": "es-419",
+      "language": "Spanish (Latin America)",
+      "other": null
+    },
+    {
+      "code": "zh-Hans",
+      "language": "Chinese (Simplified) -- timed text only",
+      "other": null
+    },
+    {
+      "code": "zh-Hant",
+      "language": "Chinese (Traditional) -- timed text only",
+      "other": null
+    },
+    {
+      "code": "zh-CN",
+      "language": "Chinese (Simplified) -- metadata only",
+      "other": null
+    },
+    {
+      "code": "zh-TW",
+      "language": "Chinese (Traditional) -- metadata only",
+      "other": null
+    },
+    {
+      "code": "cmn-CN",
+      "language": "Mandarin (Mainland China accent) -- video/audio only",
+      "other": null
+    },
+    {
+      "code": "cmn-TW",
+      "language": "Mandarin (Taiwanese accent) -- video/audio only",
+      "other": null
+    },
+    {
+      "code": "yue",
+      "language": "Cantonese -- video/audio only",
+      "other": null
+    },
+    {
+      "code": "yue",
+      "language": "Cantonese -- video/audio only",
+      "other": null
+    }
+]
