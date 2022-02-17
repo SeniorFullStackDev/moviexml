@@ -10,6 +10,8 @@ import { useParams } from 'react-router-dom';
 
 // import { mec, mmc } from 'utils/demo';
 import { createNewMovie, getMovieDetail, updateMovie } from 'api'
+import _ from 'lodash';
+
 
 export default function CreateForm() {
 
@@ -37,7 +39,6 @@ export default function CreateForm() {
 
   const handleSubmit = () => {
     const payload:any = {};
-
     if(formDataRef.current){
       if(formDataRef.current.title){
         payload.title = formDataRef.current.title;

@@ -1,11 +1,23 @@
 import React, { useEffect, useImperativeHandle, useRef, useState } from 'react';
-import { Box, TextField, Typography  } from '@mui/material';
+import { 
+  Box, 
+  TextField, 
+  Typography, 
+  Button,
+  Accordion, 
+  AccordionSummary,
+  AccordionDetails
+} from '@mui/material';
 import { ValidatorForm, TextValidator, SelectValidator } from 'react-material-ui-form-validator';
 import { convertKeyString } from 'utils';
 import CustomTextValidator from 'component/CustomTextValidator';
 import MenuItem from '@mui/material/MenuItem';
 import _ from 'lodash';
-import languages from 'utils/languages.json';
+import languages from 'config/languages.json';
+import resolutions from 'config/resolutions.json';
+import purposes from 'config/ArtReference.purposes.json';
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+import MECLocalizedInfoForm from 'component/MECLocalizedInfoForm';
 
 interface Props {
   data?:any
@@ -30,6 +42,7 @@ const Index = React.forwardRef(({ data }:Props, ref) => {
   useImperativeHandle(ref, () => (
     {
       getFormData: () => {
+        
         if(formRef.current){
           formRef.current.isFormValid().then((isValid:boolean)=>{
             if(!isValid){
@@ -83,149 +96,8 @@ const Index = React.forwardRef(({ data }:Props, ref) => {
               name="BasicMetadata-type.@ContentID"
               label="@ContentID *"
             />
-            <Typography >LocalizedInfo</Typography>
-            <Box sx = {{ pl:4 }}>
-              <SelectValidator
-                defaultValue = "en-US"
-                validators={['required']}
-                errorMessages={['this field is required']}
-                name="BasicMetadata-type.LocalizedInfo.@Language"
-                label="@Language *"
-              >
-                { languages.map((ele:any)=><MenuItem key={ele.code} value={ele.code}>{ele.language}</MenuItem>) }
-              </SelectValidator>
-              <br/>
-              <CustomTextValidator
-                formData = {formDataRef.current}
-                name="BasicMetadata-type.LocalizedInfo.TitleDisplay19"
-                label="TitleDisplay19"
-              />
-              <br/>
-              <CustomTextValidator
-                formData = {formDataRef.current}
-                name="BasicMetadata-type.LocalizedInfo.TitleDisplay60"
-                label="TitleDisplay60"
-              />
-              <br/>
-              <CustomTextValidator
-                formData = {formDataRef.current}
-                validators={['required']}
-                errorMessages={['this field is required']}
-                label="TitleDisplayUnlimited *"
-                name="BasicMetadata-type.LocalizedInfo.TitleDisplayUnlimited"
-              />
 
-              <Typography >ArtReference</Typography>
-              <Box sx = {{ pl:4 }}>
-                <CustomTextValidator
-                  formData = {formDataRef.current} 
-                  label = "@resolution *" 
-                  name = "BasicMetadata-type.LocalizedInfo.ArtReference.@resolution" 
-                  validators={['required']}
-                  errorMessages={['this field is required']} />
-                <CustomTextValidator
-                  formData = {formDataRef.current} 
-                  label = "@purpose *" 
-                  name = "BasicMetadata-type.LocalizedInfo.ArtReference.@purpose" 
-                  validators={['required']}
-                  errorMessages={['this field is required']} />
-                <CustomTextValidator
-                  formData = {formDataRef.current} 
-                  label = "ArtReference *" 
-                  name = "BasicMetadata-type.LocalizedInfo.ArtReference.value" 
-                  validators={['required']}
-                  errorMessages={['this field is required']} />
-              </Box>
-              <CustomTextValidator
-                formData = {formDataRef.current} name="BasicMetadata-type.LocalizedInfo.Summary190" label="Summary190" />
-              <br/>
-              <CustomTextValidator
-                formData = {formDataRef.current} 
-                name="BasicMetadata-type.LocalizedInfo.Summary400" 
-                label="Summary400 *" 
-                style = {{ width:'100%' }}
-                multiline
-                rows={6}
-                validators={['required']}
-                errorMessages={['this field is required']} />
-              <br/>
-              <CustomTextValidator
-                formData = {formDataRef.current} 
-                name="BasicMetadata-type.LocalizedInfo.Summary4000" 
-                label="Summary4000"
-                style = {{ width:'100%' }}
-                multiline
-                rows={6}
-              />
-
-              <Typography >Genre</Typography>
-              <Box sx = {{ pl:4 }}>
-                <CustomTextValidator
-                  formData = {formDataRef.current} name="BasicMetadata-type.LocalizedInfo.Genre.@source" label="@source" />
-                <CustomTextValidator
-                  formData = {formDataRef.current} 
-                  name="BasicMetadata-type.LocalizedInfo.Genre.@id" 
-                  label="@id *" 
-                  validators={['required']}
-                  errorMessages={['this field is required']} />
-                <CustomTextValidator
-                  formData = {formDataRef.current} name="BasicMetadata-type.LocalizedInfo.Genre.@level" label="@level" />
-              </Box>
-
-              <CustomTextValidator
-                formData = {formDataRef.current} name="BasicMetadata-type.LocalizedInfo.Keyword" label="Keyword" />
-              <br />
-              <CustomTextValidator
-                formData = {formDataRef.current} name="BasicMetadata-type.LocalizedInfo.VersionNotes" label="VersionNotes" />
-
-              <Typography >Region</Typography>
-              <Box sx = {{ pl:4 }}>
-                <CustomTextValidator
-                  formData = {formDataRef.current} name="BasicMetadata-type.LocalizedInfo.Region.Country" label="Country" />
-              </Box>
-
-              <CustomTextValidator
-                formData = {formDataRef.current} name="BasicMetadata-type.LocalizedInfo.OriginalTitle" label="OriginalTitle" />
-              <br />
-              <CustomTextValidator
-                formData = {formDataRef.current} name="BasicMetadata-type.LocalizedInfo.CopyrightLine" label="CopyrightLine" />
-              <br />
-              <CustomTextValidator
-                formData = {formDataRef.current} name="BasicMetadata-type.LocalizedInfo.PeopleLocal" label="PeopleLocal" />
-              <CustomTextValidator
-                formData = {formDataRef.current} name="BasicMetadata-type.LocalizedInfo.Description" label="Description" />
-              {/* <Typography >ReleaseOrg</Typography>
-            <Box sx = {{ pl:4 }}>
-              <CustomTextValidator
-              formData = {formDataRef.current} name="BasicMetadata-type.LocalizedInfo.ReleaseOrg.@organizationID" label="@organizationID"/>
-              <CustomTextValidator
-              formData = {formDataRef.current} name="BasicMetadata-type.LocalizedInfo.ReleaseOrg.@idType" label="@idType"/>
-              <CustomTextValidator
-              formData = {formDataRef.current} name="BasicMetadata-type.LocalizedInfo.ReleaseOrg.@role" label="@role"/>
-              <br/>
-              <CustomTextValidator
-              formData = {formDataRef.current} 
-                name="BasicMetadata-type.LocalizedInfo.ReleaseOrg.DisplayName" 
-                label="DisplayName *" 
-                validators={['required']}
-                errorMessages={['this field is required']}/>
-              <br/>
-              <CustomTextValidator
-              formData = {formDataRef.current} name="BasicMetadata-type.LocalizedInfo.ReleaseOrg.SortName" label="SortName" />
-              <br/>
-              <CustomTextValidator
-              formData = {formDataRef.current} name="BasicMetadata-type.LocalizedInfo.ReleaseOrg.AlternateName" label="AlternateName" />
-              <br/>
-              <CustomTextValidator
-              formData = {formDataRef.current} 
-                name="BasicMetadata-type.LocalizedInfo.ReleaseOrg.WorkTypeDetail" 
-                label="WorkTypeDetail" />
-              <br/>
-            </Box> */}
-            
-              <CustomTextValidator
-                formData = {formDataRef.current} name="BasicMetadata-type.LocalizedInfo.Location" label="Location" />
-            </Box>
+            <MECLocalizedInfoForm />
 
             <CustomTextValidator
               formData = {formDataRef.current} 
