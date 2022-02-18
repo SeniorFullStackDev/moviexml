@@ -4,10 +4,10 @@ import Typography from '@mui/material/Typography';
 import AddIcon from '@mui/icons-material/Add';
 import { Accordion, AccordionSummary, AccordionDetails } from 'component/CustomAccordion'
 import LocalizedInfoForm from './LocalizedInfoForm';
-import { LocalizedInfoType } from 'utils/types';
+import { LocalizedInfoType, FormType } from 'utils/types';
 import { DeleteOutline } from '@mui/icons-material';
 
-export default function CustomizedAccordions() {
+export default function MECLocalizedInForm({ parentKey }:FormType) {
 
   const [expanded, setExpanded] = React.useState<string | false>('panel-0');
 
@@ -54,8 +54,9 @@ export default function CustomizedAccordions() {
                 </Box>
               </AccordionSummary>
               <AccordionDetails>
-                <LocalizedInfoForm 
+                <LocalizedInfoForm
                   data = {ele}
+                  parentKey = {`${parentKey}.LocalizedInfo[${index}]`}
                   onChangeLanguage = {(lang:string)=>{
                     ele['@Language']=lang;
                     setLocalizeddInifos([...localizedInfos]);

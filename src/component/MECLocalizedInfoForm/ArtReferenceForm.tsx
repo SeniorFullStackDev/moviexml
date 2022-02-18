@@ -4,20 +4,19 @@ import Typography from '@mui/material/Typography';
 import AddIcon from '@mui/icons-material/Add';
 import { Accordion, AccordionSummary, AccordionDetails } from 'component/CustomAccordion'
 import LocalizedInfoForm from './LocalizedInfoForm';
-import { ArtReferenceType } from 'utils/types';
+import { ArtReferenceType, FormType } from 'utils/types';
 import { DeleteOutline } from '@mui/icons-material';
 import { ValidatorForm, TextValidator, SelectValidator } from 'react-material-ui-form-validator';
 import MenuItem from '@mui/material/MenuItem';
-import CustomTextValidator from 'component/CustomTextValidator';
 
 import resolutions from 'config/resolutions.json';
 import purposes from 'config/ArtReference.purposes.json';
 
 
-interface Props {
-    artreferences:ArtReferenceType[]
+interface Props extends FormType {
+    artreferences:ArtReferenceType[];
 }
-export default ({ artreferences }:Props) => {
+export default ({ parentKey, artreferences }:Props) => {
 
   const [expanded, setExpanded] = React.useState<string | false>('panel-0');
 
@@ -66,7 +65,7 @@ export default ({ artreferences }:Props) => {
                   <Box sx = {{ pl:4 }}>
                     <SelectValidator
                       label = "@resolution *" 
-                      name = "ArtReference.@resolution" 
+                      name = {`${parentKey}[${index}].@resolution`} 
                       validators={['required']}
                       errorMessages={['this field is required']}
                       value={ele['@resolution']}
@@ -81,7 +80,7 @@ export default ({ artreferences }:Props) => {
                     </SelectValidator>
                     <SelectValidator
                       label = "@purpose *" 
-                      name = "ArtReference.@purpose" 
+                      name = {`${parentKey}[${index}].@purpose`} 
                       value={ele['@purpose']}
                       validators={['required']}
                       errorMessages={['this field is required']} 
@@ -94,10 +93,9 @@ export default ({ artreferences }:Props) => {
                         purposes.map((ele, index)=><MenuItem key = {index} value = {ele}>{ele}</MenuItem>)
                       } 
                     </SelectValidator>
-                    <CustomTextValidator
-                      formData = {ele} 
+                    <TextValidator
                       label = "ArtReference *" 
-                      name = "ArtReference.value" 
+                      name = {`${parentKey}[${index}].value`} 
                       validators={['required']}
                       errorMessages={['this field is required']} />
                   </Box>

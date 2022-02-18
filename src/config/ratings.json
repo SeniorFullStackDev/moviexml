@@ -1,0 +1,2282 @@
+[
+    {
+      "region": "Argentina",
+      "system": "INCAA",
+      "ratings": "ATP"
+    },
+    {
+      "region": "Argentina",
+      "system": "INCAA",
+      "ratings": "SAM13"
+    },
+    {
+      "region": "Argentina",
+      "system": "INCAA",
+      "ratings": "SAM16"
+    },
+    {
+      "region": "Argentina",
+      "system": "INCAA",
+      "ratings": "SAM18"
+    },
+    {
+      "region": "Venezuela",
+      "system": "RESORTE-Health",
+      "ratings": "C"
+    },
+    {
+      "region": "Australia",
+      "system": "NCS",
+      "ratings": "G"
+    },
+    {
+      "region": "US",
+      "system": "MPAA",
+      "ratings": "PG"
+    },
+    {
+      "region": "New Zealand",
+      "system": "OFLC",
+      "ratings": "M"
+    },
+    {
+      "region": "Australia",
+      "system": "NCS",
+      "ratings": "MA15"
+    },
+    {
+      "region": "JP",
+      "system": "Eirin",
+      "ratings": "R18+"
+    },
+    {
+      "region": "Australia",
+      "system": "NCS",
+      "ratings": "CTC"
+    },
+    {
+      "region": "Australia",
+      "system": "NCS",
+      "ratings": "X18+"
+    },
+    {
+      "region": "Australia",
+      "system": "NCS",
+      "ratings": "RC"
+    },
+    {
+      "region": "Australia",
+      "system": "ACMA",
+      "ratings": "P"
+    },
+    {
+      "region": "Venezuela",
+      "system": "RESORTE-Sexo",
+      "ratings": "C"
+    },
+    {
+      "region": "Austria",
+      "system": "BMUKK",
+      "ratings": "AA"
+    },
+    {
+      "region": "DE",
+      "system": "FSK ",
+      "ratings": "6"
+    },
+    {
+      "region": "Austria",
+      "system": "BMUKK",
+      "ratings": "8"
+    },
+    {
+      "region": "South Africa",
+      "system": "FPB",
+      "ratings": "10"
+    },
+    {
+      "region": "UK",
+      "system": "BBFC",
+      "ratings": "12"
+    },
+    {
+      "region": "Ukraine",
+      "system": "Ukraine",
+      "ratings": "14"
+    },
+    {
+      "region": "DE",
+      "system": "FSK ",
+      "ratings": "16"
+    },
+    {
+      "region": "Belgium",
+      "system": "CICF",
+      "ratings": "E"
+    },
+    {
+      "region": "Belgium",
+      "system": "CICF",
+      "ratings": "KT/EA"
+    },
+    {
+      "region": "Belgium",
+      "system": "CICF",
+      "ratings": "KNT/ENA"
+    },
+    {
+      "region": "Brazil",
+      "system": "DJCTQ",
+      "ratings": "L"
+    },
+    {
+      "region": "Austria",
+      "system": "BMUKK",
+      "ratings": "10"
+    },
+    {
+      "region": "DE",
+      "system": "FSK ",
+      "ratings": "12"
+    },
+    {
+      "region": "Peru",
+      "system": "Film",
+      "ratings": "14"
+    },
+    {
+      "region": "Ukraine",
+      "system": "Ukraine",
+      "ratings": "16"
+    },
+    {
+      "region": "UK",
+      "system": "BBFC",
+      "ratings": "18"
+    },
+    {
+      "region": "Bulgaria",
+      "system": "NFRC",
+      "ratings": "A"
+    },
+    {
+      "region": "Venezuela",
+      "system": "RESORTE-Health",
+      "ratings": "B"
+    },
+    {
+      "region": "Venezuela",
+      "system": "RESORTE-Language",
+      "ratings": "C"
+    },
+    {
+      "region": "Venezuela",
+      "system": "RESORTE-Health",
+      "ratings": "D"
+    },
+    {
+      "region": "Spain",
+      "system": "ICAA",
+      "ratings": "X"
+    },
+    {
+      "region": "Canada",
+      "system": "CBSC",
+      "ratings": "C"
+    },
+    {
+      "region": "Venezuela",
+      "system": "RESORTE-Sexo",
+      "ratings": "E"
+    },
+    {
+      "region": "Canada",
+      "system": "CBSC",
+      "ratings": "C8"
+    },
+    {
+      "region": "Philippines",
+      "system": "MTRCB",
+      "ratings": "G"
+    },
+    {
+      "region": "UK",
+      "system": "BBFC",
+      "ratings": "PG"
+    },
+    {
+      "region": "Malta",
+      "system": "MCCAA",
+      "ratings": "14"
+    },
+    {
+      "region": "DE",
+      "system": "FSK ",
+      "ratings": "18"
+    },
+    {
+      "region": "Canada (Quebec)",
+      "system": "RCQ",
+      "ratings": "G"
+    },
+    {
+      "region": "Canada (Quebec)",
+      "system": "RCQ",
+      "ratings": "13+"
+    },
+    {
+      "region": "Viet Nam",
+      "system": "MCST",
+      "ratings": "16+"
+    },
+    {
+      "region": "Romania",
+      "system": "CNA",
+      "ratings": "18+"
+    },
+    {
+      "region": "Canada (Quebec)",
+      "system": "RCQ",
+      "ratings": "RC"
+    },
+    {
+      "region": "Canada (Ontario)",
+      "system": "OFRB",
+      "ratings": "G"
+    },
+    {
+      "region": "Taiwan",
+      "system": "MOC-TW",
+      "ratings": "PG"
+    },
+    {
+      "region": "Canada (Ontario)",
+      "system": "OFRB",
+      "ratings": "14A"
+    },
+    {
+      "region": "Canada (Ontario)",
+      "system": "OFRB",
+      "ratings": "18A"
+    },
+    {
+      "region": "US",
+      "system": "MPAA",
+      "ratings": "R"
+    },
+    {
+      "region": "Canada",
+      "system": "CHVRS",
+      "ratings": "G"
+    },
+    {
+      "region": "Venezuela",
+      "system": "RESORTE-Violencia",
+      "ratings": "E"
+    },
+    {
+      "region": "South Africa",
+      "system": "FPB",
+      "ratings": "PG"
+    },
+    {
+      "region": "Canada",
+      "system": "CHVRS",
+      "ratings": "14A"
+    },
+    {
+      "region": "Canada",
+      "system": "CHVRS",
+      "ratings": "18A"
+    },
+    {
+      "region": "Taiwan",
+      "system": "MOC-TW",
+      "ratings": "R"
+    },
+    {
+      "region": "Canada (British Columbia)",
+      "system": "CPBC-T",
+      "ratings": "AP"
+    },
+    {
+      "region": "Canada (British Columbia)",
+      "system": "CPBC-T",
+      "ratings": "SP"
+    },
+    {
+      "region": "Mexico",
+      "system": "RTC",
+      "ratings": "A"
+    },
+    {
+      "region": "Canada (Prince Edward Island)",
+      "system": "MFCB",
+      "ratings": "G"
+    },
+    {
+      "region": "Singapore",
+      "system": "MDA",
+      "ratings": "PG"
+    },
+    {
+      "region": "Canada (Prince Edward Island)",
+      "system": "MFCB",
+      "ratings": "14A"
+    },
+    {
+      "region": "Canada (Prince Edward Island)",
+      "system": "MFCB",
+      "ratings": "18A"
+    },
+    {
+      "region": "New Zealand",
+      "system": "OFLC",
+      "ratings": "R"
+    },
+    {
+      "region": "Canada (British Columbia)",
+      "system": "CPBC-T",
+      "ratings": "A"
+    },
+    {
+      "region": "Canada (New Brunswick)",
+      "system": "MFCB",
+      "ratings": "G"
+    },
+    {
+      "region": "Philippines",
+      "system": "MTRCB",
+      "ratings": "PG"
+    },
+    {
+      "region": "Canada (New Brunswick)",
+      "system": "MFCB",
+      "ratings": "14A"
+    },
+    {
+      "region": "Canada (New Brunswick)",
+      "system": "MFCB",
+      "ratings": "18A"
+    },
+    {
+      "region": "Canada (Ontario)",
+      "system": "OFRB",
+      "ratings": "R"
+    },
+    {
+      "region": "Canada (Prince Edward Island)",
+      "system": "MFCB",
+      "ratings": "A"
+    },
+    {
+      "region": "Canada (Nova Scotia)",
+      "system": "MFCB",
+      "ratings": "G"
+    },
+    {
+      "region": "Peru",
+      "system": "Film",
+      "ratings": "PG"
+    },
+    {
+      "region": "Canada (Nova Scotia)",
+      "system": "MFCB",
+      "ratings": "14A"
+    },
+    {
+      "region": "Canada (Nova Scotia)",
+      "system": "MFCB",
+      "ratings": "18A"
+    },
+    {
+      "region": "Canada",
+      "system": "CHVRS",
+      "ratings": "R"
+    },
+    {
+      "region": "Canada (New Brunswick)",
+      "system": "MFCB",
+      "ratings": "A"
+    },
+    {
+      "region": "Canada (Alberta)",
+      "system": "AFC",
+      "ratings": "G"
+    },
+    {
+      "region": "Nigeria",
+      "system": "NFVCB",
+      "ratings": "PG"
+    },
+    {
+      "region": "Canada (Alberta)",
+      "system": "AFC",
+      "ratings": "14A"
+    },
+    {
+      "region": "Canada (Alberta)",
+      "system": "AFC",
+      "ratings": "18A"
+    },
+    {
+      "region": "Canada (Prince Edward Island)",
+      "system": "MFCB",
+      "ratings": "R"
+    },
+    {
+      "region": "Canada",
+      "system": "CBSC-F",
+      "ratings": "G"
+    },
+    {
+      "region": "Canada",
+      "system": "CBSC-F",
+      "ratings": "8+"
+    },
+    {
+      "region": "Canada",
+      "system": "CBSC-F",
+      "ratings": "13+"
+    },
+    {
+      "region": "Latvia",
+      "system": "NKC-LV",
+      "ratings": "16+"
+    },
+    {
+      "region": "Poland",
+      "system": "NBC-PL",
+      "ratings": "18+"
+    },
+    {
+      "region": "Canada",
+      "system": "CBSC-F",
+      "ratings": "RC"
+    },
+    {
+      "region": "Canada (British Columbia)",
+      "system": "CPBC",
+      "ratings": "G"
+    },
+    {
+      "region": "New Zealand",
+      "system": "OFLC",
+      "ratings": "PG"
+    },
+    {
+      "region": "Canada (British Columbia)",
+      "system": "CPBC",
+      "ratings": "14A"
+    },
+    {
+      "region": "Canada (British Columbia)",
+      "system": "CPBC",
+      "ratings": "18A"
+    },
+    {
+      "region": "Canada (New Brunswick)",
+      "system": "MFCB",
+      "ratings": "R"
+    },
+    {
+      "region": "Canada (Nova Scotia)",
+      "system": "MFCB",
+      "ratings": "A"
+    },
+    {
+      "region": "Chile",
+      "system": "CCC",
+      "ratings": "TE"
+    },
+    {
+      "region": "Switzerland",
+      "system": "Film",
+      "ratings": "6"
+    },
+    {
+      "region": "Austria",
+      "system": "BMUKK",
+      "ratings": "14"
+    },
+    {
+      "region": "Ukraine",
+      "system": "Ukraine",
+      "ratings": "18"
+    },
+    {
+      "region": "Chile",
+      "system": "CCC",
+      "ratings": "18V"
+    },
+    {
+      "region": "Chile",
+      "system": "CCC",
+      "ratings": "18S"
+    },
+    {
+      "region": "Chile",
+      "system": "ANATEL",
+      "ratings": "F"
+    },
+    {
+      "region": "Chile",
+      "system": "ANATEL",
+      "ratings": "I"
+    },
+    {
+      "region": "Chile",
+      "system": "ANATEL",
+      "ratings": "I-7"
+    },
+    {
+      "region": "Chile",
+      "system": "ANATEL",
+      "ratings": "I-10"
+    },
+    {
+      "region": "Chile",
+      "system": "ANATEL",
+      "ratings": "I-12"
+    },
+    {
+      "region": "Canada (Nova Scotia)",
+      "system": "MFCB",
+      "ratings": "R"
+    },
+    {
+      "region": "Canada (British Columbia)",
+      "system": "CPBC",
+      "ratings": "A"
+    },
+    {
+      "region": "Colombia",
+      "system": "MOC",
+      "ratings": "E"
+    },
+    {
+      "region": "Colombia",
+      "system": "MOC",
+      "ratings": "T"
+    },
+    {
+      "region": "Turkey",
+      "system": "IBMCT",
+      "ratings": "7"
+    },
+    {
+      "region": "Switzerland",
+      "system": "Film",
+      "ratings": "12"
+    },
+    {
+      "region": "UK",
+      "system": "BBFC",
+      "ratings": "15"
+    },
+    {
+      "region": "Turkey",
+      "system": "IBMCT",
+      "ratings": "18"
+    },
+    {
+      "region": "Philippines",
+      "system": "MTRCB",
+      "ratings": "X"
+    },
+    {
+      "region": "Colombia",
+      "system": "MOC",
+      "ratings": "Banned"
+    },
+    {
+      "region": "Czech Republic",
+      "system": "Film",
+      "ratings": "U"
+    },
+    {
+      "region": "Spain",
+      "system": "ICAA",
+      "ratings": "12"
+    },
+    {
+      "region": "Brazil",
+      "system": "DJCTQ",
+      "ratings": "14"
+    },
+    {
+      "region": "Thailand",
+      "system": "BFVC",
+      "ratings": "18"
+    },
+    {
+      "region": "Denmark",
+      "system": "MCCYP",
+      "ratings": "A"
+    },
+    {
+      "region": "Sweden",
+      "system": "SM-SA",
+      "ratings": "7"
+    },
+    {
+      "region": "Sweden",
+      "system": "SM-SA",
+      "ratings": "11"
+    },
+    {
+      "region": "Turkey",
+      "system": "IBMCT",
+      "ratings": "15"
+    },
+    {
+      "region": "Egypt",
+      "system": "Film",
+      "ratings": "GN"
+    },
+    {
+      "region": "Switzerland",
+      "system": "Film",
+      "ratings": "18"
+    },
+    {
+      "region": "Egypt",
+      "system": "Film",
+      "ratings": "BN"
+    },
+    {
+      "region": "Estonia",
+      "system": "Film",
+      "ratings": "Pere"
+    },
+    {
+      "region": "Estonia",
+      "system": "Film",
+      "ratings": "L"
+    },
+    {
+      "region": "Estonia",
+      "system": "Film",
+      "ratings": "MS-6"
+    },
+    {
+      "region": "Estonia",
+      "system": "Film",
+      "ratings": "K-6"
+    },
+    {
+      "region": "Estonia",
+      "system": "Film",
+      "ratings": "MS-12"
+    },
+    {
+      "region": "Estonia",
+      "system": "Film",
+      "ratings": "K-12"
+    },
+    {
+      "region": "Estonia",
+      "system": "Film",
+      "ratings": "K-14"
+    },
+    {
+      "region": "Estonia",
+      "system": "Film",
+      "ratings": "K-16"
+    },
+    {
+      "region": "Finland",
+      "system": "MEKU",
+      "ratings": "S"
+    },
+    {
+      "region": "Spain",
+      "system": "ICAA",
+      "ratings": "7"
+    },
+    {
+      "region": "Russia",
+      "system": "MKRF",
+      "ratings": "12"
+    },
+    {
+      "region": "Switzerland",
+      "system": "Film",
+      "ratings": "16"
+    },
+    {
+      "region": "Spain",
+      "system": "ICAA",
+      "ratings": "18"
+    },
+    {
+      "region": "France",
+      "system": "CSA",
+      "ratings": "10"
+    },
+    {
+      "region": "Romania",
+      "system": "CNA",
+      "ratings": "12"
+    },
+    {
+      "region": "Spain",
+      "system": "ICAA",
+      "ratings": "16"
+    },
+    {
+      "region": "South Africa",
+      "system": "FPB",
+      "ratings": "18"
+    },
+    {
+      "region": "France",
+      "system": "CSA",
+      "ratings": "interdiction"
+    },
+    {
+      "region": "France",
+      "system": "CNC",
+      "ratings": "T"
+    },
+    {
+      "region": "Norway",
+      "system": "Medietilsynet",
+      "ratings": "12"
+    },
+    {
+      "region": "South Africa",
+      "system": "FPB",
+      "ratings": "16"
+    },
+    {
+      "region": "Russia",
+      "system": "MKRF",
+      "ratings": "18"
+    },
+    {
+      "region": "France",
+      "system": "CNC",
+      "ratings": "interdiction"
+    },
+    {
+      "region": "Greece",
+      "system": "Film",
+      "ratings": "K"
+    },
+    {
+      "region": "Thailand",
+      "system": "BFVC",
+      "ratings": "E"
+    },
+    {
+      "region": "Greece",
+      "system": "Film",
+      "ratings": "K-13"
+    },
+    {
+      "region": "Greece",
+      "system": "Film",
+      "ratings": "K-17"
+    },
+    {
+      "region": "Global",
+      "system": "UNRATED",
+      "ratings": "ALL"
+    },
+    {
+      "region": "Global",
+      "system": "UNRATED",
+      "ratings": "UNRATED"
+    },
+    {
+      "region": "Global",
+      "system": "UNRATED",
+      "ratings": "ADULT"
+    },
+    {
+      "region": "Global",
+      "system": "UNRATED",
+      "ratings": "PROSCRIBED"
+    },
+    {
+      "region": "Hong Kong",
+      "system": "FCO",
+      "ratings": "I"
+    },
+    {
+      "region": "Hong Kong",
+      "system": "FCO",
+      "ratings": "IIA"
+    },
+    {
+      "region": "Hong Kong",
+      "system": "FCO",
+      "ratings": "IIB"
+    },
+    {
+      "region": "Poland",
+      "system": "NBC-PL",
+      "ratings": "III"
+    },
+    {
+      "region": "Hungary",
+      "system": "RCNOF",
+      "ratings": "I"
+    },
+    {
+      "region": "Poland",
+      "system": "NBC-PL",
+      "ratings": "II"
+    },
+    {
+      "region": "Hong Kong",
+      "system": "FCO",
+      "ratings": "III"
+    },
+    {
+      "region": "Poland",
+      "system": "NBC-PL",
+      "ratings": "IV"
+    },
+    {
+      "region": "Hungary",
+      "system": "RCNOF",
+      "ratings": "V"
+    },
+    {
+      "region": "Hungary",
+      "system": "RCNOF",
+      "ratings": "VI"
+    },
+    {
+      "region": "Iceland",
+      "system": "SMAIS",
+      "ratings": "L"
+    },
+    {
+      "region": "Norway",
+      "system": "Medietilsynet",
+      "ratings": "7"
+    },
+    {
+      "region": "Nigeria",
+      "system": "NFVCB",
+      "ratings": "12"
+    },
+    {
+      "region": "Canada",
+      "system": "CBSC",
+      "ratings": "14"
+    },
+    {
+      "region": "Russia",
+      "system": "MKRF",
+      "ratings": "16"
+    },
+    {
+      "region": "Romania",
+      "system": "CNA",
+      "ratings": "18"
+    },
+    {
+      "region": "Iceland",
+      "system": "Kijkwijzer",
+      "ratings": "AL"
+    },
+    {
+      "region": "Russia",
+      "system": "MKRF",
+      "ratings": "6"
+    },
+    {
+      "region": "Norway",
+      "system": "Medietilsynet",
+      "ratings": "9"
+    },
+    {
+      "region": "Netherlands",
+      "system": "Kijkwijzer",
+      "ratings": "12"
+    },
+    {
+      "region": "New Zealand",
+      "system": "CVOD",
+      "ratings": "16"
+    },
+    {
+      "region": "India",
+      "system": "CBFC",
+      "ratings": "U"
+    },
+    {
+      "region": "India",
+      "system": "CBFC",
+      "ratings": "UA"
+    },
+    {
+      "region": "Chile",
+      "system": "ANATEL",
+      "ratings": "A"
+    },
+    {
+      "region": "India",
+      "system": "CBFC",
+      "ratings": "S"
+    },
+    {
+      "region": "India",
+      "system": "DMEC",
+      "ratings": "U"
+    },
+    {
+      "region": "India",
+      "system": "DMEC",
+      "ratings": "UA-7+"
+    },
+    {
+      "region": "India",
+      "system": "DMEC",
+      "ratings": "UA-13+"
+    },
+    {
+      "region": "India",
+      "system": "DMEC",
+      "ratings": "UA-16+"
+    },
+    {
+      "region": "India",
+      "system": "CBFC",
+      "ratings": "A"
+    },
+    {
+      "region": "Indonesia",
+      "system": "LSF",
+      "ratings": "SU"
+    },
+    {
+      "region": "India",
+      "system": "DMEC",
+      "ratings": "A"
+    },
+    {
+      "region": "Turkey",
+      "system": "IBMCT",
+      "ratings": "13"
+    },
+    {
+      "region": "Indonesia",
+      "system": "LSF",
+      "ratings": "17"
+    },
+    {
+      "region": "Indonesia",
+      "system": "LSF",
+      "ratings": "21"
+    },
+    {
+      "region": "Ireland",
+      "system": "RTE",
+      "ratings": "GA"
+    },
+    {
+      "region": "Ireland",
+      "system": "RTE",
+      "ratings": "Ch"
+    },
+    {
+      "region": "Ireland",
+      "system": "RTE",
+      "ratings": "PS"
+    },
+    {
+      "region": "Ireland",
+      "system": "RTE",
+      "ratings": "MA"
+    },
+    {
+      "region": "Ireland",
+      "system": "IFCOF",
+      "ratings": "G"
+    },
+    {
+      "region": "New Zealand",
+      "system": "CVOD",
+      "ratings": "PG"
+    },
+    {
+      "region": "Nigeria",
+      "system": "NFVCB",
+      "ratings": "12A"
+    },
+    {
+      "region": "Turkey",
+      "system": "IBMCT",
+      "ratings": "15A"
+    },
+    {
+      "region": "Netherlands",
+      "system": "Kijkwijzer",
+      "ratings": "16"
+    },
+    {
+      "region": "Peru",
+      "system": "Film",
+      "ratings": "18"
+    },
+    {
+      "region": "Israel",
+      "system": "Film",
+      "ratings": "ALL"
+    },
+    {
+      "region": "Malta",
+      "system": "MCCAA",
+      "ratings": "12"
+    },
+    {
+      "region": "Chile",
+      "system": "CCC",
+      "ratings": "14"
+    },
+    {
+      "region": "Malta",
+      "system": "MCCAA",
+      "ratings": "16"
+    },
+    {
+      "region": "Norway",
+      "system": "Medietilsynet",
+      "ratings": "18"
+    },
+    {
+      "region": "Italy",
+      "system": "MBACT",
+      "ratings": "T"
+    },
+    {
+      "region": "Italy",
+      "system": "MBACT",
+      "ratings": "VM14"
+    },
+    {
+      "region": "Italy",
+      "system": "MBACT",
+      "ratings": "VM18"
+    },
+    {
+      "region": "Italy",
+      "system": "AGCOM",
+      "ratings": "T"
+    },
+    {
+      "region": "Italy",
+      "system": "AGCOM",
+      "ratings": "VM14"
+    },
+    {
+      "region": "Italy",
+      "system": "AGCOM",
+      "ratings": "VM18"
+    },
+    {
+      "region": "Kenya",
+      "system": "KFCB",
+      "ratings": "G"
+    },
+    {
+      "region": "Malta",
+      "system": "MCCAA",
+      "ratings": "PG"
+    },
+    {
+      "region": "Canada (Quebec)",
+      "system": "RCQ",
+      "ratings": "16+"
+    },
+    {
+      "region": "Canada (Alberta)",
+      "system": "AFC",
+      "ratings": "R"
+    },
+    {
+      "region": "Korea, Rep.",
+      "system": "KMRB",
+      "ratings": "G"
+    },
+    {
+      "region": "Maldives",
+      "system": "NBC",
+      "ratings": "12+"
+    },
+    {
+      "region": "Maldives",
+      "system": "NBC",
+      "ratings": "15+"
+    },
+    {
+      "region": "Maldives",
+      "system": "NBC",
+      "ratings": "18+"
+    },
+    {
+      "region": "Korea, Rep.",
+      "system": "KMRB",
+      "ratings": "LIM"
+    },
+    {
+      "region": "Latvia",
+      "system": "NKC-LV",
+      "ratings": "U"
+    },
+    {
+      "region": "Latvia",
+      "system": "NKC-LV",
+      "ratings": "7+"
+    },
+    {
+      "region": "Latvia",
+      "system": "NKC-LV",
+      "ratings": "12+"
+    },
+    {
+      "region": "Canada",
+      "system": "CBSC-F",
+      "ratings": "16+"
+    },
+    {
+      "region": "Latvia",
+      "system": "NKC-LV",
+      "ratings": "18+"
+    },
+    {
+      "region": "Luxembourg",
+      "system": "CSCF",
+      "ratings": "A"
+    },
+    {
+      "region": "Norway",
+      "system": "Medietilsynet",
+      "ratings": "6"
+    },
+    {
+      "region": "Luxembourg",
+      "system": "CSCF",
+      "ratings": "12"
+    },
+    {
+      "region": "Luxembourg",
+      "system": "CSCF",
+      "ratings": "16"
+    },
+    {
+      "region": "Nigeria",
+      "system": "NFVCB",
+      "ratings": "18"
+    },
+    {
+      "region": "Malaysia",
+      "system": "FCBM",
+      "ratings": "U"
+    },
+    {
+      "region": "Malaysia",
+      "system": "FCBM",
+      "ratings": "P13"
+    },
+    {
+      "region": "New Zealand",
+      "system": "CVOD",
+      "ratings": "18"
+    },
+    {
+      "region": "Malaysia",
+      "system": "FCBM",
+      "ratings": "18SX"
+    },
+    {
+      "region": "Malaysia",
+      "system": "FCBM",
+      "ratings": "18PA"
+    },
+    {
+      "region": "Malaysia",
+      "system": "FCBM",
+      "ratings": "18SG"
+    },
+    {
+      "region": "Malaysia",
+      "system": "FCBM",
+      "ratings": "18PL"
+    },
+    {
+      "region": "Maldives",
+      "system": "NBC",
+      "ratings": "G"
+    },
+    {
+      "region": "Maldives",
+      "system": "NBC",
+      "ratings": "PG"
+    },
+    {
+      "region": "Korea, Rep.",
+      "system": "KMRB",
+      "ratings": "12+"
+    },
+    {
+      "region": "Korea, Rep.",
+      "system": "KMRB",
+      "ratings": "15+"
+    },
+    {
+      "region": "Korea, Rep.",
+      "system": "KMRB",
+      "ratings": "18+"
+    },
+    {
+      "region": "Maldives",
+      "system": "NBC",
+      "ratings": "18+R"
+    },
+    {
+      "region": "Maldives",
+      "system": "NBC",
+      "ratings": "PU"
+    },
+    {
+      "region": "Malta",
+      "system": "MCCAA",
+      "ratings": "U"
+    },
+    {
+      "region": "Australia",
+      "system": "NCS",
+      "ratings": "PG"
+    },
+    {
+      "region": "Malta",
+      "system": "MCCAA",
+      "ratings": "12A"
+    },
+    {
+      "region": "Austria",
+      "system": "BMUKK",
+      "ratings": "12"
+    },
+    {
+      "region": "Czech Republic",
+      "system": "Film",
+      "ratings": "14"
+    },
+    {
+      "region": "Thailand",
+      "system": "BFVC",
+      "ratings": "15"
+    },
+    {
+      "region": "Austria",
+      "system": "BMUKK",
+      "ratings": "16"
+    },
+    {
+      "region": "Malta",
+      "system": "MCCAA",
+      "ratings": "18"
+    },
+    {
+      "region": "Mexico",
+      "system": "RTC",
+      "ratings": "AA"
+    },
+    {
+      "region": "Indonesia",
+      "system": "LSF",
+      "ratings": "A"
+    },
+    {
+      "region": "Venezuela",
+      "system": "RESORTE-Sexo",
+      "ratings": "B"
+    },
+    {
+      "region": "Mexico",
+      "system": "RTC",
+      "ratings": "B15"
+    },
+    {
+      "region": "Venezuela",
+      "system": "RESORTE-Sexo",
+      "ratings": "D"
+    },
+    {
+      "region": "Venezuela",
+      "system": "RESORTE-Violencia",
+      "ratings": "C"
+    },
+    {
+      "region": "Netherlands",
+      "system": "Kijkwijzer",
+      "ratings": "AL"
+    },
+    {
+      "region": "Netherlands",
+      "system": "Kijkwijzer",
+      "ratings": "6"
+    },
+    {
+      "region": "Netherlands",
+      "system": "Kijkwijzer",
+      "ratings": "9"
+    },
+    {
+      "region": "Brazil",
+      "system": "DJCTQ",
+      "ratings": "12"
+    },
+    {
+      "region": "Brazil",
+      "system": "DJCTQ",
+      "ratings": "16"
+    },
+    {
+      "region": "New Zealand",
+      "system": "OFLC",
+      "ratings": "G"
+    },
+    {
+      "region": "Canada",
+      "system": "CBSC",
+      "ratings": "PG"
+    },
+    {
+      "region": "New Zealand",
+      "system": "OFLC",
+      "ratings": "RP13"
+    },
+    {
+      "region": "Philippines",
+      "system": "MTRCB",
+      "ratings": "R13"
+    },
+    {
+      "region": "New Zealand",
+      "system": "OFLC",
+      "ratings": "R15"
+    },
+    {
+      "region": "New Zealand",
+      "system": "CVOD",
+      "ratings": "M"
+    },
+    {
+      "region": "New Zealand",
+      "system": "OFLC",
+      "ratings": "RP16"
+    },
+    {
+      "region": "Philippines",
+      "system": "MTRCB",
+      "ratings": "R16"
+    },
+    {
+      "region": "Philippines",
+      "system": "MTRCB",
+      "ratings": "R18"
+    },
+    {
+      "region": "Canada (British Columbia)",
+      "system": "CPBC",
+      "ratings": "R"
+    },
+    {
+      "region": "New Zealand",
+      "system": "CVOD",
+      "ratings": "G"
+    },
+    {
+      "region": "Canada (Ontario)",
+      "system": "OFRB",
+      "ratings": "PG"
+    },
+    {
+      "region": "Australia",
+      "system": "NCS",
+      "ratings": "M"
+    },
+    {
+      "region": "Thailand",
+      "system": "BFVC",
+      "ratings": "13"
+    },
+    {
+      "region": "Finland",
+      "system": "MEKU",
+      "ratings": "16"
+    },
+    {
+      "region": "Malaysia",
+      "system": "FCBM",
+      "ratings": "18"
+    },
+    {
+      "region": "Nigeria",
+      "system": "NFVCB",
+      "ratings": "G"
+    },
+    {
+      "region": "Canada",
+      "system": "CHVRS",
+      "ratings": "PG"
+    },
+    {
+      "region": "Colombia",
+      "system": "MOC",
+      "ratings": "12"
+    },
+    {
+      "region": "Ireland",
+      "system": "IFCOF",
+      "ratings": "12A"
+    },
+    {
+      "region": "Sweden",
+      "system": "SM-SA",
+      "ratings": "15"
+    },
+    {
+      "region": "Luxembourg",
+      "system": "CSCF",
+      "ratings": "18"
+    },
+    {
+      "region": "Nigeria",
+      "system": "NFVCB",
+      "ratings": "RE"
+    },
+    {
+      "region": "Norway",
+      "system": "Medietilsynet",
+      "ratings": "A"
+    },
+    {
+      "region": "Luxembourg",
+      "system": "CSCF",
+      "ratings": "6"
+    },
+    {
+      "region": "Iceland",
+      "system": "Kijkwijzer",
+      "ratings": "9"
+    },
+    {
+      "region": "Colombia",
+      "system": "MOC",
+      "ratings": "7"
+    },
+    {
+      "region": "Norway",
+      "system": "Medietilsynet",
+      "ratings": "11"
+    },
+    {
+      "region": "Czech Republic",
+      "system": "Film",
+      "ratings": "12"
+    },
+    {
+      "region": "Romania",
+      "system": "CNA",
+      "ratings": "15"
+    },
+    {
+      "region": "Brazil",
+      "system": "DJCTQ",
+      "ratings": "18"
+    },
+    {
+      "region": "Peru",
+      "system": "Film",
+      "ratings": "PT"
+    },
+    {
+      "region": "Canada (Prince Edward Island)",
+      "system": "MFCB",
+      "ratings": "PG"
+    },
+    {
+      "region": "Iceland",
+      "system": "SMAIS",
+      "ratings": "14"
+    },
+    {
+      "region": "Canada",
+      "system": "CBSC",
+      "ratings": "18"
+    },
+    {
+      "region": "Philippines",
+      "system": "MTRCB",
+      "ratings": "G-TV"
+    },
+    {
+      "region": "Canada",
+      "system": "CBSC",
+      "ratings": "G"
+    },
+    {
+      "region": "Philippines",
+      "system": "MTRCB",
+      "ratings": "PG-TV"
+    },
+    {
+      "region": "Canada (New Brunswick)",
+      "system": "MFCB",
+      "ratings": "PG"
+    },
+    {
+      "region": "Philippines",
+      "system": "MTRCB",
+      "ratings": "SPG"
+    },
+    {
+      "region": "New Zealand",
+      "system": "OFLC",
+      "ratings": "R13"
+    },
+    {
+      "region": "New Zealand",
+      "system": "OFLC",
+      "ratings": "R16"
+    },
+    {
+      "region": "New Zealand",
+      "system": "OFLC",
+      "ratings": "R18"
+    },
+    {
+      "region": "Bulgaria",
+      "system": "NFRC",
+      "ratings": "X"
+    },
+    {
+      "region": "Poland",
+      "system": "NBC-PL",
+      "ratings": "I"
+    },
+    {
+      "region": "Hungary",
+      "system": "RCNOF",
+      "ratings": "II"
+    },
+    {
+      "region": "Hungary",
+      "system": "RCNOF",
+      "ratings": "III"
+    },
+    {
+      "region": "Hungary",
+      "system": "RCNOF",
+      "ratings": "IV"
+    },
+    {
+      "region": "Canada (Quebec)",
+      "system": "RCQ",
+      "ratings": "18+"
+    },
+    {
+      "region": "Portugal",
+      "system": "CCE",
+      "ratings": "M/4"
+    },
+    {
+      "region": "Portugal",
+      "system": "CCE",
+      "ratings": "M/6"
+    },
+    {
+      "region": "Portugal",
+      "system": "CCE",
+      "ratings": "M/12"
+    },
+    {
+      "region": "Portugal",
+      "system": "CCE",
+      "ratings": "M/16"
+    },
+    {
+      "region": "Portugal",
+      "system": "CCE",
+      "ratings": "M/18"
+    },
+    {
+      "region": "Romania",
+      "system": "CNA",
+      "ratings": "AP"
+    },
+    {
+      "region": "Finland",
+      "system": "MEKU",
+      "ratings": "12"
+    },
+    {
+      "region": "Norway",
+      "system": "Medietilsynet",
+      "ratings": "15"
+    },
+    {
+      "region": "Chile",
+      "system": "CCC",
+      "ratings": "18"
+    },
+    {
+      "region": "Canada",
+      "system": "CBSC-F",
+      "ratings": "18+"
+    },
+    {
+      "region": "Russia",
+      "system": "MKRF",
+      "ratings": "0"
+    },
+    {
+      "region": "Austria",
+      "system": "BMUKK",
+      "ratings": "6"
+    },
+    {
+      "region": "France",
+      "system": "CSA",
+      "ratings": "12"
+    },
+    {
+      "region": "France",
+      "system": "CSA",
+      "ratings": "16"
+    },
+    {
+      "region": "Colombia",
+      "system": "MOC",
+      "ratings": "18"
+    },
+    {
+      "region": "Singapore",
+      "system": "MDA",
+      "ratings": "G"
+    },
+    {
+      "region": "Canada (Nova Scotia)",
+      "system": "MFCB",
+      "ratings": "PG"
+    },
+    {
+      "region": "Singapore",
+      "system": "MDA",
+      "ratings": "PG13"
+    },
+    {
+      "region": "Singapore",
+      "system": "MDA",
+      "ratings": "NC16"
+    },
+    {
+      "region": "Singapore",
+      "system": "MDA",
+      "ratings": "M18"
+    },
+    {
+      "region": "Singapore",
+      "system": "MDA",
+      "ratings": "R21"
+    },
+    {
+      "region": "Slovakia",
+      "system": "Film",
+      "ratings": "G"
+    },
+    {
+      "region": "Slovakia",
+      "system": "Film",
+      "ratings": "P2"
+    },
+    {
+      "region": "Slovakia",
+      "system": "Film",
+      "ratings": "P5"
+    },
+    {
+      "region": "Slovakia",
+      "system": "Film",
+      "ratings": "P8"
+    },
+    {
+      "region": "South Africa",
+      "system": "FPB",
+      "ratings": "A"
+    },
+    {
+      "region": "Canada (Alberta)",
+      "system": "AFC",
+      "ratings": "PG"
+    },
+    {
+      "region": "South Africa",
+      "system": "FPB",
+      "ratings": "7-9-PG"
+    },
+    {
+      "region": "Brazil",
+      "system": "DJCTQ",
+      "ratings": "10"
+    },
+    {
+      "region": "South Africa",
+      "system": "FPB",
+      "ratings": "10-12-PG"
+    },
+    {
+      "region": "Spain",
+      "system": "ICAA",
+      "ratings": "13"
+    },
+    {
+      "region": "France",
+      "system": "CNC",
+      "ratings": "16"
+    },
+    {
+      "region": "Czech Republic",
+      "system": "Film",
+      "ratings": "18"
+    },
+    {
+      "region": "South Africa",
+      "system": "FPB",
+      "ratings": "X18"
+    },
+    {
+      "region": "South Africa",
+      "system": "FPB",
+      "ratings": "XX"
+    },
+    {
+      "region": "Spain",
+      "system": "ICAA",
+      "ratings": "APTA"
+    },
+    {
+      "region": "Spain",
+      "system": "ICAA",
+      "ratings": "ER"
+    },
+    {
+      "region": "Denmark",
+      "system": "MCCYP",
+      "ratings": "7"
+    },
+    {
+      "region": "France",
+      "system": "CNC",
+      "ratings": "12"
+    },
+    {
+      "region": "South Africa",
+      "system": "FPB",
+      "ratings": "13"
+    },
+    {
+      "region": "Iceland",
+      "system": "SMAIS",
+      "ratings": "16"
+    },
+    {
+      "region": "Egypt",
+      "system": "Film",
+      "ratings": "18"
+    },
+    {
+      "region": "Colombia",
+      "system": "MOC",
+      "ratings": "X"
+    },
+    {
+      "region": "Sweden",
+      "system": "SM-SA",
+      "ratings": "Barntillåten"
+    },
+    {
+      "region": "Finland",
+      "system": "MEKU",
+      "ratings": "7"
+    },
+    {
+      "region": "Denmark",
+      "system": "MCCYP",
+      "ratings": "11"
+    },
+    {
+      "region": "Nigeria",
+      "system": "NFVCB",
+      "ratings": "15"
+    },
+    {
+      "region": "Switzerland",
+      "system": "Film",
+      "ratings": "0"
+    },
+    {
+      "region": "Chile",
+      "system": "CCC",
+      "ratings": "6"
+    },
+    {
+      "region": "Iceland",
+      "system": "SMAIS",
+      "ratings": "12"
+    },
+    {
+      "region": "Iceland",
+      "system": "Kijkwijzer",
+      "ratings": "16"
+    },
+    {
+      "region": "Finland",
+      "system": "MEKU",
+      "ratings": "18"
+    },
+    {
+      "region": "Taiwan",
+      "system": "MOC-TW",
+      "ratings": "G"
+    },
+    {
+      "region": "Viet Nam",
+      "system": "MCST",
+      "ratings": "P"
+    },
+    {
+      "region": "Canada (British Columbia)",
+      "system": "CPBC",
+      "ratings": "PG"
+    },
+    {
+      "region": "Chile",
+      "system": "ANATEL",
+      "ratings": "R"
+    },
+    {
+      "region": "Thailand",
+      "system": "BFVC",
+      "ratings": "G"
+    },
+    {
+      "region": "Canada",
+      "system": "CBSC",
+      "ratings": "E"
+    },
+    {
+      "region": "New Zealand",
+      "system": "CVOD",
+      "ratings": "13"
+    },
+    {
+      "region": "Malta",
+      "system": "MCCAA",
+      "ratings": "15"
+    },
+    {
+      "region": "France",
+      "system": "CSA",
+      "ratings": "18"
+    },
+    {
+      "region": "Thailand",
+      "system": "BFVC",
+      "ratings": "20"
+    },
+    {
+      "region": "Venezuela",
+      "system": "RESORTE-Language",
+      "ratings": "B"
+    },
+    {
+      "region": "Turkey",
+      "system": "IBMCT",
+      "ratings": "GA"
+    },
+    {
+      "region": "Turkey",
+      "system": "IBMCT",
+      "ratings": "7A"
+    },
+    {
+      "region": "Iceland",
+      "system": "SMAIS",
+      "ratings": "7"
+    },
+    {
+      "region": "Turkey",
+      "system": "IBMCT",
+      "ratings": "13A"
+    },
+    {
+      "region": "Indonesia",
+      "system": "LSF",
+      "ratings": "13"
+    },
+    {
+      "region": "Ireland",
+      "system": "IFCOF",
+      "ratings": "15A"
+    },
+    {
+      "region": "Colombia",
+      "system": "MOC",
+      "ratings": "15"
+    },
+    {
+      "region": "France",
+      "system": "CNC",
+      "ratings": "18"
+    },
+    {
+      "region": "Ukraine",
+      "system": "Ukraine",
+      "ratings": "Yes"
+    },
+    {
+      "region": "Ukraine",
+      "system": "Ukraine",
+      "ratings": "For"
+    },
+    {
+      "region": "Israel",
+      "system": "Film",
+      "ratings": "14"
+    },
+    {
+      "region": "Ireland",
+      "system": "IFCOF",
+      "ratings": "16"
+    },
+    {
+      "region": "Iceland",
+      "system": "SMAIS",
+      "ratings": "18"
+    },
+    {
+      "region": "Ukraine",
+      "system": "Ukraine",
+      "ratings": "X21"
+    },
+    {
+      "region": "Ukraine",
+      "system": "Ukraine",
+      "ratings": "Denied"
+    },
+    {
+      "region": "Venezuela",
+      "system": "RESORTE-Health",
+      "ratings": "A"
+    },
+    {
+      "region": "Venezuela",
+      "system": "RESORTE-Violencia",
+      "ratings": "B"
+    },
+    {
+      "region": "Mexico",
+      "system": "RTC",
+      "ratings": "C"
+    },
+    {
+      "region": "Venezuela",
+      "system": "RESORTE-Violencia",
+      "ratings": "D"
+    },
+    {
+      "region": "Venezuela",
+      "system": "RESORTE-Sexo",
+      "ratings": "A"
+    },
+    {
+      "region": "Thailand",
+      "system": "BFVC",
+      "ratings": "B"
+    },
+    {
+      "region": "Argentina",
+      "system": "INCAA",
+      "ratings": "C"
+    },
+    {
+      "region": "Mexico",
+      "system": "RTC",
+      "ratings": "D"
+    },
+    {
+      "region": "Canada",
+      "system": "CHVRS",
+      "ratings": "E"
+    },
+    {
+      "region": "Venezuela",
+      "system": "RESORTE-Language",
+      "ratings": "A"
+    },
+    {
+      "region": "Mexico",
+      "system": "RTC",
+      "ratings": "B"
+    },
+    {
+      "region": "Australia",
+      "system": "ACMA",
+      "ratings": "C"
+    },
+    {
+      "region": "Venezuela",
+      "system": "RESORTE-Violencia",
+      "ratings": "A"
+    },
+    {
+      "region": "Bulgaria",
+      "system": "NFRC",
+      "ratings": "B"
+    },
+    {
+      "region": "Bulgaria",
+      "system": "NFRC",
+      "ratings": "C"
+    },
+    {
+      "region": "Bulgaria",
+      "system": "NFRC",
+      "ratings": "D"
+    },
+    {
+      "region": "Canada",
+      "system": null,
+      "ratings": "E"
+    },
+    {
+      "region": "Viet Nam",
+      "system": "MCST",
+      "ratings": "0"
+    },
+    {
+      "region": "Taiwan",
+      "system": "MOC-TW",
+      "ratings": "P"
+    },
+    {
+      "region": "Viet Nam",
+      "system": "MCST",
+      "ratings": "C13"
+    },
+    {
+      "region": "Viet Nam",
+      "system": "MCST",
+      "ratings": "C16"
+    },
+    {
+      "region": "Kenya",
+      "system": "KFCB",
+      "ratings": "16+"
+    },
+    {
+      "region": "Viet Nam",
+      "system": "MCST",
+      "ratings": "C18"
+    },
+    {
+      "region": "Viet Nam",
+      "system": "MCST",
+      "ratings": "NYR"
+    },
+    {
+      "region": "JP",
+      "system": "Eirin",
+      "ratings": "G"
+    },
+    {
+      "region": "JP",
+      "system": "Eirin",
+      "ratings": "PG-12"
+    },
+    {
+      "region": "JP",
+      "system": "Eirin",
+      "ratings": "R15+"
+    },
+    {
+      "region": "Australia",
+      "system": "NCS",
+      "ratings": "R18+"
+    },
+    {
+      "region": "US",
+      "system": "MPAA",
+      "ratings": "NR"
+    },
+    {
+      "region": "US",
+      "system": "MPAA",
+      "ratings": "TBC"
+    },
+    {
+      "region": "DE",
+      "system": "FSK ",
+      "ratings": "0"
+    },
+    {
+      "region": "Iceland",
+      "system": "Kijkwijzer",
+      "ratings": "6"
+    },
+    {
+      "region": "Iceland",
+      "system": "Kijkwijzer",
+      "ratings": "12"
+    },
+    {
+      "region": "Israel",
+      "system": "Film",
+      "ratings": "16"
+    },
+    {
+      "region": "Ireland",
+      "system": "IFCOF",
+      "ratings": "18"
+    },
+    {
+      "region": "DE",
+      "system": "FSK ",
+      "ratings": "SPIO/JK"
+    },
+    {
+      "region": "US",
+      "system": "TVPG",
+      "ratings": "NR"
+    },
+    {
+      "region": "US",
+      "system": "TVPG",
+      "ratings": "TBC"
+    },
+    {
+      "region": "UK",
+      "system": "BBFC",
+      "ratings": "U"
+    },
+    {
+      "region": "Ireland",
+      "system": "IFCOF",
+      "ratings": "PG"
+    },
+    {
+      "region": "Israel",
+      "system": "Film",
+      "ratings": "12"
+    },
+    {
+      "region": "Denmark",
+      "system": "MCCYP",
+      "ratings": "15"
+    },
+    {
+      "region": "Israel",
+      "system": "Film",
+      "ratings": "18"
+    },
+    {
+      "region": "UK",
+      "system": "BBFC",
+      "ratings": "NR"
+    },
+    {
+      "region": "UK",
+      "system": "BBFC",
+      "ratings": "TBC"
+    },
+    {
+      "region": "US",
+      "system": "MPAA",
+      "ratings": "G"
+    },
+    {
+      "region": "Kenya",
+      "system": "KFCB",
+      "ratings": "PG"
+    },
+    {
+      "region": "US",
+      "system": "MPAA",
+      "ratings": "PG-13"
+    },
+    {
+      "region": "Kenya",
+      "system": "KFCB",
+      "ratings": "R"
+    },
+    {
+      "region": "US",
+      "system": "MPAA",
+      "ratings": "NC-17"
+    },
+    {
+      "region": "DE",
+      "system": "FSK ",
+      "ratings": "NR"
+    },
+    {
+      "region": "DE",
+      "system": "FSK ",
+      "ratings": "TBC"
+    },
+    {
+      "region": "US",
+      "system": "TVPG",
+      "ratings": "TV-Y"
+    },
+    {
+      "region": "US",
+      "system": "TVPG",
+      "ratings": "TV-Y7"
+    },
+    {
+      "region": "US",
+      "system": "TVPG",
+      "ratings": "TV-Y7-FV"
+    },
+    {
+      "region": "US",
+      "system": "TVPG",
+      "ratings": "TV-G"
+    },
+    {
+      "region": "US",
+      "system": "TVPG",
+      "ratings": "TV-PG"
+    },
+    {
+      "region": "US",
+      "system": "TVPG",
+      "ratings": "TV-14"
+    },
+    {
+      "region": "US",
+      "system": "TVPG",
+      "ratings": "TV-MA"
+    },
+    {
+      "region": "JP",
+      "system": "Eirin",
+      "ratings": "NR"
+    },
+    {
+      "region": "JP",
+      "system": "Eirin",
+      "ratings": "TBC"
+    }
+  ]

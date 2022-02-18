@@ -14,7 +14,20 @@ export type ArtReferenceType = {
 }
 
 export type GenreType = {
-    '@resolution':string,
-    '@purpose':string,
-    'value':string
+    '@source':string,
+    '@id':string,
+    '@level':string
+}
+
+export type FormType = {
+    parentKey:string;
+}
+
+export type RatingType = {
+    Region: { country:string };
+    System: string;
+    Value: string;
+}
+export type RatingSetType = {
+    ratings: RatingType[];
 }

@@ -18,6 +18,7 @@ import resolutions from 'config/resolutions.json';
 import purposes from 'config/ArtReference.purposes.json';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import MECLocalizedInfoForm from 'component/MECLocalizedInfoForm';
+import MECRatingSetForm from 'component/MECRatingSetForm';
 
 interface Props {
   data?:any
@@ -97,7 +98,7 @@ const Index = React.forwardRef(({ data }:Props, ref) => {
               label="@ContentID *"
             />
 
-            <MECLocalizedInfoForm />
+            <MECLocalizedInfoForm parentKey='BasicMetadata-type' />
 
             <CustomTextValidator
               formData = {formDataRef.current} 
@@ -164,7 +165,7 @@ const Index = React.forwardRef(({ data }:Props, ref) => {
                 errorMessages={['this field is required']} />
             </Box>
 
-            <Typography >RatingSet</Typography>
+            {/* <Typography >RatingSet</Typography>
             <Box sx = {{ pl:4 }}>
               <Typography >Rating</Typography>
               <Box sx = {{ pl:4 }}>
@@ -191,7 +192,9 @@ const Index = React.forwardRef(({ data }:Props, ref) => {
                   validators={['required']}
                   errorMessages={['this field is required']} />
               </Box>
-            </Box>
+            </Box> */}
+
+            <MECRatingSetForm parentKey='BasicMetadata-type' />
             <br/>
             <Typography >People</Typography>
             <Box sx = {{ pl:4 }}>
