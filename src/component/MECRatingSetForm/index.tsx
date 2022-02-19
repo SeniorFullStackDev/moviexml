@@ -3,10 +3,10 @@ import { Box, Button, IconButton } from '@mui/material';
 import Typography from '@mui/material/Typography';
 import AddIcon from '@mui/icons-material/Add';
 import { Accordion, AccordionSummary, AccordionDetails } from 'component/CustomAccordion'
-import { LocalizedInfoType, RatingSetType, RatingType,  FormType } from 'utils/types';
+import { RatingType,  FormType } from 'utils/types';
 import { DeleteOutline } from '@mui/icons-material';
-import CustomTextValidator from 'component/CustomTextValidator';
-import { TextValidator } from 'react-material-ui-form-validator';
+
+import RatingForm from './RatingForm';
 
 export default function MECRatingSetForm({ parentKey }:FormType) {
 
@@ -52,27 +52,7 @@ export default function MECRatingSetForm({ parentKey }:FormType) {
                 </Box>
               </AccordionSummary>
               <AccordionDetails>
-                <Box sx = {{ pl:4 }}>
-                  <Typography >Region</Typography>
-                  <Box sx = {{ pl:4 }}>
-                    <TextValidator
-                      name = {`${parentKey}.RatingSet[${index}].Rating.Region.Country`} 
-                      label = "Country *" 
-                      validators={['required']}
-                      errorMessages={['this field is required']} />
-                  </Box>
-                  <TextValidator
-                    name = {`${parentKey}.RatingSet[${index}].Rating.System`} 
-                    label = "System" 
-                    validators={['required']}
-                    errorMessages={['this field is required']} />
-                  <br/>
-                  <TextValidator
-                    name = {`${parentKey}.RatingSet[${index}].Rating.Value`} 
-                    label = "Value *" 
-                    validators={['required']}
-                    errorMessages={['this field is required']} />
-                </Box>
+                <RatingForm parentKey={`${parentKey}.RatingSet[${index}]`} />
               </AccordionDetails>
             </Accordion>
           )}
