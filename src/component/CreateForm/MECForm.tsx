@@ -19,6 +19,7 @@ import purposes from 'config/ArtReference.purposes.json';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import MECLocalizedInfoForm from 'component/MECLocalizedInfoForm';
 import MECRatingSetForm from 'component/MECRatingSetForm';
+import MECPeopleForm from 'component/MECPeopleForm';
 
 interface Props {
   data?:any
@@ -196,42 +197,8 @@ const Index = React.forwardRef(({ data }:Props, ref) => {
 
             <MECRatingSetForm parentKey='BasicMetadata-type' />
             <br/>
-            <Typography >People</Typography>
-            <Box sx = {{ pl:4 }}>
-              <Typography >Job</Typography>
-              <Box sx = {{ pl:4 }}>
-                <CustomTextValidator
-                  formData = {formDataRef.current} 
-                  name = "BasicMetadata-type.People.Job.JobFunction" 
-                  label = "JobFunction *" 
-                  validators={['required']}
-                  errorMessages={['this field is required']} />
-                <br/>
-                <CustomTextValidator
-                  formData = {formDataRef.current} name = "BasicMetadata-type.People.Job.BillingBlockOrder" label = "BillingBlockOrder" />
-                <br/>
-                <CustomTextValidator
-                  formData = {formDataRef.current} name = "BasicMetadata-type.People.Job.Character" label = "Character" />
-              </Box>
-
-              <Typography >Name</Typography>
-              <Box sx = {{ pl:4 }}>
-                <Typography >DisplayName</Typography>
-                <Box sx = {{ pl:4 }}>
-                  <CustomTextValidator
-                    formData = {formDataRef.current} 
-                    name = "DisplayName" 
-                    label = "DisplayName *" 
-                    validators={['required']}
-                    errorMessages={['this field is required']} />
-                </Box>
-                <Box sx = {{ pl:4 }}>
-                  <CustomTextValidator
-                    formData = {formDataRef.current} name = "@language" label = "@language" />
-                </Box>
-              </Box>
-            </Box>
-
+            <MECPeopleForm parentKey='BasicMetadata-type' />
+            
             <CustomTextValidator
               formData = {formDataRef.current} 
               name="BasicMetadata-type.OriginalLanguage" 

@@ -6,8 +6,6 @@ import ratings from 'config/ratings.json';
 
 export default ({ parentKey }:FormType) => {
 
-  
-
   const [countries, setCountries] = React.useState<any[]>([]);
   const [systems, setSystems] = React.useState<any[]>([]);
   const [values, setValues] = React.useState<any[]>([]);

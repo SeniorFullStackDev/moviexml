@@ -31,3 +31,14 @@ export type RatingType = {
 export type RatingSetType = {
     ratings: RatingType[];
 }
+
+export type PeopleType = {
+    Job:{
+        JobFunction:string;
+        BillingBlockOrder:number;
+    },
+    Name: {
+        '@language':string;
+        DisplayName:string;
+    },
+}
