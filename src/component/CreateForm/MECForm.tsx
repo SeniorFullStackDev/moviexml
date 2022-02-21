@@ -20,6 +20,8 @@ import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import MECLocalizedInfoForm from 'component/MECLocalizedInfoForm';
 import MECRatingSetForm from 'component/MECRatingSetForm';
 import MECPeopleForm from 'component/MECPeopleForm';
+import MECReleaseHistoryForm from 'component/MECReleaseHistoryForm';
+import DesktopDatePicker from '@mui/lab/DesktopDatePicker';
 
 interface Props {
   data?:any
@@ -28,7 +30,7 @@ interface Props {
 const Index = React.forwardRef(({ data }:Props, ref) => {
 
   // const [formData, setFormData] = useState(data);
-  const formDataRef = React.useRef(data || {});
+  const formDataRef = React.useRef<any>(data || {});
   const formRef = React.useRef<any>();
   const [count, setCount] = useState(0);
   // const [movieTitle, setMovieTitle] = useState<string>();
@@ -37,8 +39,10 @@ const Index = React.forwardRef(({ data }:Props, ref) => {
 
   useEffect(()=>{
     console.log('languages --->', languages);
-    formDataRef.current = data;
-    setCount(count + 1);
+    if(data){
+      formDataRef.current = data;
+      setCount(count + 1);
+    }
   }, [data])
 
   useImperativeHandle(ref, () => (
@@ -73,6 +77,18 @@ const Index = React.forwardRef(({ data }:Props, ref) => {
     formDataRef.current = { ...formDataRef.current, [e.target.name]:e.target.value }
   }
 
+  const handleChangeReleaseDate = (newValue:any) => {
+    formDataRef.current.ReleaseDate = newValue;
+    setCount(count + 1);
+  }
+
+  const handleChangeReleaseYear = (newValue:any) => {
+    formDataRef.current.ReleaseYear = newValue;
+    setCount(count + 1);
+  }
+
+  console.log('formDataRef.current ====>', formDataRef.current);
+
   return (
     <Box>
       <Typography variant="h5">MEC</Typography>
@@ -101,21 +117,31 @@ const Index = React.forwardRef(({ data }:Props, ref) => {
 
             <MECLocalizedInfoForm parentKey='BasicMetadata-type' />
 
-            <CustomTextValidator
+            {/* <CustomTextValidator
               formData = {formDataRef.current} 
               name="BasicMetadata-type.ReleaseYear" 
               label="ReleaseYear" 
-            />
-            <br/>
+            /> */}
 
-            <CustomTextValidator
-              formData = {formDataRef.current} 
-              name="BasicMetadata-type.ReleaseDate" 
-              label="ReleaseDate" 
+            <DesktopDatePicker 
+              label="ReleaseYear"
+              inputFormat="yyyy"
+              value = {formDataRef.current.ReleaseYear}
+              onChange={handleChangeReleaseYear}
+              renderInput={(params:any) => <TextValidator {...params} />}
             />
             <br/>
+            <DesktopDatePicker 
+              label="ReleaseDate"
+              inputFormat="yyyy-MM-DD"
+              value = {formDataRef.current.ReleaseDate}
+              onChange={handleChangeReleaseDate}
+              renderInput={(params:any) => <TextValidator {...params} />}
+            />
+            <br/>
+            <MECReleaseHistoryForm parentKey='BasicMetadata-type' data = {formDataRef.current} />
             
-            <Typography >Release History</Typography>
+            {/* <Typography >Release History</Typography>
             <Box sx = {{ pl:4 }}>
               <CustomTextValidator
                 formData = {formDataRef.current} 
@@ -139,7 +165,7 @@ const Index = React.forwardRef(({ data }:Props, ref) => {
                 label="Date *" 
                 validators={['required']}
                 errorMessages={['this field is required']}/>
-            </Box>
+            </Box> */}
 
             <br/>
             <CustomTextValidator
