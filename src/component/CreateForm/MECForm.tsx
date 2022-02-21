@@ -21,6 +21,7 @@ import MECLocalizedInfoForm from 'component/MECLocalizedInfoForm';
 import MECRatingSetForm from 'component/MECRatingSetForm';
 import MECPeopleForm from 'component/MECPeopleForm';
 import MECReleaseHistoryForm from 'component/MECReleaseHistoryForm';
+import AltIdentifierForm from 'component/MECAltIdentifierForm';
 import DesktopDatePicker from '@mui/lab/DesktopDatePicker';
 
 interface Props {
@@ -174,52 +175,8 @@ const Index = React.forwardRef(({ data }:Props, ref) => {
               label="WorkType *" 
               validators={['required']}
               errorMessages={['this field is required']} />
-
-            <Typography >AltIdentifier</Typography>
-            <Box sx = {{ pl:4 }}>
-              <CustomTextValidator
-                formData = {formDataRef.current} 
-                name="BasicMetadata-type.AltIdentifier.Namespace" 
-                label="Namespace *" 
-                validators={['required']}
-                errorMessages={['this field is required']} />
-              <br/>
-              <CustomTextValidator
-                formData = {formDataRef.current}
-                name="BasicMetadata-type.AltIdentifier.Identifier" 
-                label="Identifier *" 
-                validators={['required']}
-                errorMessages={['this field is required']} />
-            </Box>
-
-            {/* <Typography >RatingSet</Typography>
-            <Box sx = {{ pl:4 }}>
-              <Typography >Rating</Typography>
-              <Box sx = {{ pl:4 }}>
-                <Typography >Region</Typography>
-                <Box sx = {{ pl:4 }}>
-                  <CustomTextValidator
-                    formData = {formDataRef.current} 
-                    name = "BasicMetadata-type.RatingSet.Rating.Region.Country" 
-                    label = "Country *" 
-                    validators={['required']}
-                    errorMessages={['this field is required']} />
-                </Box>
-                <CustomTextValidator
-                  formData = {formDataRef.current} 
-                  name = "BasicMetadata-type.RatingSet.Rating.System" 
-                  label = "System" 
-                  validators={['required']}
-                  errorMessages={['this field is required']} />
-                <br/>
-                <CustomTextValidator
-                  formData = {formDataRef.current} 
-                  name = "BasicMetadata-type.RatingSet.Rating.Value" 
-                  label = "Value *" 
-                  validators={['required']}
-                  errorMessages={['this field is required']} />
-              </Box>
-            </Box> */}
+            
+            <AltIdentifierForm parentKey='BasicMetadata-type' data={formDataRef.current.AltIdentifier} />
 
             <MECRatingSetForm parentKey='BasicMetadata-type' />
             <br/>

@@ -50,3 +50,8 @@ export type ReleaseType = {
     };
     Date:string;
 }
+
+export type AltIdentifierType = {
+    Namespace:string;
+    Identifier:string;
+}
