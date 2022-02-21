@@ -12,6 +12,8 @@ import { useParams } from 'react-router-dom';
 import { createNewMovie, getMovieDetail, updateMovie } from 'api'
 import _ from 'lodash';
 
+import MECContext from 'context/MECContext';
+import MMCContext from 'context/MMCContext';
 
 export default function CreateForm() {
 
@@ -24,6 +26,13 @@ export default function CreateForm() {
   const formDataRef = React.useRef<any>({});
   // const [editing, setEditing] = React.useState(false);
   const [movieData, setMovieData] = React.useState<any>({});
+
+  const [mecJSON, setMECJSON] = React.useState<any>({});
+
+  const mecCxtValue = React.useMemo(() => ({ mecJSON, setMECJSON }), [mecJSON, movieData]);
+
+  const [mmcJSON, setMMCJSON] = React.useState<any>({});
+  const mmcCxtValue = React.useMemo(() => ({ mmcJSON, setMMCJSON }), [movieData]);
 
   React.useEffect(()=>{
     if(id){
@@ -51,12 +60,17 @@ export default function CreateForm() {
     if(MECFormRef.current){
       payload.mec = MECFormRef.current.getFormData();
     }
+
+    console.log('payload.mec ==>', payload.mec);
+
+    return;
+
     if(MMCFormRef.current){
       payload.mmc = MMCFormRef.current.getFormData();
     }
     if(payload.title && payload.mmc && payload.mec){
       setIsRequesting(true);
-
+      1
       if(movieData.id){
         updateMovie(movieData.id, payload).then((res:any)=>{
           setIsRequesting(false);
@@ -79,6 +93,7 @@ export default function CreateForm() {
   }
 
   const onChangeForm = (e:any) => {
+    console.log('onChangeForm ==>');
     formDataRef.current = { ...formDataRef.current, [e.target.name]:e.target.value }
     MECFormRef.current.setMovieTitle(e.target.value);
   }
@@ -114,11 +129,15 @@ export default function CreateForm() {
         <Box sx={{ width: '100%', mt:'20px' }}>
           <Grid container spacing={2}>
             <Grid item xs={12}>
-              <MECForm ref = {MECFormRef} data = {movieData.mec} />
+              <MECContext.Provider value={mecCxtValue}>
+                <MECForm ref = {MECFormRef} data = {movieData.mec} />
+              </MECContext.Provider>
             </Grid>
             <Grid item xs={12}>
               <Divider />
-              <MMCForm ref = {MMCFormRef} data = {movieData.mmc} />
+              <MMCContext.Provider value={mmcCxtValue}>
+                <MMCForm ref = {MMCFormRef} data = {movieData.mmc} />
+              </MMCContext.Provider>
             </Grid>
           </Grid>
         </Box>

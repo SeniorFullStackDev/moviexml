@@ -20,6 +20,7 @@ import SequenceInfoForm from 'component/MECSequenceInfoForm';
 import MECParentForm from 'component/MECParentForm';
 import MECCompanyDisplayCreditForm from 'component/MECCompanyDisplayCreditForm'
 import { SelectValidator } from 'react-material-ui-form-validator';
+import MECtContext from 'context/MECContext';
 
 interface Props {
   data?:any
@@ -72,6 +73,8 @@ const Index = React.forwardRef(({ data }:Props, ref) => {
   ), [data]);
 
   const onChangeForm = (e:any) => {
+    console.log('onChangeForm ==>', [e.target.name]);
+    console.log('onChangeForm ==>', [e.target.value]);
     formDataRef.current = { ...formDataRef.current, [e.target.name]:e.target.value }
   }
 
@@ -91,7 +94,8 @@ const Index = React.forwardRef(({ data }:Props, ref) => {
       <ValidatorForm
         ref = {formRef}
         onChange = {onChangeForm}
-        onSubmit = {()=>{
+        onSubmit = {(form:any)=>{
+          console.log('form ==>', form);
           return false;
         }}
       >
@@ -111,7 +115,7 @@ const Index = React.forwardRef(({ data }:Props, ref) => {
               label="@ContentID *"
             />
 
-            <MECLocalizedInfoForm parentKey='BasicMetadata-type' />
+            <MECLocalizedInfoForm parentKey='BasicMetadata-type' data = {formDataRef.current.LocalizedInfo} />
 
             <DesktopDatePicker 
               label="ReleaseYear"

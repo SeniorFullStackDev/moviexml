@@ -97,6 +97,11 @@ export default ({ parentKey, artreferences }:Props) => {
                       label = "ArtReference *" 
                       name = {`${parentKey}[${index}].value`} 
                       validators={['required']}
+                      value= {ele['value']}
+                      onChange = {(event:any)=>{
+                        ele['value']=event.target.value;
+                        setArtReferences([...artReferences]);
+                      }}
                       errorMessages={['this field is required']} />
                   </Box>
                 </AccordionDetails>

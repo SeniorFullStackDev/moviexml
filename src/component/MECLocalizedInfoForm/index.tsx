@@ -7,7 +7,11 @@ import LocalizedInfoForm from './LocalizedInfoForm';
 import { LocalizedInfoType, FormType } from 'utils/types';
 import { DeleteOutline } from '@mui/icons-material';
 
-export default function MECLocalizedInForm({ parentKey }:FormType) {
+interface Props extends FormType{
+  data:LocalizedInfoType
+}
+
+export default function MECLocalizedInForm({ data, parentKey }:Props) {
 
   const [expanded, setExpanded] = React.useState<string | false>('panel-0');
 

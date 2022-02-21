@@ -47,16 +47,13 @@ export default function({ data, parentKey }: ReleaseFormType){
             label="country *" 
             value = {(formData.DistrTerritory)?formData.DistrTerritory.country:''}
             validators={['required']}
+            onChange = {(evenet:any)=>{
+              setFormData({ ...formData, DistrTerritory:{ country:evenet.target.value } });
+            }}
             errorMessages={['this field is required']}>
             { iso.all().map((ele:any, index:number)=><MenuItem key={index} value={ele.alpha2}>{ele.country}</MenuItem>) }
           </SelectValidator>
         </Box>
-        {/* <TextValidator
-          name={`${parentKey}.ReleaseHistory.Date`} 
-          label="Date *" 
-          value = {formData.Date}
-          validators={['required']}
-          errorMessages={['this field is required']}/> */}
         <DesktopDatePicker 
           label="Date desktop"
           inputFormat="yyyy-MM-DD"

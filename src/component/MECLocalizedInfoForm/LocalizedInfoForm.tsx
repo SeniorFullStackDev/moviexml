@@ -17,7 +17,7 @@ import purposes from 'config/ArtReference.purposes.json';
 import { LocalizedInfoType, FormType } from 'utils/types';
 import ArtReferenceForm from './ArtReferenceForm';
 import GenreForm from './GenreForm';
-
+import MECContext from 'context/MECContext';
 
 interface Props extends FormType {
     data:LocalizedInfoType;
@@ -28,13 +28,13 @@ export default ({ parentKey, data, onChangeLanguage }:Props) => {
 
   const [localizedInfo, setLocalizedInfo] = React.useState(data);
 
-  useEffect(()=>{
-    'loaded...'
-  }, [])
+  const { mecJSON, setMECJSON } = React.useContext(MECContext);
 
   const onChange = (e:any) => {
-    setLocalizedInfo({ ...localizedInfo, [e.target.key]:e.target.value });
+    setLocalizedInfo({ ...localizedInfo, [e.target.name]:e.target.value });
     onChangeLanguage(e.target.value);
+    const data = { ...mecJSON, [e.target.name]:e.target.value };
+    setMECJSON(data);
   }
 
   return (
@@ -45,7 +45,7 @@ export default ({ parentKey, data, onChangeLanguage }:Props) => {
         validators={['required']}
         errorMessages={['this field is required']}
         onChange = {onChange}
-        name={`${parentKey}@Language`}
+        name={`${parentKey}.@Language`}
         label="@Language *"
       >
         { languages.map((ele:any, index:number)=><MenuItem key={index} value={ele.code}>{ele.language}</MenuItem>) }
