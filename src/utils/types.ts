@@ -42,3 +42,11 @@ export type PeopleType = {
         DisplayName:string;
     },
 }
+
+export type ReleaseType = {
+    ReleaseType:string;
+    DistrTerritory : {
+        country:string;
+    };
+    Date:string;
+}
