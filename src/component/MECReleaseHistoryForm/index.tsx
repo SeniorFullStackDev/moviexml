@@ -17,17 +17,28 @@ export default function({ data, parentKey }: ReleaseFormType){
   const handleChangeDate = (newValue:any) => {
     setFormData({ ...formData, Date:newValue });
   };
-    
+  // Original, Broadcast, DVD, Blu-ray, PayTV, InternetBuy, InternetRent, Theatrical, SVOD
   return (
     <Box sx = {{ m:1 }}>
       <Typography >Release History</Typography>
       <Box sx = {{ pl:4 }}>
-        <TextValidator
+        <SelectValidator
           name={`${parentKey}.ReleaseHistory.ReleaseType`} 
           label="ReleaseType *" 
           value = {formData.ReleaseType}
+          defaultValue = "Original"
           validators={['required']}
-          errorMessages={['this field is required']}/>
+          errorMessages={['this field is required']}>
+          <MenuItem value = "Original">Original</MenuItem>
+          <MenuItem value = "Broadcast">Broadcast</MenuItem>
+          <MenuItem value = "DVD">DVD</MenuItem>
+          <MenuItem value = "Blu-ray">Blu-ray</MenuItem>
+          <MenuItem value = "PayTV">PayTV</MenuItem>
+          <MenuItem value = "InternetBuy">InternetBuy</MenuItem>
+          <MenuItem value = "InternetRent">InternetRent</MenuItem>
+          <MenuItem value = "Theatrical">Theatrical</MenuItem>
+          <MenuItem value = "SVOD">SVOD</MenuItem>
+        </SelectValidator>
         <br/>
         <Typography >DistrTerritory</Typography>
         <Box sx = {{ pl:4 }}>

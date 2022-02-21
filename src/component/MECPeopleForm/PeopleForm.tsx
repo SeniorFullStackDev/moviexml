@@ -16,16 +16,23 @@ export default ({ data, parentKey }:PeopleFormType) => {
   const onChangeLanguage = (e:any) => {
     setPeopleData({ ...peopleData, Name: { ...peopleData.Name, '@language':e.target.value } });
   }
-
+  // Director, Producer, Actor, Writer and Creator
   return (
     <Box sx = {{ pl:4 }}>
       <Typography >Job</Typography>
       <Box sx = {{ pl:4 }}>
-        <TextValidator
+        <SelectValidator
           name = {`${parentKey}.Job.JobFunction`} 
           label = "JobFunction *" 
+          defaultValue="Director"
           validators={['required']}
-          errorMessages={['this field is required']} />
+          errorMessages={['this field is required']} >
+          <MenuItem value="Director">Director</MenuItem>
+          <MenuItem value="Producer">Producer</MenuItem>
+          <MenuItem value="Actor">Actor</MenuItem>
+          <MenuItem value="Writer">Writer</MenuItem>
+          <MenuItem value="Creator">Creator</MenuItem>
+        </SelectValidator>
         <br/>
         <TextValidator
           name = {`${parentKey}.Job.BillingBlockOrder`} label = "BillingBlockOrder" />

@@ -1,6 +1,7 @@
 import React, { useEffect, useImperativeHandle, useRef, useState } from 'react';
 import { 
   Box, 
+  MenuItem, 
   Typography
 } from '@mui/material';
 import { ValidatorForm, TextValidator } from 'react-material-ui-form-validator';
@@ -18,6 +19,7 @@ import MECAssociatedOrgForm from 'component/MECAssociatedOrgForm';
 import SequenceInfoForm from 'component/MECSequenceInfoForm';
 import MECParentForm from 'component/MECParentForm';
 import MECCompanyDisplayCreditForm from 'component/MECCompanyDisplayCreditForm'
+import { SelectValidator } from 'react-material-ui-form-validator';
 
 interface Props {
   data?:any
@@ -129,12 +131,20 @@ const Index = React.forwardRef(({ data }:Props, ref) => {
             <br/>
             <MECReleaseHistoryForm parentKey='BasicMetadata-type' data = {formDataRef.current} />
             <br/>
-            <CustomTextValidator
+            {/* movie, episode, promotion, season, series. */}
+            <SelectValidator
               formData = {formDataRef.current} 
               name="BasicMetadata-type.WorkType" 
               label="WorkType *" 
               validators={['required']}
-              errorMessages={['this field is required']} />
+              defaultValue = "movie"
+              errorMessages={['this field is required']} >
+              <MenuItem value = "movie">Movie</MenuItem>
+              <MenuItem value = "episode">Eovie</MenuItem>
+              <MenuItem value = "promotion">Promotion</MenuItem>
+              <MenuItem value = "season">Season</MenuItem>
+              <MenuItem value = "series">Series</MenuItem>
+            </SelectValidator>
             
             <AltIdentifierForm parentKey='BasicMetadata-type' data={formDataRef.current.AltIdentifier} />
 
@@ -154,6 +164,7 @@ const Index = React.forwardRef(({ data }:Props, ref) => {
             <SequenceInfoForm parentKey='BasicMetadata-type' data = {formDataRef.current} />
 
             <MECParentForm parentKey='BasicMetadata-type' data = {formDataRef.current} />
+
           </Box>
 
           <MECCompanyDisplayCreditForm parentKey='CompanyDisplayCredit' data = {formDataRef.current} />
