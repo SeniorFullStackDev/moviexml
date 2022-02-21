@@ -14,12 +14,6 @@ export default function({ data, parentKey }: ReleaseFormType){
 
   const [formData, setFormData] = useState<ReleaseType>(data || { });
 
-  React.useEffect(()=>{
-    console.log('ReleaseHistory ==>',iso.all());
-  }, [])
-
-  console.log('DistrTerritory ===>', formData);
-
   const handleChangeDate = (newValue:any) => {
     setFormData({ ...formData, Date:newValue });
   };

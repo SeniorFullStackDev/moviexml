@@ -1,28 +1,23 @@
 import React, { useEffect, useImperativeHandle, useRef, useState } from 'react';
 import { 
   Box, 
-  TextField, 
-  Typography, 
-  Button,
-  Accordion, 
-  AccordionSummary,
-  AccordionDetails
+  Typography
 } from '@mui/material';
-import { ValidatorForm, TextValidator, SelectValidator } from 'react-material-ui-form-validator';
-import { convertKeyString } from 'utils';
+import { ValidatorForm, TextValidator } from 'react-material-ui-form-validator';
 import CustomTextValidator from 'component/CustomTextValidator';
-import MenuItem from '@mui/material/MenuItem';
 import _ from 'lodash';
 import languages from 'config/languages.json';
-import resolutions from 'config/resolutions.json';
-import purposes from 'config/ArtReference.purposes.json';
-import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+
 import MECLocalizedInfoForm from 'component/MECLocalizedInfoForm';
 import MECRatingSetForm from 'component/MECRatingSetForm';
 import MECPeopleForm from 'component/MECPeopleForm';
 import MECReleaseHistoryForm from 'component/MECReleaseHistoryForm';
 import AltIdentifierForm from 'component/MECAltIdentifierForm';
 import DesktopDatePicker from '@mui/lab/DesktopDatePicker';
+import MECAssociatedOrgForm from 'component/MECAssociatedOrgForm';
+import SequenceInfoForm from 'component/MECSequenceInfoForm';
+import MECParentForm from 'component/MECParentForm';
+import MECCompanyDisplayCreditForm from 'component/MECCompanyDisplayCreditForm'
 
 interface Props {
   data?:any
@@ -88,8 +83,6 @@ const Index = React.forwardRef(({ data }:Props, ref) => {
     setCount(count + 1);
   }
 
-  console.log('formDataRef.current ====>', formDataRef.current);
-
   return (
     <Box>
       <Typography variant="h5">MEC</Typography>
@@ -118,12 +111,6 @@ const Index = React.forwardRef(({ data }:Props, ref) => {
 
             <MECLocalizedInfoForm parentKey='BasicMetadata-type' />
 
-            {/* <CustomTextValidator
-              formData = {formDataRef.current} 
-              name="BasicMetadata-type.ReleaseYear" 
-              label="ReleaseYear" 
-            /> */}
-
             <DesktopDatePicker 
               label="ReleaseYear"
               inputFormat="yyyy"
@@ -141,33 +128,6 @@ const Index = React.forwardRef(({ data }:Props, ref) => {
             />
             <br/>
             <MECReleaseHistoryForm parentKey='BasicMetadata-type' data = {formDataRef.current} />
-            
-            {/* <Typography >Release History</Typography>
-            <Box sx = {{ pl:4 }}>
-              <CustomTextValidator
-                formData = {formDataRef.current} 
-                name="BasicMetadata-type.ReleaseHistory.ReleaseType" 
-                label="ReleaseType *" 
-                validators={['required']}
-                errorMessages={['this field is required']}/>
-              <br/>
-              <Typography >DistrTerritory</Typography>
-              <Box sx = {{ pl:4 }}>
-                <CustomTextValidator
-                  formData = {formDataRef.current} 
-                  name="BasicMetadata-type.ReleaseHistory.DistrTerritory.country" 
-                  label="country *" 
-                  validators={['required']}
-                  errorMessages={['this field is required']}/>
-              </Box>
-              <CustomTextValidator
-                formData = {formDataRef.current} 
-                name="BasicMetadata-type.ReleaseHistory.Date" 
-                label="Date *" 
-                validators={['required']}
-                errorMessages={['this field is required']}/>
-            </Box> */}
-
             <br/>
             <CustomTextValidator
               formData = {formDataRef.current} 
@@ -189,67 +149,15 @@ const Index = React.forwardRef(({ data }:Props, ref) => {
               validators={['required']}
               errorMessages={['this field is required']} />
 
-            <Typography >AssociatedOrg</Typography>
-            <Box sx = {{ pl:4 }}>
-              <CustomTextValidator
-                formData = {formDataRef.current} 
-                name = "BasicMetadata-type.AssociatedOrg.@organizationID" 
-                label = "@organizationID *" 
-                validators={['required']}
-                errorMessages={['this field is required']} />
-              <br/>
-              <CustomTextValidator
-                formData = {formDataRef.current} 
-                name = "BasicMetadata-type.AssociatedOrg.@role" 
-                label = "@role *" 
-                validators={['required']}
-                errorMessages={['this field is required']} />
-            </Box>
-            <Typography >SequenceInfo</Typography>
-            <Box sx = {{ pl:4 }}>
-              <CustomTextValidator
-                formData = {formDataRef.current} 
-                name = "BasicMetadata-type.SequenceInfo.Number" 
-                label = "Number *" 
-                validators={['required']}
-                errorMessages={['this field is required']} />
-            </Box>
-            <Typography >Parent</Typography>
-            <Box sx = {{ pl:4 }}>
-              <CustomTextValidator
-                formData = {formDataRef.current} 
-                name = "BasicMetadata-type.Parent.@relationshipType" 
-                label = "@relationshipType *" 
-                validators={['required']}
-                errorMessages={['this field is required']} />
-              <CustomTextValidator
-                formData = {formDataRef.current} 
-                name = "BasicMetadata-type.Parent.ParentContentID" 
-                label = "ParentContentID *" 
-                validators={['required']}
-                errorMessages={['this field is required']} />
-            </Box>
+            <MECAssociatedOrgForm parentKey='BasicMetadata-type' data = {formDataRef.current} />
+
+            <SequenceInfoForm parentKey='BasicMetadata-type' data = {formDataRef.current} />
+
+            <MECParentForm parentKey='BasicMetadata-type' data = {formDataRef.current} />
           </Box>
 
-          <Typography >CompanyDisplayCredit</Typography>
-          <Box sx = {{ pl: 4 }}>
-            <Typography >DisplayString</Typography>
-            <Box sx = {{ pl: 4 }}>
-              <CustomTextValidator
-                formData = {formDataRef.current} 
-                name="CompanyDisplayCredit.DisplayString.@language" 
-                label="@language *" 
-                validators={['required']}
-                errorMessages={['this field is required']} />
-              <br/>
-              <CustomTextValidator
-                formData = {formDataRef.current} 
-                name="CompanyDisplayCredit.DisplayString.value" 
-                label="DisplayString *" 
-                validators={['required']}
-                errorMessages={['this field is required']} />
-            </Box>
-          </Box>
+          <MECCompanyDisplayCreditForm parentKey='CompanyDisplayCredit' data = {formDataRef.current} />
+
         </Box>
       </ValidatorForm>
     </Box>
