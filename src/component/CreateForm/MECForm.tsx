@@ -21,6 +21,7 @@ import MECParentForm from 'component/MECParentForm';
 import MECCompanyDisplayCreditForm from 'component/MECCompanyDisplayCreditForm'
 import { SelectValidator } from 'react-material-ui-form-validator';
 import MECtContext from 'context/MECContext';
+import ContextTextValidator from 'component/ContextTextValidator';
 
 interface Props {
   data?:any
@@ -28,74 +29,35 @@ interface Props {
 
 const Index = React.forwardRef(({ data }:Props, ref) => {
 
-  // const [formData, setFormData] = useState(data);
-  const formDataRef = React.useRef<any>(data || {});
   const formRef = React.useRef<any>();
-  const [count, setCount] = useState(0);
   // const [movieTitle, setMovieTitle] = useState<string>();
+  const { mecJSON, setMECJSON } = React.useContext(MECtContext);
+
+  console.log('mecJSON --->', mecJSON);
 
   const contentIDRef = useRef<any>();
 
-  useEffect(()=>{
-    console.log('languages --->', languages);
-    if(data){
-      formDataRef.current = data;
-      setCount(count + 1);
-    }
-  }, [data])
 
   useImperativeHandle(ref, () => (
     {
       getFormData: () => {
-        
-        if(formRef.current){
-          formRef.current.isFormValid().then((isValid:boolean)=>{
-            if(!isValid){
-              formRef.current.submit();
-              return;
-            }
-          })
-        }
-        const source:any = {};
-        Object.keys(formDataRef.current).map((key, index)=>{
-          _.set(source, key, formDataRef.current[key]);
-        });
-        return source;
+        return mecJSON;
       },
       setMovieTitle:(title:string)=>{
         console.log('setMovieTitle--->', title);
         // update @contentID
         const expectedContentID = `md:cid:org:amzn_studios:${title}`;
         if(contentIDRef.current) contentIDRef.current.setValue(expectedContentID);
-
       }
     }
   ), [data]);
-
-  const onChangeForm = (e:any) => {
-    console.log('onChangeForm ==>', [e.target.name]);
-    console.log('onChangeForm ==>', [e.target.value]);
-    formDataRef.current = { ...formDataRef.current, [e.target.name]:e.target.value }
-  }
-
-  const handleChangeReleaseDate = (newValue:any) => {
-    formDataRef.current.ReleaseDate = newValue;
-    setCount(count + 1);
-  }
-
-  const handleChangeReleaseYear = (newValue:any) => {
-    formDataRef.current.ReleaseYear = newValue;
-    setCount(count + 1);
-  }
 
   return (
     <Box>
       <Typography variant="h5">MEC</Typography>
       <ValidatorForm
         ref = {formRef}
-        onChange = {onChangeForm}
-        onSubmit = {(form:any)=>{
-          console.log('form ==>', form);
+        onSubmit = {()=>{
           return false;
         }}
       >
@@ -106,43 +68,53 @@ const Index = React.forwardRef(({ data }:Props, ref) => {
         >
           <Typography >BasicMetadata-type</Typography>
           <Box sx = {{ pl:4 }}>
-            <CustomTextValidator
+            <ContextTextValidator
               ref = {contentIDRef}
-              formData = {formDataRef.current}
               validators={['required']}
               errorMessages={['this field is required']}
               name="BasicMetadata-type.@ContentID"
               label="@ContentID *"
             />
 
-            <MECLocalizedInfoForm parentKey='BasicMetadata-type' data = {formDataRef.current.LocalizedInfo} />
+            <MECLocalizedInfoForm parentKey='BasicMetadata-type' />
 
             <DesktopDatePicker 
               label="ReleaseYear"
               inputFormat="yyyy"
-              value = {formDataRef.current.ReleaseYear}
-              onChange={handleChangeReleaseYear}
+              value = {_.get(mecJSON, 'BasicMetadata-type.ReleaseYear', null)}
+              onChange={(newVal:any)=>{
+                _.set(mecJSON, 'BasicMetadata-type.ReleaseYear', newVal);
+                setMECJSON({ ...mecJSON });
+              }}
               renderInput={(params:any) => <TextValidator {...params} />}
             />
             <br/>
             <DesktopDatePicker 
               label="ReleaseDate"
               inputFormat="yyyy-MM-DD"
-              value = {formDataRef.current.ReleaseDate}
-              onChange={handleChangeReleaseDate}
+              value = {_.get(mecJSON, 'BasicMetadata-type.ReleaseDate', null)}
+              onChange={(newVal:any)=>{
+                _.set(mecJSON, 'BasicMetadata-type.ReleaseDate', newVal);
+                setMECJSON({ ...mecJSON });
+              }}
               renderInput={(params:any) => <TextValidator {...params} />}
             />
             <br/>
-            <MECReleaseHistoryForm parentKey='BasicMetadata-type' data = {formDataRef.current} />
+            <MECReleaseHistoryForm parentKey='BasicMetadata-type' />
             <br/>
             {/* movie, episode, promotion, season, series. */}
             <SelectValidator
-              formData = {formDataRef.current} 
               name="BasicMetadata-type.WorkType" 
               label="WorkType *" 
               validators={['required']}
               defaultValue = "movie"
-              errorMessages={['this field is required']} >
+              value = {_.get(mecJSON, 'BasicMetadata-type.WorkType', 'movie')}
+              errorMessages={['this field is required']} 
+              onChange = {(e:any) => {
+                _.set(mecJSON, e.target.name, e.target.value);
+                setMECJSON({ ...mecJSON });
+              }}
+            >
               <MenuItem value = "movie">Movie</MenuItem>
               <MenuItem value = "episode">Eovie</MenuItem>
               <MenuItem value = "promotion">Promotion</MenuItem>
@@ -150,28 +122,27 @@ const Index = React.forwardRef(({ data }:Props, ref) => {
               <MenuItem value = "series">Series</MenuItem>
             </SelectValidator>
             
-            <AltIdentifierForm parentKey='BasicMetadata-type' data={formDataRef.current.AltIdentifier} />
+            <AltIdentifierForm parentKey='BasicMetadata-type' />
 
             <MECRatingSetForm parentKey='BasicMetadata-type' />
             <br/>
             <MECPeopleForm parentKey='BasicMetadata-type' />
             
-            <CustomTextValidator
-              formData = {formDataRef.current} 
+            <ContextTextValidator
               name="BasicMetadata-type.OriginalLanguage" 
               label="OriginalLanguage *" 
               validators={['required']}
               errorMessages={['this field is required']} />
 
-            <MECAssociatedOrgForm parentKey='BasicMetadata-type' data = {formDataRef.current} />
+            <MECAssociatedOrgForm parentKey='BasicMetadata-type' />
 
-            <SequenceInfoForm parentKey='BasicMetadata-type' data = {formDataRef.current} />
+            <SequenceInfoForm parentKey='BasicMetadata-type' />
 
-            <MECParentForm parentKey='BasicMetadata-type' data = {formDataRef.current} />
+            <MECParentForm parentKey='BasicMetadata-type' />
 
           </Box>
 
-          <MECCompanyDisplayCreditForm parentKey='CompanyDisplayCredit' data = {formDataRef.current} />
+          <MECCompanyDisplayCreditForm parentKey='CompanyDisplayCredit' />
 
         </Box>
       </ValidatorForm>

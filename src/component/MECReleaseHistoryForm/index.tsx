@@ -5,18 +5,15 @@ import { FormType, ReleaseType } from 'utils/types';
 import MenuItem from '@mui/material/MenuItem';
 import DesktopDatePicker from '@mui/lab/DesktopDatePicker';
 import iso from 'iso-3166-1';
+import MECContext from 'context/MECContext';
+import _ from 'lodash';
 
-interface ReleaseFormType extends FormType {
-    data:ReleaseType
-}
+export default function({ parentKey }: FormType){
 
-export default function({ data, parentKey }: ReleaseFormType){
+  const { mecJSON, setMECJSON } = React.useContext(MECContext);
 
-  const [formData, setFormData] = useState<ReleaseType>(data || { });
+  const formData = _.get(mecJSON, `${parentKey}.ReleaseHistory`, {});
 
-  const handleChangeDate = (newValue:any) => {
-    setFormData({ ...formData, Date:newValue });
-  };
   // Original, Broadcast, DVD, Blu-ray, PayTV, InternetBuy, InternetRent, Theatrical, SVOD
   return (
     <Box sx = {{ m:1 }}>
@@ -28,7 +25,12 @@ export default function({ data, parentKey }: ReleaseFormType){
           value = {formData.ReleaseType}
           defaultValue = "Original"
           validators={['required']}
-          errorMessages={['this field is required']}>
+          errorMessages={['this field is required']}
+          onChange = {(e:any) => {
+            _.set(mecJSON, e.target.name, e.target.value);
+            setMECJSON({ ...mecJSON });
+          }}
+        >
           <MenuItem value = "Original">Original</MenuItem>
           <MenuItem value = "Broadcast">Broadcast</MenuItem>
           <MenuItem value = "DVD">DVD</MenuItem>
@@ -47,8 +49,9 @@ export default function({ data, parentKey }: ReleaseFormType){
             label="country *" 
             value = {(formData.DistrTerritory)?formData.DistrTerritory.country:''}
             validators={['required']}
-            onChange = {(evenet:any)=>{
-              setFormData({ ...formData, DistrTerritory:{ country:evenet.target.value } });
+            onChange = {(e:any) => {
+              _.set(mecJSON, e.target.name, e.target.value);
+              setMECJSON({ ...mecJSON });
             }}
             errorMessages={['this field is required']}>
             { iso.all().map((ele:any, index:number)=><MenuItem key={index} value={ele.alpha2}>{ele.country}</MenuItem>) }
@@ -58,12 +61,11 @@ export default function({ data, parentKey }: ReleaseFormType){
           label="Date desktop"
           inputFormat="yyyy-MM-DD"
           value = {formData.Date}
-          onChange={handleChangeDate}
-          renderInput={(params:any) => <TextValidator 
-            name={`${parentKey}.ReleaseHistory.Date`} 
-            {...params} 
-            validators={['required']}
-            errorMessages={['this field is required']}/>}
+          onChange={(newval:any)=>{
+            _.set(mecJSON, `${parentKey}.ReleaseHistory.Date`, newval);
+            setMECJSON({ ...mecJSON });
+          }}
+          renderInput={(params:any) => <TextValidator  {...params} />}
         />
       </Box>
     </Box>

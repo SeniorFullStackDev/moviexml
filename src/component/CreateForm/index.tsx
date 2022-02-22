@@ -61,10 +61,6 @@ export default function CreateForm() {
       payload.mec = MECFormRef.current.getFormData();
     }
 
-    console.log('payload.mec ==>', payload.mec);
-
-    return;
-
     if(MMCFormRef.current){
       payload.mmc = MMCFormRef.current.getFormData();
     }

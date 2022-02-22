@@ -3,26 +3,20 @@ import { Box, Button, IconButton } from '@mui/material';
 import Typography from '@mui/material/Typography';
 import AddIcon from '@mui/icons-material/Add';
 import { Accordion, AccordionSummary, AccordionDetails } from 'component/CustomAccordion'
-import LocalizedInfoForm from './LocalizedInfoForm';
 import { FormType, GenreType } from 'utils/types';
 import { DeleteOutline } from '@mui/icons-material';
-import { ValidatorForm, TextValidator, SelectValidator } from 'react-material-ui-form-validator';
+import { SelectValidator } from 'react-material-ui-form-validator';
 import MenuItem from '@mui/material/MenuItem';
-import CustomTextValidator from 'component/CustomTextValidator';
 
-import resolutions from 'config/resolutions.json';
-import purposes from 'config/ArtReference.purposes.json';
 import genresList from 'config/genres.json';
+import MECContext from 'context/MECContext';
+import _ from 'lodash';
 
-
-interface Props extends FormType{
-    data:GenreType[]
-}
-export default ({ parentKey, data }:Props) => {
+export default ({ parentKey }:FormType) => {
 
   const [expanded, setExpanded] = React.useState<string | false>('panel-0');
 
-  const [genres, setGenres] = React.useState<GenreType[]>(data);
+  const { mecJSON, setMECJSON } = React.useContext(MECContext);
 
   const handleChange =
     (panel: string) => (event: React.SyntheticEvent, newExpanded: boolean) => {
@@ -30,14 +24,20 @@ export default ({ parentKey, data }:Props) => {
     };
 
   const addMoreItem = ()=>{
+
+    const genres = _.get(mecJSON, `${parentKey}`, []);
+    const newIndex = genres.length;
+
     const newItem:GenreType = {
       '@id':'GenreType-id',
       '@source':'GenreType-source',
       '@level':'GenreType-level'
     };
-    genres.push(newItem);
-    setGenres([...genres]);
+    _.set(mecJSON, `${parentKey}[${newIndex}]`, newItem);
+    setMECJSON({ ...mecJSON });
   }
+
+  const genres = _.get(mecJSON, `${parentKey}`, []);
 
   return (
     <>
@@ -56,8 +56,8 @@ export default ({ parentKey, data }:Props) => {
                     <Typography>{ele['@id']}</Typography>
                     <IconButton
                       onClick = {()=>{
-                        genres.splice(index, 1);
-                        setGenres([...genres]);
+                        _.omit(mecJSON, [`${parentKey}[${index}]`]);
+                        setMECJSON({ ...mecJSON });
                       }}
                     ><DeleteOutline /></IconButton>
                   </Box>
@@ -71,9 +71,9 @@ export default ({ parentKey, data }:Props) => {
                       validators={['required']}
                       errorMessages={['this field is required']}
                       value={ele['@id']}
-                      onChange = {(event:any)=>{
-                        ele['@id']=event.target.value;
-                        setGenres([...genres]);
+                      onChange = {(e:any)=>{
+                        _.set(mecJSON, e.target.name, e.target.value);
+                        setMECJSON({ ...mecJSON });
                       }}
                     >
                       {

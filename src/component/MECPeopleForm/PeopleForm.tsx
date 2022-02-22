@@ -4,6 +4,10 @@ import { TextValidator, SelectValidator } from 'react-material-ui-form-validator
 import { FormType, PeopleType } from 'utils/types';
 import MenuItem from '@mui/material/MenuItem';
 import languages from 'config/languages.json';
+import MECContext from 'context/MECContext';
+import _ from 'lodash';
+import ContextTextValidator from 'component/ContextTextValidator';
+
 
 interface PeopleFormType extends FormType {
     data:PeopleType,
@@ -11,11 +15,10 @@ interface PeopleFormType extends FormType {
 
 export default ({ data, parentKey }:PeopleFormType) => {
 
-  const [peopleData, setPeopleData] = useState<PeopleType>(data);
+  const { mecJSON, setMECJSON } = React.useContext(MECContext);
 
-  const onChangeLanguage = (e:any) => {
-    setPeopleData({ ...peopleData, Name: { ...peopleData.Name, '@language':e.target.value } });
-  }
+  const peopleData = _.get(mecJSON, parentKey, { Name:'' });
+
   // Director, Producer, Actor, Writer and Creator
   return (
     <Box sx = {{ pl:4 }}>
@@ -26,7 +29,12 @@ export default ({ data, parentKey }:PeopleFormType) => {
           label = "JobFunction *" 
           defaultValue="Director"
           validators={['required']}
-          errorMessages={['this field is required']} >
+          errorMessages={['this field is required']}
+          onChange = {(event:any)=>{
+            _.set(mecJSON, event.target.name, event.target.value);
+            setMECJSON({ ...mecJSON });
+          }}
+        >
           <MenuItem value="Director">Director</MenuItem>
           <MenuItem value="Producer">Producer</MenuItem>
           <MenuItem value="Actor">Actor</MenuItem>
@@ -34,10 +42,10 @@ export default ({ data, parentKey }:PeopleFormType) => {
           <MenuItem value="Creator">Creator</MenuItem>
         </SelectValidator>
         <br/>
-        <TextValidator
+        <ContextTextValidator
           name = {`${parentKey}.Job.BillingBlockOrder`} label = "BillingBlockOrder" />
         <br/>
-        <TextValidator
+        <ContextTextValidator
           name = {`${parentKey}.Job.Character`} label = "Character" />
       </Box>
 
@@ -45,7 +53,7 @@ export default ({ data, parentKey }:PeopleFormType) => {
       <Box sx = {{ pl:4 }}>
         <Typography >DisplayName</Typography>
         <Box sx = {{ pl:4 }}>
-          <TextValidator
+          <ContextTextValidator
             name = {`${parentKey}.Name.DisplayName`} 
             label = "DisplayName *" 
             validators={['required']}
@@ -57,7 +65,10 @@ export default ({ data, parentKey }:PeopleFormType) => {
             value={peopleData.Name['@language']}
             validators={['required']}
             errorMessages={['this field is required']}
-            onChange = {onChangeLanguage}
+            onChange = {(event:any)=>{
+              _.set(mecJSON, event.target.name, event.target.value);
+              setMECJSON({ ...mecJSON });
+            }}
             name = {`${parentKey}.Name.@language`}
             label="@Language *"
           >

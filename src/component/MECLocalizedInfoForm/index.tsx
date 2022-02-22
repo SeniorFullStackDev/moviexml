@@ -6,16 +6,14 @@ import { Accordion, AccordionSummary, AccordionDetails } from 'component/CustomA
 import LocalizedInfoForm from './LocalizedInfoForm';
 import { LocalizedInfoType, FormType } from 'utils/types';
 import { DeleteOutline } from '@mui/icons-material';
+import MECContext from 'context/MECContext';
+import _ from 'lodash';
 
-interface Props extends FormType{
-  data:LocalizedInfoType
-}
-
-export default function MECLocalizedInForm({ data, parentKey }:Props) {
+export default function MECLocalizedInForm({ parentKey }:FormType) {
 
   const [expanded, setExpanded] = React.useState<string | false>('panel-0');
 
-  const [localizedInfos, setLocalizeddInifos] = React.useState<LocalizedInfoType[]>([]);
+  const { mecJSON, setMECJSON } = React.useContext(MECContext);
 
   const handleChange =
     (panel: string) => (event: React.SyntheticEvent, newExpanded: boolean) => {
@@ -23,6 +21,9 @@ export default function MECLocalizedInForm({ data, parentKey }:Props) {
     };
 
   const addMoreItem = ()=>{
+    const localizedInfos = _.get(mecJSON, `${parentKey}.LocalizedInfo`, []);
+    const newIndex = localizedInfos.length;
+
     const newItem:LocalizedInfoType = {
       '@Language':'en-US',
       'ArtReference':[],
@@ -31,9 +32,11 @@ export default function MECLocalizedInForm({ data, parentKey }:Props) {
       'TitleDisplay19':'',
       'TitleDisplayUnlimited':''
     }
-    localizedInfos.push(newItem);
-    setLocalizeddInifos([...localizedInfos]);
+    _.set(mecJSON, `${parentKey}.LocalizedInfo[${newIndex}]`, newItem);
+    setMECJSON({ ...mecJSON });
   }
+
+  const localizedInfos = _.get(mecJSON, `${parentKey}.LocalizedInfo`, []);
 
   return (
     <Box sx = {{ m:1 }}>
@@ -51,8 +54,8 @@ export default function MECLocalizedInForm({ data, parentKey }:Props) {
                   <Typography>{ele['@Language']}</Typography>
                   <IconButton
                     onClick = {()=>{
-                      localizedInfos.splice(index, 1);
-                      setLocalizeddInifos([...localizedInfos]);
+                      _.omit(mecJSON, [`${parentKey}.LocalizedInfo[${index}]`]);
+                      setMECJSON({ ...mecJSON });
                     }}
                   ><DeleteOutline /></IconButton>
                 </Box>
@@ -61,10 +64,6 @@ export default function MECLocalizedInForm({ data, parentKey }:Props) {
                 <LocalizedInfoForm
                   data = {ele}
                   parentKey = {`${parentKey}.LocalizedInfo[${index}]`}
-                  onChangeLanguage = {(lang:string)=>{
-                    ele['@Language']=lang;
-                    setLocalizeddInifos([...localizedInfos]);
-                  }}
                 />
               </AccordionDetails>
             </Accordion>

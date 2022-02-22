@@ -7,12 +7,13 @@ import { RatingType,  FormType } from 'utils/types';
 import { DeleteOutline } from '@mui/icons-material';
 
 import RatingForm from './RatingForm';
+import _ from 'lodash';
+import MECContext from 'context/MECContext';
 
 export default function MECRatingSetForm({ parentKey }:FormType) {
 
   const [expanded, setExpanded] = React.useState<string | false>('panel-0');
-
-  const [ratings, setRatings] = React.useState<RatingType[]>([]);
+  const { mecJSON, setMECJSON } = React.useContext(MECContext);
 
   const handleChange =
     (panel: string) => (event: React.SyntheticEvent, newExpanded: boolean) => {
@@ -20,14 +21,18 @@ export default function MECRatingSetForm({ parentKey }:FormType) {
     };
 
   const addMoreItem = ()=>{
+    const ratings = _.get(mecJSON, `${parentKey}.RatingSet`, []);
+    const newIndex = ratings.length;
     const newItem:RatingType = {
       'Region':{ country:'us' },
       'System':'',
       'Value':'',
     }
-    ratings.push(newItem);
-    setRatings([...ratings]);
+    _.set(mecJSON, `${parentKey}.RatingSet[${newIndex}]`, newItem);
+    setMECJSON({ ...mecJSON });
   }
+
+  const ratings = _.get(mecJSON, `${parentKey}.RatingSet`, []);
 
   return (
     <Box sx = {{ m:1 }}>
@@ -45,8 +50,8 @@ export default function MECRatingSetForm({ parentKey }:FormType) {
                   <Typography>#{index}</Typography>
                   <IconButton
                     onClick = {()=>{
-                      ratings.splice(index, 1);
-                      setRatings([...ratings]);
+                      _.omit(mecJSON, [`${parentKey}.RatingSet[${index}]`]);
+                      setMECJSON({ ...mecJSON });
                     }}
                   ><DeleteOutline /></IconButton>
                 </Box>

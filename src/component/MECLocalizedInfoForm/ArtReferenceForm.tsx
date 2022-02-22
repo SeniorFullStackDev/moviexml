@@ -7,20 +7,25 @@ import LocalizedInfoForm from './LocalizedInfoForm';
 import { ArtReferenceType, FormType } from 'utils/types';
 import { DeleteOutline } from '@mui/icons-material';
 import { ValidatorForm, TextValidator, SelectValidator } from 'react-material-ui-form-validator';
+import ContextTextValidator from 'component/ContextTextValidator';
 import MenuItem from '@mui/material/MenuItem';
 
 import resolutions from 'config/resolutions.json';
 import purposes from 'config/ArtReference.purposes.json';
 
+import MECContext from 'context/MECContext';
+import _ from 'lodash';
 
 interface Props extends FormType {
     artreferences:ArtReferenceType[];
 }
 export default ({ parentKey, artreferences }:Props) => {
 
+  const { mecJSON, setMECJSON } = React.useContext(MECContext);
+
   const [expanded, setExpanded] = React.useState<string | false>('panel-0');
 
-  const [artReferences, setArtReferences] = React.useState<ArtReferenceType[]>(artreferences);
+  // const [artReferences, setArtReferences] = React.useState<ArtReferenceType[]>(artreferences);
 
   const handleChange =
     (panel: string) => (event: React.SyntheticEvent, newExpanded: boolean) => {
@@ -28,14 +33,20 @@ export default ({ parentKey, artreferences }:Props) => {
     };
 
   const addMoreItem = ()=>{
+
+    const artReferences = _.get(mecJSON, `${parentKey}`, []);
+    const newIndex = artReferences.length;
+
     const newItem:ArtReferenceType = {
       '@purpose':'cover',
       '@resolution':'3840x2160',
       'value':'TheGreatMovie-US-16x9.jpg'
     };
-    artReferences.push(newItem);
-    setArtReferences([...artReferences]);
+    _.set(mecJSON, `${parentKey}[${newIndex}]`, newItem);
+    setMECJSON({ ...mecJSON });
   }
+
+  const artReferences = _.get(mecJSON, `${parentKey}`, []);
 
   return (
     <>
@@ -54,8 +65,8 @@ export default ({ parentKey, artreferences }:Props) => {
                     <Typography>{ele['@resolution']} {ele['@purpose']}</Typography>
                     <IconButton
                       onClick = {()=>{
-                        artReferences.splice(index, 1);
-                        setArtReferences([...artReferences]);
+                        _.omit(mecJSON, [`${parentKey}[${index}]`]);
+                        setMECJSON({ ...mecJSON });
                       }}
                     ><DeleteOutline /></IconButton>
                   </Box>
@@ -69,9 +80,9 @@ export default ({ parentKey, artreferences }:Props) => {
                       validators={['required']}
                       errorMessages={['this field is required']}
                       value={ele['@resolution']}
-                      onChange = {(event:any)=>{
-                        ele['@resolution']=event.target.value;
-                        setArtReferences([...artReferences]);
+                      onChange = {(e:any)=>{
+                        _.set(mecJSON, e.target.name, e.target.value);
+                        setMECJSON({ ...mecJSON });
                       }}
                     >
                       {
@@ -84,24 +95,20 @@ export default ({ parentKey, artreferences }:Props) => {
                       value={ele['@purpose']}
                       validators={['required']}
                       errorMessages={['this field is required']} 
-                      onChange = {(event:any)=>{
-                        ele['@purpose']=event.target.value;
-                        setArtReferences([...artReferences]);
+                      onChange = {(e:any)=>{
+                        _.set(mecJSON, e.target.name, e.target.value);
+                        setMECJSON({ ...mecJSON });
                       }}
                     >
                       {
                         purposes.map((ele, index)=><MenuItem key = {index} value = {ele}>{ele}</MenuItem>)
                       } 
                     </SelectValidator>
-                    <TextValidator
+                    <ContextTextValidator
                       label = "ArtReference *" 
                       name = {`${parentKey}[${index}].value`} 
                       validators={['required']}
-                      value= {ele['value']}
-                      onChange = {(event:any)=>{
-                        ele['value']=event.target.value;
-                        setArtReferences([...artReferences]);
-                      }}
+                      defaultValue= {ele['value']}
                       errorMessages={['this field is required']} />
                   </Box>
                 </AccordionDetails>

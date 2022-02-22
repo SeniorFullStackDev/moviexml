@@ -7,21 +7,24 @@ import { Accordion, AccordionSummary, AccordionDetails } from 'component/CustomA
 import { DeleteOutline } from '@mui/icons-material';
 import AddIcon from '@mui/icons-material/Add';
 import PeopleForm from './PeopleForm';
+import MECContext from 'context/MECContext';
+import _ from 'lodash';
 
 export default function({ parentKey }:FormType){
 
   const [expanded, setExpanded] = React.useState<string | false>('people-panel-0');
-
-  const [peoples, setPeoples] = React.useState<PeopleType[]>([]);
+  const { mecJSON, setMECJSON } = React.useContext(MECContext);
 
   const handleChange =
     (panel: string) => (event: React.SyntheticEvent, newExpanded: boolean) => {
       setExpanded(newExpanded ? panel : false);
     };
 
-  
-
   const addMoreItem = ()=>{
+
+    const peoples = _.get(mecJSON, `${parentKey}.People`, []);
+    const newIndex = peoples.length;
+
     const newItem:PeopleType = {
       'Job':{ JobFunction:'', BillingBlockOrder:1 },
       'Name':{
@@ -29,9 +32,11 @@ export default function({ parentKey }:FormType){
         DisplayName:''
       }
     }
-    peoples.push(newItem);
-    setPeoples([...peoples]);
+    _.set(mecJSON, `${parentKey}.People[${newIndex}]`, newItem);
+    setMECJSON({ ...mecJSON });
   }
+
+  const peoples = _.get(mecJSON, `${parentKey}.People`, []);
 
   console.log('peoples --->', peoples);
 
@@ -51,8 +56,8 @@ export default function({ parentKey }:FormType){
                   <Typography>#{index}</Typography>
                   <IconButton
                     onClick = {()=>{
-                      peoples.splice(index, 1);
-                      setPeoples([...peoples]);
+                      _.omit(mecJSON, [`${parentKey}.People[${index}]`]);
+                      setMECJSON({ ...mecJSON });
                     }}
                   ><DeleteOutline /></IconButton>
                 </Box>

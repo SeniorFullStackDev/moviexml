@@ -6,16 +6,15 @@ import { Accordion, AccordionSummary, AccordionDetails } from 'component/CustomA
 import AddIcon from '@mui/icons-material/Add';
 import { DeleteOutline } from '@mui/icons-material';
 import AltIdentifierForm from './AltIdentifierForm';
+import _ from 'lodash';
+import MECContext from 'context/MECContext';
 
-interface Props extends FormType {
-    data:any;
-}
-
-export default function({ parentKey, data }:Props){
+export default function({ parentKey }:FormType){
 
   const [expanded, setExpanded] = React.useState<string | false>('altidentifire-panel-0');
+  const { mecJSON, setMECJSON } = React.useContext(MECContext);
 
-  const [altIdentifires, setAltIdenifires] = React.useState<AltIdentifierType[]>(data || []);
+  // const [altIdentifires, setAltIdenifires] = React.useState<AltIdentifierType[]>(data || []);
 
   const handleChange =
     (panel: string) => (event: React.SyntheticEvent, newExpanded: boolean) => {
@@ -23,13 +22,18 @@ export default function({ parentKey, data }:Props){
     };
 
   const addMoreItem = ()=>{
+    const altIdentifires = _.get(mecJSON, `${parentKey}.AltIdentifier`, []);
+    const newIndex = altIdentifires.length;
     const newItem:AltIdentifierType = {
       'Namespace':'',
       'Identifier':''
     }
-    altIdentifires.push(newItem);
-    setAltIdenifires([...altIdentifires]);
+    _.set(mecJSON, `${parentKey}.AltIdentifier[${newIndex}]`, newItem);
+    setMECJSON({ ...mecJSON });
+    
   }
+
+  const altIdentifires = _.get(mecJSON, `${parentKey}.AltIdentifier`, []);
 
   return (
     <Box sx = {{ m:1 }}>
@@ -47,8 +51,8 @@ export default function({ parentKey, data }:Props){
                   <Typography>{ele['Namespace']}</Typography>
                   <IconButton
                     onClick = {()=>{
-                      altIdentifires.splice(index, 1);
-                      setAltIdenifires([...altIdentifires]);
+                      _.omit(mecJSON, [`${parentKey}.AltIdentifier[${index}]`]);
+                      setMECJSON({ ...mecJSON });
                     }}
                   ><DeleteOutline /></IconButton>
                 </Box>

@@ -3,8 +3,12 @@ import { Box, MenuItem, Typography } from '@mui/material';
 import { TextValidator, SelectValidator } from 'react-material-ui-form-validator';
 import { FormType } from 'utils/types';
 import ratings from 'config/ratings.json';
+import MECContext from 'context/MECContext';
+import _ from 'lodash';
 
 export default ({ parentKey }:FormType) => {
+
+  const { mecJSON, setMECJSON } = React.useContext(MECContext);
 
   const [countries, setCountries] = React.useState<any[]>([]);
   const [systems, setSystems] = React.useState<any[]>([]);
@@ -13,6 +17,7 @@ export default ({ parentKey }:FormType) => {
   const [country, setCountry] = React.useState();
   const [system, setSystem] = React.useState();
   const [value, setValue] = React.useState();
+
 
   React.useEffect(()=>{
     const temArr:any[] = [];
@@ -63,6 +68,9 @@ export default ({ parentKey }:FormType) => {
           errorMessages={['this field is required']}
           onChange = {(event:any)=>{
             setCountry(event.target.value);
+
+            _.set(mecJSON, event.target.name, event.target.value);
+            setMECJSON({ ...mecJSON });
           }}
         >
           {
@@ -77,6 +85,8 @@ export default ({ parentKey }:FormType) => {
         errorMessages={['this field is required']}
         onChange = {(event:any)=>{
           setSystem(event.target.value);
+          _.set(mecJSON, event.target.name, event.target.value);
+          setMECJSON({ ...mecJSON });
         }}
       >
         {
@@ -91,6 +101,8 @@ export default ({ parentKey }:FormType) => {
         errorMessages={['this field is required']}
         onChange = {(event:any)=>{
           setValue(event.target.value);
+          _.set(mecJSON, event.target.name, event.target.value);
+          setMECJSON({ ...mecJSON });
         }}
       >
         {

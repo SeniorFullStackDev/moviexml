@@ -1,26 +1,20 @@
 import React, { useState } from 'react';
 import { Typography, Box } from '@mui/material';
-import { ValidatorForm, TextValidator } from 'react-material-ui-form-validator';
 import { FormType } from 'utils/types';
+import ContextTextValidator from 'component/ContextTextValidator';
 
-interface Props extends FormType {
-    data:any;
-}
-
-export default function({ data, parentKey }:Props){
-
-  const [formData, setFormData] = useState({});
+export default function({ parentKey }:FormType){
 
   return (<>
     <Typography >AssociatedOrg</Typography>
     <Box sx = {{ pl:4 }}>
-      <TextValidator
+      <ContextTextValidator
         name = {`${parentKey}.AssociatedOrg.@organizationID`}
         label = "@organizationID *" 
         validators={['required']}
         errorMessages={['this field is required']} />
       <br/>
-      <TextValidator
+      <ContextTextValidator
         name = {`${parentKey}.AssociatedOrg.@role`}
         label = "@role *" 
         validators={['required']}
