@@ -7,7 +7,7 @@ import LocalizedInfoForm from './LocalizedInfoForm';
 import { ArtReferenceType, FormType } from 'utils/types';
 import { DeleteOutline } from '@mui/icons-material';
 import { ValidatorForm, TextValidator, SelectValidator } from 'react-material-ui-form-validator';
-import ContextTextValidator from 'component/ContextTextValidator';
+import MECContextTextValidator from 'component/ContextTextValidator/MECContextTextValidator';
 import MenuItem from '@mui/material/MenuItem';
 
 import resolutions from 'config/resolutions.json';
@@ -104,7 +104,7 @@ export default ({ parentKey, artreferences }:Props) => {
                         purposes.map((ele, index)=><MenuItem key = {index} value = {ele}>{ele}</MenuItem>)
                       } 
                     </SelectValidator>
-                    <ContextTextValidator
+                    <MECContextTextValidator
                       label = "ArtReference *" 
                       name = {`${parentKey}[${index}].value`} 
                       validators={['required']}

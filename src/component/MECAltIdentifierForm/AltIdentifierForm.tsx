@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Box } from '@mui/material';
 import { AltIdentifierType, FormType } from 'utils/types';
 import { TextValidator } from 'react-material-ui-form-validator';
-import ContextTextValidator from 'component/ContextTextValidator';
+import MECContextTextValidator from 'component/ContextTextValidator/MECContextTextValidator';
 
 interface Props extends  FormType {
     data:AltIdentifierType
@@ -14,13 +14,13 @@ export default function({ data, parentKey }:Props){
 
   return (
     <Box sx = {{ m:1 }}>
-      <ContextTextValidator
+      <MECContextTextValidator
         name={`${parentKey}.Namespace`} 
         label="Namespace *" 
         validators={['required']}
         errorMessages={['this field is required']} />
       <br/>
-      <ContextTextValidator
+      <MECContextTextValidator
         name={`${parentKey}.Identifier`} 
         label="Identifier *" 
         validators={['required']}

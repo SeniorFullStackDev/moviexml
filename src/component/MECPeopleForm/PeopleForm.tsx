@@ -6,7 +6,7 @@ import MenuItem from '@mui/material/MenuItem';
 import languages from 'config/languages.json';
 import MECContext from 'context/MECContext';
 import _ from 'lodash';
-import ContextTextValidator from 'component/ContextTextValidator';
+import MECContextTextValidator from 'component/ContextTextValidator/MECContextTextValidator';
 
 
 interface PeopleFormType extends FormType {
@@ -42,10 +42,10 @@ export default ({ data, parentKey }:PeopleFormType) => {
           <MenuItem value="Creator">Creator</MenuItem>
         </SelectValidator>
         <br/>
-        <ContextTextValidator
+        <MECContextTextValidator
           name = {`${parentKey}.Job.BillingBlockOrder`} label = "BillingBlockOrder" />
         <br/>
-        <ContextTextValidator
+        <MECContextTextValidator
           name = {`${parentKey}.Job.Character`} label = "Character" />
       </Box>
 
@@ -53,7 +53,7 @@ export default ({ data, parentKey }:PeopleFormType) => {
       <Box sx = {{ pl:4 }}>
         <Typography >DisplayName</Typography>
         <Box sx = {{ pl:4 }}>
-          <ContextTextValidator
+          <MECContextTextValidator
             name = {`${parentKey}.Name.DisplayName`} 
             label = "DisplayName *" 
             validators={['required']}

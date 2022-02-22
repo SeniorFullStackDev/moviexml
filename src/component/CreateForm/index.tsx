@@ -4,8 +4,7 @@ import { Button, Grid, Typography,Box,  Link } from '@mui/material';
 import MMCForm from './MMCForm';
 import MECForm from './MECForm';
 import { Divider } from '@mui/material';
-import { ValidatorForm } from 'react-material-ui-form-validator';
-import CustomTextValidator from 'component/CustomTextValidator';
+import { ValidatorForm, TextValidator } from 'react-material-ui-form-validator';
 import { useParams } from 'react-router-dom';
 
 // import { mec, mmc } from 'utils/demo';
@@ -92,12 +91,6 @@ export default function CreateForm() {
     }
   }
 
-  const onChangeForm = (e:any) => {
-    console.log('onChangeForm ==>');
-    formDataRef.current = { ...formDataRef.current, [e.target.name]:e.target.value }
-    MECFormRef.current.setMovieTitle(e.target.value);
-  }
-
   return (
     <Box sx = {{ pt:'20px' }}>
       <Box sx = {{ mb:'8px', display:'flex' }}>
@@ -110,17 +103,19 @@ export default function CreateForm() {
           <ValidatorForm
             ref = {formRef}
             autoComplete="off"
-            onChange = {onChangeForm}
             onSubmit = {()=>{
               return false;
             }}
           >
             <Typography variant='h5'>{(id)?'Update':'New Movie'}</Typography>
             <br/>
-            <CustomTextValidator 
-              formData = {formDataRef.current} 
+            <TextValidator
               validators={['required']} 
-              errorMessages={['this field is required']} 
+              errorMessages={['this field is required']}
+              onBlur = {(e:any)=>{
+                setMovieData({ ...movieData, title:e.target.value });
+                MECFormRef.current.setMovieTitle(e.target.value);
+              }}
               name="title" 
               label="Movie Title *" />
           </ValidatorForm>

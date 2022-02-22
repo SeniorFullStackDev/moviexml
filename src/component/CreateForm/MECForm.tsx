@@ -18,8 +18,8 @@ import SequenceInfoForm from 'component/MECSequenceInfoForm';
 import MECParentForm from 'component/MECParentForm';
 import MECCompanyDisplayCreditForm from 'component/MECCompanyDisplayCreditForm'
 import { SelectValidator } from 'react-material-ui-form-validator';
-import MECtContext from 'context/MECContext';
-import ContextTextValidator from 'component/ContextTextValidator';
+import MECContext from 'context/MECContext';
+import MECContextTextValidator from 'component/ContextTextValidator/MECContextTextValidator';
 
 interface Props {
   data?:any
@@ -29,20 +29,29 @@ const Index = React.forwardRef(({ data }:Props, ref) => {
 
   const formRef = React.useRef<any>();
 
-  const { mecJSON, setMECJSON } = React.useContext(MECtContext);
+  const { mecJSON, setMECJSON } = React.useContext(MECContext);
 
   const contentIDRef = useRef<any>();
 
   useImperativeHandle(ref, () => (
     {
       getFormData: () => {
+        if(formRef.current){
+          formRef.current.isFormValid().then((isValid:boolean)=>{
+            if(!isValid){
+              formRef.current.submit();
+              return;
+            }
+          })
+        }
         return mecJSON;
       },
       setMovieTitle:(title:string)=>{
-        console.log('setMovieTitle--->', title);
-        // update @contentID
-        const expectedContentID = `md:cid:org:amzn_studios:${title}`;
-        if(contentIDRef.current) contentIDRef.current.setValue(expectedContentID);
+
+        const contentID = `md:cid:org:amzn_studios:${title}`;
+        _.set(mecJSON, 'BasicMetadata-type.@ContentID', contentID);
+        setMECJSON({ ...mecJSON });
+        if(contentIDRef.current) contentIDRef.current.setValue(contentID);
       }
     }
   ), [data]);
@@ -63,7 +72,7 @@ const Index = React.forwardRef(({ data }:Props, ref) => {
         >
           <Typography >BasicMetadata-type</Typography>
           <Box sx = {{ pl:4 }}>
-            <ContextTextValidator
+            <MECContextTextValidator
               ref = {contentIDRef}
               validators={['required']}
               errorMessages={['this field is required']}
@@ -123,7 +132,7 @@ const Index = React.forwardRef(({ data }:Props, ref) => {
             <br/>
             <MECPeopleForm parentKey='BasicMetadata-type' />
             
-            <ContextTextValidator
+            <MECContextTextValidator
               name="BasicMetadata-type.OriginalLanguage" 
               label="OriginalLanguage *" 
               validators={['required']}

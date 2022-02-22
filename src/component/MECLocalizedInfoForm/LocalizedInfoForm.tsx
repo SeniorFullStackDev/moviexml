@@ -13,7 +13,7 @@ import GenreForm from './GenreForm';
 import MECContext from 'context/MECContext';
 import _ from 'lodash';
 
-import ContextTextValidator from 'component/ContextTextValidator';
+import MECContextTextValidator from 'component/ContextTextValidator/MECContextTextValidator';
 
 
 interface Props extends FormType {
@@ -47,17 +47,17 @@ export default ({ parentKey, data }:Props) => {
         { languages.map((ele:any, index:number)=><MenuItem key={index} value={ele.code}>{ele.language}</MenuItem>) }
       </SelectValidator>
       <br/>
-      <ContextTextValidator
+      <MECContextTextValidator
         name={`${parentKey}TitleDisplay19`}
         label="TitleDisplay19"
       />
       <br/>
-      <ContextTextValidator
+      <MECContextTextValidator
         name={`${parentKey}TitleDisplay60`}
         label="TitleDisplay60"
       />
       <br/>
-      <ContextTextValidator
+      <MECContextTextValidator
         validators={['required']}
         errorMessages={['this field is required']}
         label="TitleDisplayUnlimited *"
@@ -66,9 +66,9 @@ export default ({ parentKey, data }:Props) => {
 
       <ArtReferenceForm artreferences={localizedInfo.ArtReference} parentKey = {`${parentKey}.ArtReference`}/>
 
-      <ContextTextValidator name={`${parentKey}Summary190`} label="Summary190" />
+      <MECContextTextValidator name={`${parentKey}Summary190`} label="Summary190" />
       <br/>
-      <ContextTextValidator
+      <MECContextTextValidator
         name={`${parentKey}Summary400`} 
         label="Summary400 *" 
         style = {{ width:'100%' }}
@@ -77,7 +77,7 @@ export default ({ parentKey, data }:Props) => {
         validators={['required']}
         errorMessages={['this field is required']} />
       <br/>
-      <ContextTextValidator
+      <MECContextTextValidator
         name={`${parentKey}Summary4000`} 
         label="Summary4000"
         style = {{ width:'100%' }}
@@ -86,59 +86,59 @@ export default ({ parentKey, data }:Props) => {
       />
       <GenreForm parentKey = {`${parentKey}.Genre`} />
 
-      {/* <ContextTextValidator
+      {/* <MECContextTextValidator
         name="Keyword" label="Keyword" />
       <br />
-      <ContextTextValidator
+      <MECContextTextValidator
         name="VersionNotes" label="VersionNotes" /> */}
 
       <Typography >Region</Typography>
       <Box sx = {{ pl:4 }}>
-        <ContextTextValidator 
+        <MECContextTextValidator 
           name={`${parentKey}Region.Country`} label="Country" />
       </Box>
 
-      <ContextTextValidator
+      <MECContextTextValidator
         name={`${parentKey}OriginalTitle`} label="OriginalTitle" />
       <br />
-      <ContextTextValidator
+      <MECContextTextValidator
         name={`${parentKey}CopyrightLine`} label="CopyrightLine" />
       <br />
-      <ContextTextValidator
+      <MECContextTextValidator
         name={`${parentKey}PeopleLocal`} label="PeopleLocal" />
-      <ContextTextValidator
+      <MECContextTextValidator
         name={`${parentKey}Description`} label="Description" />
 
       {/* <Typography >ReleaseOrg</Typography>
             <Box sx = {{ pl:4 }}>
-              <ContextTextValidator
+              <MECContextTextValidator
               name="ReleaseOrg.@organizationID" label="@organizationID"/>
-              <ContextTextValidator
+              <MECContextTextValidator
               name="ReleaseOrg.@idType" label="@idType"/>
-              <ContextTextValidator
+              <MECContextTextValidator
               name="ReleaseOrg.@role" label="@role"/>
               <br/>
-              <ContextTextValidator
+              <MECContextTextValidator
               
                 name="ReleaseOrg.DisplayName" 
                 label="DisplayName *" 
                 validators={['required']}
                 errorMessages={['this field is required']}/>
               <br/>
-              <ContextTextValidator
+              <MECContextTextValidator
               name="ReleaseOrg.SortName" label="SortName" />
               <br/>
-              <ContextTextValidator
+              <MECContextTextValidator
               name="ReleaseOrg.AlternateName" label="AlternateName" />
               <br/>
-              <ContextTextValidator
+              <MECContextTextValidator
               
                 name="ReleaseOrg.WorkTypeDetail" 
                 label="WorkTypeDetail" />
               <br/>
             </Box> */}
             
-      {/* <ContextTextValidator
+      {/* <MECContextTextValidator
         name={`${parentKey}Location`} label="Location" /> */}
     </Box>
   )

@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Typography, Box } from '@mui/material';
 import { ValidatorForm } from 'react-material-ui-form-validator';
 import { FormType } from 'utils/types';
-import ContextTextValidator from 'component/ContextTextValidator';
+import MECContextTextValidator from 'component/ContextTextValidator/MECContextTextValidator';
 
 export default function({ parentKey }:FormType){
 
@@ -12,13 +12,13 @@ export default function({ parentKey }:FormType){
       <Box sx = {{ pl: 4 }}>
         <Typography >DisplayString</Typography>
         <Box sx = {{ pl: 4 }}>
-          <ContextTextValidator
+          <MECContextTextValidator
             name={`${parentKey}.DisplayString.@language`} 
             label="@language *" 
             validators={['required']}
             errorMessages={['this field is required']} />
           <br/>
-          <ContextTextValidator
+          <MECContextTextValidator
             name={`${parentKey}.DisplayString.value`} 
             label="DisplayString *" 
             validators={['required']}

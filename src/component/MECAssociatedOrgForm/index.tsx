@@ -1,20 +1,20 @@
 import React, { useState } from 'react';
 import { Typography, Box } from '@mui/material';
 import { FormType } from 'utils/types';
-import ContextTextValidator from 'component/ContextTextValidator';
+import MECContextTextValidator from 'component/ContextTextValidator/MECContextTextValidator';
 
 export default function({ parentKey }:FormType){
 
   return (<>
     <Typography >AssociatedOrg</Typography>
     <Box sx = {{ pl:4 }}>
-      <ContextTextValidator
+      <MECContextTextValidator
         name = {`${parentKey}.AssociatedOrg.@organizationID`}
         label = "@organizationID *" 
         validators={['required']}
         errorMessages={['this field is required']} />
       <br/>
-      <ContextTextValidator
+      <MECContextTextValidator
         name = {`${parentKey}.AssociatedOrg.@role`}
         label = "@role *" 
         validators={['required']}
