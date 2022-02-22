@@ -62,7 +62,7 @@ export default function({ parentKey }: FormType){
           inputFormat="yyyy-MM-DD"
           value = {formData.Date}
           onChange={(newval:any)=>{
-            _.set(mecJSON, `${parentKey}.ReleaseHistory.Date`, newval);
+            _.set(mecJSON, `${parentKey}.ReleaseHistory.Date`, newval.format('yyyy-MM-DD'));
             setMECJSON({ ...mecJSON });
           }}
           renderInput={(params:any) => <TextValidator  {...params} />}

@@ -1,13 +1,11 @@
-import React, { useEffect, useImperativeHandle, useRef, useState } from 'react';
+import React, { useImperativeHandle, useRef } from 'react';
 import { 
   Box, 
   MenuItem, 
   Typography
 } from '@mui/material';
 import { ValidatorForm, TextValidator } from 'react-material-ui-form-validator';
-import CustomTextValidator from 'component/CustomTextValidator';
 import _ from 'lodash';
-import languages from 'config/languages.json';
 
 import MECLocalizedInfoForm from 'component/MECLocalizedInfoForm';
 import MECRatingSetForm from 'component/MECRatingSetForm';
@@ -30,13 +28,10 @@ interface Props {
 const Index = React.forwardRef(({ data }:Props, ref) => {
 
   const formRef = React.useRef<any>();
-  // const [movieTitle, setMovieTitle] = useState<string>();
+
   const { mecJSON, setMECJSON } = React.useContext(MECtContext);
 
-  console.log('mecJSON --->', mecJSON);
-
   const contentIDRef = useRef<any>();
-
 
   useImperativeHandle(ref, () => (
     {
@@ -81,9 +76,9 @@ const Index = React.forwardRef(({ data }:Props, ref) => {
             <DesktopDatePicker 
               label="ReleaseYear"
               inputFormat="yyyy"
-              value = {_.get(mecJSON, 'BasicMetadata-type.ReleaseYear', null)}
+              value = {_.get(mecJSON, 'BasicMetadata-type.ReleaseYear', Date())}
               onChange={(newVal:any)=>{
-                _.set(mecJSON, 'BasicMetadata-type.ReleaseYear', newVal);
+                _.set(mecJSON, 'BasicMetadata-type.ReleaseYear', newVal.format('yyyy'));
                 setMECJSON({ ...mecJSON });
               }}
               renderInput={(params:any) => <TextValidator {...params} />}
@@ -92,9 +87,9 @@ const Index = React.forwardRef(({ data }:Props, ref) => {
             <DesktopDatePicker 
               label="ReleaseDate"
               inputFormat="yyyy-MM-DD"
-              value = {_.get(mecJSON, 'BasicMetadata-type.ReleaseDate', null)}
+              value = {_.get(mecJSON, 'BasicMetadata-type.ReleaseDate', Date())}
               onChange={(newVal:any)=>{
-                _.set(mecJSON, 'BasicMetadata-type.ReleaseDate', newVal);
+                _.set(mecJSON, 'BasicMetadata-type.ReleaseDate', newVal.format('yyyy-MM-DD'));
                 setMECJSON({ ...mecJSON });
               }}
               renderInput={(params:any) => <TextValidator {...params} />}
