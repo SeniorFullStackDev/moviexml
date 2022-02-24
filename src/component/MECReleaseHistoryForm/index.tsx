@@ -22,7 +22,7 @@ export default function({ parentKey }: FormType){
         <SelectValidator
           name={`${parentKey}.ReleaseHistory.ReleaseType`} 
           label="ReleaseType *" 
-          value = {formData.ReleaseType}
+          value = {formData.ReleaseType?formData.ReleaseType:''}
           defaultValue = "Original"
           validators={['required']}
           errorMessages={['this field is required']}

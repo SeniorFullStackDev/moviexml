@@ -6,7 +6,7 @@ import MECForm from './MECForm';
 import { Divider } from '@mui/material';
 import { ValidatorForm, TextValidator } from 'react-material-ui-form-validator';
 import { useParams } from 'react-router-dom';
-
+import CustomTextValidator from 'component/CustomTextValidator';
 // import { mec, mmc } from 'utils/demo';
 import { createNewMovie, getMovieDetail, updateMovie } from 'api'
 import _ from 'lodash';
@@ -22,9 +22,7 @@ export default function CreateForm() {
   const MMCFormRef = React.useRef<any>();
   const MECFormRef = React.useRef<any>();
   const [isRequesting, setIsRequesting] = React.useState(false);
-  const formDataRef = React.useRef<any>({});
-  // const [editing, setEditing] = React.useState(false);
-  const [movieData, setMovieData] = React.useState<any>({});
+  const [movieData, setMovieData] = React.useState<any>({ title:'' });
 
   const [mecJSON, setMECJSON] = React.useState<any>({});
 
@@ -37,7 +35,6 @@ export default function CreateForm() {
     if(id){
       getMovieDetail(id).then((res:any)=>{
         console.log(res.data);
-        formDataRef.current = res.data;
         setMovieData(res.data);
       }).catch((err)=>console.log);
     }
@@ -46,30 +43,26 @@ export default function CreateForm() {
   
 
   const handleSubmit = () => {
+
+    console.log('movieData ==>', movieData);
+
     const payload:any = {};
-    if(formDataRef.current){
-      if(formDataRef.current.title){
-        payload.title = formDataRef.current.title;
-      }else{
-        if(formRef.current) formRef.current.submit();
-        return;
-      }
+    if(movieData.title !== ''){
+      payload.title = movieData.title;
+    }else{
+      if(formRef.current) formRef.current.submit();
+      return;
     }
 
     if(MECFormRef.current){
       payload.mec = MECFormRef.current.getFormData();
     }
 
-    console.log('payload.mec ==>', payload.mec);
-
-    return;
-
     if(MMCFormRef.current){
       payload.mmc = MMCFormRef.current.getFormData();
     }
     if(payload.title && payload.mmc && payload.mec){
-      setIsRequesting(true);
-      1
+      // setIsRequesting(true);
       if(movieData.id){
         updateMovie(movieData.id, payload).then((res:any)=>{
           setIsRequesting(false);
@@ -79,13 +72,14 @@ export default function CreateForm() {
           console.log(err);
         });
       }else{
-        createNewMovie(payload).then((res:any)=>{
-          location.href = '/';
-          setIsRequesting(false);
-        }).catch(err=>{
-          setIsRequesting(false);
-          console.log(err);
-        });
+        console.log('payload ===>', payload);
+        // createNewMovie(payload).then((res:any)=>{
+        //   location.href = '/';
+        //   setIsRequesting(false);
+        // }).catch(err=>{
+        //   setIsRequesting(false);
+        //   console.log(err);
+        // });
       }
 
     }
@@ -109,7 +103,8 @@ export default function CreateForm() {
           >
             <Typography variant='h5'>{(id)?'Update':'New Movie'}</Typography>
             <br/>
-            <TextValidator
+            <CustomTextValidator
+              value = {movieData.title}
               validators={['required']} 
               errorMessages={['this field is required']}
               onBlur = {(e:any)=>{

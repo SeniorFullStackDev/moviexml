@@ -26,63 +26,63 @@ export default function({ parentKey }:FormType){
     const newItem:InventoryType = {
       Video:{
         '@VideoTrackID':'',
-        Type:'string',
+        Type:'',
         Picture:{
-          AspectRatio:'string',
-          WidthPixels:'string',
-          HeightPixels:'string',
+          AspectRatio:'',
+          WidthPixels:'',
+          HeightPixels:'',
           MasteredColorVolume:{
             PrimaryRChromaticity:{
-              ChromaticityCIEx:'string',
-              ChromaticityCIEy:'string',
+              ChromaticityCIEx:'',
+              ChromaticityCIEy:'',
             },
             PrimaryGChromaticity:{
-              ChromaticityCIEx:'string',
-              ChromaticityCIEy:'string',
+              ChromaticityCIEx:'',
+              ChromaticityCIEy:'',
             },
             PrimaryBChromaticity:{
-              ChromaticityCIEx:'string',
-              ChromaticityCIEy:'string',
+              ChromaticityCIEx:'',
+              ChromaticityCIEy:'',
             },
             WhitePointChromaticity:{
-              ChromaticityCIEx:'string',
-              ChromaticityCIEy:'string',
+              ChromaticityCIEx:'',
+              ChromaticityCIEy:'',
             },
-            LuminanceMin:'string',
-            LuminanceMax:'string',
+            LuminanceMin:'',
+            LuminanceMax:'',
           },
           LightLevel:{
-            ContentMax:'string',
-            FrameAverageMax:'string',
+            ContentMax:'',
+            FrameAverageMax:'',
           },
         },
-        Language:'string',
+        Language:'',
         ContainerReference:{
-          ContainerLocation:'string'
+          ContainerLocation:''
         }
       },
       Audio:{
-        '@AudioTrackID':'string',
-        Type:'string',
-        Language:'string',
+        '@AudioTrackID':'',
+        Type:'',
+        Language:'',
         ContainerReference: {
-          ContainerLocation:'string',
+          ContainerLocation:'',
         }
       },
       Subtitle:{
-        '@SubtitleTrackID':'string',
-        Format:'string',
-        Type:'string',
-        Language:'string',
+        '@SubtitleTrackID':'',
+        Format:'',
+        Type:'',
+        Language:'',
         Encoding:{
           FrameRate:{
-            '@multiplier':'string',
-            timecode:'string',
+            '@multiplier':'',
+            timecode:'',
             value:0,
           }
         },
         ContainerReference:{
-          ContainerLocation:'string',
+          ContainerLocation:'',
         }
       }
     }

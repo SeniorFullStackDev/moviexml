@@ -186,11 +186,19 @@ export default function({ parentKey, data }:Props){
           <MenuItem value="dialog centric">Dialog centric</MenuItem>
           <MenuItem value="commentary">Commentary</MenuItem>
         </SelectValidator>
-        <MMCContextTextValidator 
-          validators={['required']} 
-          errorMessages={['this field is required']} 
-          name={`${parentKey}.Audio.Language`} 
-          label="Language *"/><br/>
+        
+        <SelectValidator
+          defaultValue = "en-US"
+          name={`${parentKey}.Audio.Language`}
+          onChange = {(e:any) => {
+            _.set(mmcJSON, e.target.name, e.target.value);
+            setMMCJSON({ ...mmcJSON });
+          }}
+          label="@Language *"
+        >
+          { languages.map((ele:any, index:number)=><MenuItem key={index} value={ele.code}>{ele.language}</MenuItem>) }
+        </SelectValidator>
+
         <Typography >ContainerReference</Typography>
         <Box sx = {{ pl:4 }}>
           <MMCContextTextValidator 
@@ -213,16 +221,27 @@ export default function({ parentKey, data }:Props){
           errorMessages={['this field is required']} 
           name={`${parentKey}.Subtitle.Format`} 
           label="Format *"/><br/>
-        <MMCContextTextValidator 
+        <SelectValidator 
           validators={['required']} 
           errorMessages={['this field is required']} 
           name={`${parentKey}.Subtitle.Type`} 
-          label="Type *"/><br/>
-        <MMCContextTextValidator 
-          validators={['required']} 
-          errorMessages={['this field is required']} 
-          name={`${parentKey}.Subtitle.Language`} 
-          label="Language *"/><br/>
+          label="Type *">
+          <MenuItem value="Normal">Normal</MenuItem>
+          <MenuItem value="SDH">SDH</MenuItem>
+          <MenuItem value="SDH">Forced</MenuItem>
+        </SelectValidator>
+          
+        <SelectValidator
+          defaultValue = "en-US"
+          name={`${parentKey}.Subtitle.Language`}
+          onChange = {(e:any) => {
+            _.set(mmcJSON, e.target.name, e.target.value);
+            setMMCJSON({ ...mmcJSON });
+          }}
+          label="@Language *"
+        >
+          { languages.map((ele:any, index:number)=><MenuItem key={index} value={ele.code}>{ele.language}</MenuItem>) }
+        </SelectValidator>
 
         <Typography >Encoding</Typography>
         <Box sx = {{ pl:4 }}>

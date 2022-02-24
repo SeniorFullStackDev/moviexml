@@ -26,14 +26,14 @@ export default function({ parentKey, data }:Props){
           label="TrackSelectionNumber *"/><br/>
         <Box sx = {{ pl:4 }}>
           <Typography >VideoTrackReference</Typography>
-          <MMCContextTextValidator 
+          {/* <MMCContextTextValidator 
             validators={['required']} 
             errorMessages={['this field is required']} 
             name="parentKey.TrackMetadata.VideoTrackReference.VideoTrackID" 
-            label="VideoTrackID *"/><br/>
+            label="VideoTrackID *"/><br/> */}
 
-          <AudioTrackReferenceForm parentKey = "parentKey.TrackMetadata" />
-          <SubTitleTrackReferenceForm parentKey = "parentKey.TrackMetadata" />
+          {/* <AudioTrackReferenceForm parentKey = "parentKey.TrackMetadata" /> */}
+          {/* <SubTitleTrackReferenceForm parentKey = "parentKey.TrackMetadata" /> */}
         </Box>
       </Box>
     </Box>
