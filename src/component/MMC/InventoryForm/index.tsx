@@ -93,7 +93,7 @@ export default function({ parentKey }:FormType){
   const arr = _.get(mmcJSON, 'Inventories', []);
 
   return (
-    <Box>
+    <Box sx={{ m:1 }}>
       <Typography >Inventory</Typography>
       <Button variant='outlined' onClick={addMoreItem} startIcon = {<AddIcon />}>Add Inventory</Button>
       <Box sx = {{ mt:1 }}>

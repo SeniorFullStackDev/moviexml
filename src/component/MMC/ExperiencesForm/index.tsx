@@ -41,7 +41,7 @@ export default function(){
   const experiences = _.get(mmcJSON, 'Experiences', []);
 
   return (
-    <Box>
+    <Box sx = {{ m:1 }}>
       <Typography >Experiences</Typography>
       <Button variant='outlined' onClick={addMoreItem} startIcon = {<AddIcon />}>Add Experience</Button>
       <Box sx = {{ mt:1 }}>

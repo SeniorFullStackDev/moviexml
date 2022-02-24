@@ -1,11 +1,17 @@
-import { Box, TextField, Typography  } from '@mui/material';
+import React from 'react';
+import { Box, MenuItem, TextField, Typography  } from '@mui/material';
 import MMCContextTextValidator from 'component/ContextTextValidator/MMCContextTextValidator';
+import { SelectValidator } from 'react-material-ui-form-validator';
 import { FormType, InventoryType } from 'utils/types';
+import MMCContext from 'context/MMCContext';
+import languages from 'config/languages.json';
+import _ from 'lodash';
 
 interface Props extends FormType {
  data:InventoryType
 }
 export default function({ parentKey, data }:Props){
+  const { mmcJSON, setMMCJSON } = React.useContext(MMCContext);
   return (
     <Box>
       <Typography >Video</Typography>
@@ -15,11 +21,31 @@ export default function({ parentKey, data }:Props){
           errorMessages={['this field is required']} 
           name={`${parentKey}.Video.@VideoTrackID`} 
           label="@VideoTrackID *"/><br/>
-        <MMCContextTextValidator 
-          validators={['required']} 
-          errorMessages={['this field is required']} 
+
+        <SelectValidator 
           name={`${parentKey}.Video.Type`} 
-          label="Type *"/><br/>
+          label="Type *"
+          onChange = {(e:any) => {
+            _.set(mmcJSON, e.target.name, e.target.value);
+            setMMCJSON({ ...mmcJSON });
+          }}
+        >
+          <MenuItem value="primary">Primary</MenuItem>
+          <MenuItem value="other">Other</MenuItem>
+        </SelectValidator>
+        <br/>
+
+        <SelectValidator
+          defaultValue = "en-US"
+          name={`${parentKey}.Video.Language`} 
+          onChange = {(e:any) => {
+            _.set(mmcJSON, e.target.name, e.target.value);
+            setMMCJSON({ ...mmcJSON });
+          }}
+          label="@Language *"
+        >
+          { languages.map((ele:any, index:number)=><MenuItem key={index} value={ele.code}>{ele.language}</MenuItem>) }
+        </SelectValidator>
 
         <Typography >Picture</Typography>
         <Box sx = {{ pl:4 }}>
@@ -128,11 +154,7 @@ export default function({ parentKey, data }:Props){
 
         </Box>
 
-        <MMCContextTextValidator 
-          validators={['required']} 
-          errorMessages={['this field is required']} 
-          name={`${parentKey}.Video.Language`} 
-          label="Language *"/><br/>
+        
 
         <Typography >ContainerReference</Typography>
         <Box sx = {{ pl:4 }}>
@@ -152,11 +174,18 @@ export default function({ parentKey, data }:Props){
           errorMessages={['this field is required']} 
           name={`${parentKey}.Audio.@AudioTrackID`} 
           label="@AudioTrackID *"/><br/>
-        <MMCContextTextValidator 
-          validators={['required']} 
-          errorMessages={['this field is required']} 
+        <SelectValidator 
           name={`${parentKey}.Audio.Type`} 
-          label="Type *"/><br/>
+          onChange = {(e:any) => {
+            _.set(mmcJSON, e.target.name, e.target.value);
+            setMMCJSON({ ...mmcJSON });
+          }}
+          label="Type *">
+          <MenuItem value="primary">Primary</MenuItem>
+          <MenuItem value="narration ">Narration</MenuItem>
+          <MenuItem value="dialog centric">Dialog centric</MenuItem>
+          <MenuItem value="commentary">Commentary</MenuItem>
+        </SelectValidator>
         <MMCContextTextValidator 
           validators={['required']} 
           errorMessages={['this field is required']} 

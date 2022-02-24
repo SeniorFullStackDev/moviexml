@@ -33,60 +33,56 @@ export default function(){
 
 
   return (
-    <Box>
-      <Typography >PlayableSequences</Typography>
+    <Box sx = {{ mt:1 }}>
+      <Typography sx = {{ ml:1 }}>PlayableSequences</Typography>
+      <MMCContextTextValidator 
+        validators={['required']} 
+        errorMessages={['this field is required']} 
+        name="PlayableSequences.PlayableSequence.@PlayableSequenceID" 
+        label="PlayableSequenceID *"/>
       <Box sx = {{ m:1 }}>
-        <Typography >PlayableSequence</Typography>
+        <Typography >Clip</Typography>
+        <Button variant='outlined' onClick={addMoreItem} startIcon = {<AddIcon />}>Add Clip</Button>
         <Box sx = {{ m:1 }}>
-          <MMCContextTextValidator 
-            validators={['required']} 
-            errorMessages={['this field is required']} 
-            name="PlayableSequences.PlayableSequence.@PlayableSequenceID" 
-            label="PlayableSequenceID *"/><br/>
-
-          <Typography >Clip</Typography>
-          <Button variant='outlined' onClick={addMoreItem} startIcon = {<AddIcon />}>Add Clip</Button>
-          <Box sx = {{ mt:1 }}>
-            {
-              arr.map((ele:ClipType, index:number)=>
-                <Accordion 
-                  key = {`${ele['@sequence']}-${index}`} 
-                  expanded={expanded === `panel-${index}`} 
-                  onChange={handleChange(`panel-${index}`)}>
-                  <AccordionSummary aria-controls={`panel${index}d-content`} id={`panel${index}d-content`}>
-                    <Box sx = {{ display:'flex', justifyContent:'space-between', width:'100%', alignItems:'center' }}>
-                      <Typography>#{index}</Typography>
-                      <IconButton
-                        onClick = {()=>{
-                          _.omit(mmcJSON, [`PlayableSequences.PlayableSequence.Clips[${index}]`]);
-                          setMMCJSON({ ...mmcJSON });
-                        }}
-                      ><DeleteOutline /></IconButton>
-                    </Box>
-                  </AccordionSummary>
-                  <AccordionDetails>
-                    <Box sx = {{ m:1 }}>
-                      <MMCContextTextValidator 
-                        validators={['required']} 
-                        errorMessages={['this field is required']} 
-                        name={`PlayableSequences.PlayableSequence.Clips[${index}].@sequence`} 
-                        label="@sequence *"/><br/>
-                      <MMCContextTextValidator 
-                        validators={['required']} 
-                        errorMessages={['this field is required']} 
-                        name={`PlayableSequences.PlayableSequence.Clips[${index}].@audioLanguage`} 
-                        label="@audioLanguage *"/><br/>
-                      <MMCContextTextValidator 
-                        validators={['required']} 
-                        errorMessages={['this field is required']} 
-                        name={`PlayableSequences.PlayableSequence.Clips[${index}].PresentationID`} 
-                        label="PresentationID *"/><br/>
-                    </Box>
-                  </AccordionDetails>
-                </Accordion>
-              )
-            }
-          </Box>
+          {
+            arr.map((ele:ClipType, index:number)=>
+              <Accordion 
+                key = {`${ele['@sequence']}-${index}`} 
+                expanded={expanded === `panel-${index}`} 
+                onChange={handleChange(`panel-${index}`)}>
+                <AccordionSummary aria-controls={`panel${index}d-content`} id={`panel${index}d-content`}>
+                  <Box sx = {{ display:'flex', justifyContent:'space-between', width:'100%', alignItems:'center' }}>
+                    <Typography>#{index}</Typography>
+                    <IconButton
+                      onClick = {()=>{
+                        _.omit(mmcJSON, [`PlayableSequences.PlayableSequence.Clips[${index}]`]);
+                        setMMCJSON({ ...mmcJSON });
+                      }}
+                    ><DeleteOutline /></IconButton>
+                  </Box>
+                </AccordionSummary>
+                <AccordionDetails>
+                  <Box sx = {{ m:1 }}>
+                    <MMCContextTextValidator 
+                      validators={['required']} 
+                      errorMessages={['this field is required']} 
+                      name={`PlayableSequences.PlayableSequence.Clips[${index}].@sequence`} 
+                      label="@sequence *"/><br/>
+                    <MMCContextTextValidator 
+                      validators={['required']} 
+                      errorMessages={['this field is required']} 
+                      name={`PlayableSequences.PlayableSequence.Clips[${index}].@audioLanguage`} 
+                      label="@audioLanguage *"/><br/>
+                    <MMCContextTextValidator 
+                      validators={['required']} 
+                      errorMessages={['this field is required']} 
+                      name={`PlayableSequences.PlayableSequence.Clips[${index}].PresentationID`} 
+                      label="PresentationID *"/><br/>
+                  </Box>
+                </AccordionDetails>
+              </Accordion>
+            )
+          }
         </Box>
       </Box>
     </Box>

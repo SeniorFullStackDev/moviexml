@@ -39,10 +39,9 @@ export default function(){
   const arr = _.get(mmcJSON, 'Presentations', []);
 
   return (
-    <Box>
+    <Box sx = {{ m:1 }}>
       <Typography >Presentations *</Typography>
-      <Box sx = {{ m:1 }}>
-        <Typography >Presentation *</Typography>
+      <Box sx = {{ mt:1 }}>
         <Button variant='outlined' onClick={addMoreItem} startIcon = {<AddIcon />}>Add Presentation</Button>
         <Box sx = {{ mt:1 }}>
           {

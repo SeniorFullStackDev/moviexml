@@ -4,22 +4,19 @@ import { FormType } from 'utils/types';
 
 export default function(){
   return (
-    <Box>
+    <Box sx = {{ m:1 }}>
       <Typography >ALIDExperienceMaps</Typography>
-      <Box sx = {{ pl:4 }}>
-        <Typography >ALIDExperienceMap</Typography>
-        <Box sx = {{ pl:4 }}>
-          <MMCContextTextValidator 
-            validators={['required']} 
-            errorMessages={['this field is required']} 
-            name="ALIDExperienceMaps.ALIDExperienceMap.ALID" 
-            label="ALID *"/><br/>
-          <MMCContextTextValidator 
-            validators={['required']} 
-            errorMessages={['this field is required']} 
-            name="ALIDExperienceMaps.ALIDExperienceMap.ExperienceID" 
-            label="ExperienceID *"/><br/>
-        </Box>
+      <Box>
+        <MMCContextTextValidator 
+          validators={['required']} 
+          errorMessages={['this field is required']} 
+          name="ALIDExperienceMaps.ALIDExperienceMap.ALID" 
+          label="ALID *"/><br/>
+        <MMCContextTextValidator 
+          validators={['required']} 
+          errorMessages={['this field is required']} 
+          name="ALIDExperienceMaps.ALIDExperienceMap.ExperienceID" 
+          label="ExperienceID *"/><br/>
       </Box>
     </Box>
   );

@@ -4,8 +4,6 @@ import { ValidatorForm, TextValidator } from 'react-material-ui-form-validator';
 
 import MMCContext from 'context/MMCContext';
 import _ from 'lodash';
-import MMCContextTextValidator from 'component/ContextTextValidator/MMCContextTextValidator';
-import CompatibilityForm from 'component/MMC/CompatibilityForm';
 import InventoryForm from 'component/MMC/InventoryForm';
 import PresentationsForm from 'component/MMC/PresentationsForm';
 import PlayableSequencesForm from 'component/MMC/PlayableSequencesForm';
@@ -65,7 +63,6 @@ const Index = React.forwardRef(({ data }:Props, ref) => {
         >
           <Typography >MediaManifest-type</Typography>
           <Box sx = {{ pl:4 }}>
-            <CompatibilityForm parentKey='Compatibility'/>
 
             <InventoryForm parentKey='Inventory'/>
 
