@@ -29,13 +29,16 @@ export default function CreateForm() {
   const mecCxtValue = React.useMemo(() => ({ mecJSON, setMECJSON }), [mecJSON, movieData]);
 
   const [mmcJSON, setMMCJSON] = React.useState<any>({});
-  const mmcCxtValue = React.useMemo(() => ({ mmcJSON, setMMCJSON }), [movieData]);
+  const mmcCxtValue = React.useMemo(() => ({ mmcJSON, setMMCJSON }), [mmcJSON, movieData]);
 
   React.useEffect(()=>{
     if(id){
       getMovieDetail(id).then((res:any)=>{
         console.log(res.data);
         setMovieData(res.data);
+        setMECJSON(res.data.mec);
+        console.log('res.data.mmc --->', res.data.mmc);
+        setMMCJSON(res.data.mmc);
       }).catch((err)=>console.log);
     }
   }, [id]);
@@ -73,13 +76,13 @@ export default function CreateForm() {
         });
       }else{
         console.log('payload ===>', payload);
-        // createNewMovie(payload).then((res:any)=>{
-        //   location.href = '/';
-        //   setIsRequesting(false);
-        // }).catch(err=>{
-        //   setIsRequesting(false);
-        //   console.log(err);
-        // });
+        createNewMovie(payload).then((res:any)=>{
+          location.href = '/';
+          setIsRequesting(false);
+        }).catch(err=>{
+          setIsRequesting(false);
+          console.log(err);
+        });
       }
 
     }

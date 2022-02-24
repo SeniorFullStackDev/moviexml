@@ -15,10 +15,8 @@ const Index = React.forwardRef((props:any, ref) => {
   ), []);
 
   useEffect(()=>{
-    if(props.formData){
-      setValue(_.get(props.formData, props.name, ''));
-    }
-  }, [props.formData])
+    setValue(props.value);
+  }, [props.value])
   
   return (
     <TextValidator {...props} value = {value} style = {(props.style)?{ ...props.style, minWidth:'500px' }:{ minWidth:'500px' }} onChange = {(e:any)=>{

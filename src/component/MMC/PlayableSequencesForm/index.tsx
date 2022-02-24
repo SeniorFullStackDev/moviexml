@@ -36,7 +36,7 @@ export default function(){
     <Box sx = {{ mt:1 }}>
       <Typography sx = {{ ml:1 }}>PlayableSequences</Typography>
       <MMCContextTextValidator 
-        validators={['required']} 
+        validators={['required']}
         errorMessages={['this field is required']} 
         name="PlayableSequences.PlayableSequence.@PlayableSequenceID" 
         label="PlayableSequenceID *"/>

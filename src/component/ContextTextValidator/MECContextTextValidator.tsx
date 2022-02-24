@@ -1,4 +1,4 @@
-import React, { useImperativeHandle, useRef } from 'react';
+import React, { useEffect, useImperativeHandle, useRef } from 'react';
 import MECContext from 'context/MECContext';
 import { styled } from '@mui/material/styles';
 import { TextValidator } from 'react-material-ui-form-validator'
@@ -16,6 +16,10 @@ const Index = React.forwardRef((props:any, ref) => {
       }
     }
   ), []);
+
+  useEffect(()=>{
+    setValue(_.get(mecJSON, props.name, ''));
+  }, [_.get(mecJSON, props.name, '')])
 
 
   return <TextValidator {...props} ref = {inputRef}

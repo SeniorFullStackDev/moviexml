@@ -25,7 +25,6 @@ export default ({ parentKey, data }:Props) => {
   const [localizedInfo, setLocalizedInfo] = React.useState(data);
 
   const { mecJSON, setMECJSON } = React.useContext(MECContext);
-
   return (
     <Box sx = {{ pl:4 }}>
       <SelectValidator
@@ -39,7 +38,6 @@ export default ({ parentKey, data }:Props) => {
 
           _.set(mecJSON, e.target.name, e.target.value);
           setMECJSON({ ...mecJSON });
-
         }}
         name={`${parentKey}.@Language`}
         label="@Language *"

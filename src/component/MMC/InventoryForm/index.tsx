@@ -92,6 +92,8 @@ export default function({ parentKey }:FormType){
 
   const arr = _.get(mmcJSON, 'Inventories', []);
 
+  console.log('mmcJSON -->', mmcJSON);
+
   return (
     <Box sx={{ m:1 }}>
       <Typography >Inventory</Typography>

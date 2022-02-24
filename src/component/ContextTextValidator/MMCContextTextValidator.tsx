@@ -1,4 +1,4 @@
-import React, { useImperativeHandle, useRef } from 'react';
+import React, { useEffect, useImperativeHandle, useRef } from 'react';
 import MMCContext from 'context/MMCContext';
 import { styled } from '@mui/material/styles';
 import { TextValidator } from 'react-material-ui-form-validator'
@@ -8,7 +8,6 @@ const Index = React.forwardRef((props:any, ref) => {
   const { mmcJSON, setMMCJSON } = React.useContext(MMCContext);
   const [value, setValue] = React.useState(_.get(mmcJSON, props.name, ''));
   const inputRef = useRef<any>();
-
   useImperativeHandle(ref, () => (
     {
       setValue:(title:string)=>{
@@ -16,6 +15,10 @@ const Index = React.forwardRef((props:any, ref) => {
       }
     }
   ), []);
+
+  useEffect(()=>{
+    setValue(_.get(mmcJSON, props.name, ''));
+  }, [_.get(mmcJSON, props.name, '')])
 
 
   return <TextValidator {...props} ref = {inputRef}
