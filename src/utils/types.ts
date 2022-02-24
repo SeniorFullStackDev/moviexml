@@ -62,9 +62,9 @@ export type CompatibilityType = {
 }
 
 export type InventoryType = {
-    Videos:VideoType[];
-    Audios:AudioType[];
-    Subtitles:SubtitleType[];
+    Video:VideoType;
+    Audio:AudioType;
+    Subtitle:SubtitleType;
 }
 
 export type AudioTrackReferenceType = {

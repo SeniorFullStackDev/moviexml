@@ -69,7 +69,7 @@ const Index = React.forwardRef(({ data }:Props, ref) => {
 
             <InventoryForm parentKey='Inventory'/>
 
-            <PresentationsForm parentKey='Presentations' />
+            <PresentationsForm />
 
             <PlayableSequencesForm />
 

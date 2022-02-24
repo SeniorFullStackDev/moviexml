@@ -2,15 +2,15 @@ import React from 'react';
 import { Box, TextField, Typography, Button, IconButton  } from '@mui/material';
 import MMCContextTextValidator from 'component/ContextTextValidator/MMCContextTextValidator';
 import MMCContext from 'context/MMCContext';
+import _ from 'lodash';
 import AddIcon from '@mui/icons-material/Add';
 import { Accordion, AccordionSummary, AccordionDetails } from 'component/CustomAccordion'
-import _ from 'lodash';
 import { FormType, PresentationType } from 'utils/types';
 import { DeleteOutline } from '@mui/icons-material';
 import PresentationForm from './PresentationForm';
 
 
-export default function({ parentKey }:FormType){
+export default function(){
 
   const { mmcJSON, setMMCJSON } = React.useContext(MMCContext);
 
