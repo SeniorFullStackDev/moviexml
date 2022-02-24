@@ -59,6 +59,7 @@ const Index = React.forwardRef(({ data }:Props, ref) => {
         >
           <Typography >MediaManifest-type</Typography>
           <Box sx = {{ pl:4 }}>
+            
             <Typography >Compatibility</Typography>
             <Box sx = {{ pl:4 }}>
               <MMCContextTextValidator 
