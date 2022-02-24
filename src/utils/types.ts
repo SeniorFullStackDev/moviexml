@@ -67,17 +67,20 @@ export type InventoryType = {
     Subtitles:SubtitleType[];
 }
 
+export type AudioTrackReferenceType = {
+    AudioTrackID:string;
+};
+export type SubtitleTrackReferenceType = {
+    SubtitleTrackID:string;
+};
+
 export type TrackReferenceType = {
     VideoTrackReference: {
         VideoTrackReference?:{
             VideoTrackID:string;
         };
-        AudioTrackReference?:{
-            AudioTrackID:string;
-        };
-        SubtitleTrackReference?: {
-            SubtitleTrackID:string;
-        }
+        AudioTrackReferences?:AudioTrackReferenceType[];
+        SubtitleTrackReference?: SubtitleTrackReferenceType[];
     }
 }
 
@@ -93,20 +96,24 @@ export type PresentationsType = {
     Presentation:PresentationType
 }
 
-export type PlayableSequenceType = {
-    '@PlayableSequenceID':string;
-    Clip: {
-        '@sequence':string
-        PresentationID:string
-    }
+export type ClipType = {
+    '@sequence':string
+    '@audioLanguage'?:string
+    PresentationID:string
 }
 export type PlayableSequencesType = {
-    PlayableSequences:PlayableSequenceType[]
+    PlayableSequences:{
+        PlayableSequence:{
+            PlayableSequenceID:string;
+            clips:ClipType[]
+        };
+    }
 }
 
 export type ExperienceType = {
     '@ExperienceID':string;
     '@version':string;
+    '@ContentID':string;
     Audiovisual: {
         Type:string;
         SubType:string;
