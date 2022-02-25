@@ -9,53 +9,38 @@ import _ from 'lodash';
 export default ({ parentKey }:FormType) => {
 
   const { mecJSON, setMECJSON } = React.useContext(MECContext);
+  
+  const country = _.get(mecJSON, `${parentKey}.Rating.Region.Country`);
 
-  const [countries, setCountries] = React.useState<any[]>([]);
-  const [systems, setSystems] = React.useState<any[]>([]);
-  const [values, setValues] = React.useState<any[]>([]);
-
-  const [country, setCountry] = React.useState();
-  const [system, setSystem] = React.useState();
-  const [value, setValue] = React.useState();
-
-
-  React.useEffect(()=>{
-    const temArr:any[] = [];
-    ratings.forEach(element => {
-      const index = temArr.indexOf(element.region);
-      if(index == -1){
-        temArr.push(element.region);
-      }
-      setCountries(temArr);
-    });
-  }, []);
-
-  React.useEffect(()=>{
-    const temArr:any[] = [];
-    ratings.forEach(element => {
-      const index = temArr.indexOf(element.system);
-      if(element.region == country && index == -1){
-        temArr.push(element.system);
-      }
-      setSystems(temArr);
-    });
-    setSystem(undefined);
-    setValue(undefined);
-  }, [country]);
-
-  React.useEffect(()=>{
-    const temArr:any[] = [];
-    if(system){
-      ratings.forEach(element => {
-        const index = temArr.indexOf(element.ratings);
-        if(element.region == country && element.system == system && index == -1){
-          temArr.push(element.ratings);
-        }
-        setValues(temArr);
-      });
-      setValue(undefined);
+  const countries:any[] = [];
+  ratings.forEach(element => {
+    const index = countries.indexOf(element.region);
+    if(index == -1){
+      countries.push(element.region);
     }
-  }, [country, system]);
+  });
+
+
+  const systems:any[] = [];
+  ratings.forEach(element => {
+    const index = systems.indexOf(element.system);
+    if(element.region == country && index == -1){
+      systems.push(element.system);
+    }
+  });
+
+  const values:any[] = [];
+  const system = _.get(mecJSON, `${parentKey}.Rating.System`,'');
+  if(system){
+    ratings.forEach(element => {
+      const index = values.indexOf(element.ratings);
+      if(element.region == country && element.system == system && index == -1){
+        values.push(element.ratings);
+      }
+    });
+  }
+
+  const value = _.get(mecJSON, `${parentKey}.Rating.Value`,'');
   
   return(
     <Box sx = {{ pl:4 }}>
@@ -63,12 +48,11 @@ export default ({ parentKey }:FormType) => {
       <Box sx = {{ pl:4 }}>
         <SelectValidator
           name = {`${parentKey}.Rating.Region.Country`}
+          value = {country}
           label = "Country *" 
           validators={['required']}
           errorMessages={['this field is required']}
           onChange = {(event:any)=>{
-            setCountry(event.target.value);
-
             _.set(mecJSON, event.target.name, event.target.value);
             setMECJSON({ ...mecJSON });
           }}
@@ -81,10 +65,10 @@ export default ({ parentKey }:FormType) => {
       <SelectValidator
         name = {`${parentKey}.Rating.System`} 
         label = "System *" 
+        value = {system}
         validators={['required']}
         errorMessages={['this field is required']}
         onChange = {(event:any)=>{
-          setSystem(event.target.value);
           _.set(mecJSON, event.target.name, event.target.value);
           setMECJSON({ ...mecJSON });
         }}
@@ -96,11 +80,11 @@ export default ({ parentKey }:FormType) => {
       <br/>
       <SelectValidator
         name = {`${parentKey}.Rating.Value`}  
+        value = {value}
         label = "Value *" 
         validators={['required']}
         errorMessages={['this field is required']}
         onChange = {(event:any)=>{
-          setValue(event.target.value);
           _.set(mecJSON, event.target.name, event.target.value);
           setMECJSON({ ...mecJSON });
         }}

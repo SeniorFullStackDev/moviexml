@@ -26,6 +26,8 @@ export default function CreateForm() {
 
   const [mecJSON, setMECJSON] = React.useState<any>({});
 
+  console.log('mecJSON ===>', mecJSON);
+
   const mecCxtValue = React.useMemo(() => ({ mecJSON, setMECJSON }), [mecJSON, movieData]);
 
   const [mmcJSON, setMMCJSON] = React.useState<any>({});
@@ -34,48 +36,26 @@ export default function CreateForm() {
   React.useEffect(()=>{
     if(id){
       getMovieDetail(id).then((res:any)=>{
-        console.log(res.data);
         setMovieData(res.data);
         setMECJSON(res.data.mec);
-        console.log('res.data.mmc --->', res.data.mmc);
         setMMCJSON(res.data.mmc);
       }).catch((err)=>console.log);
     }
   }, [id]);
 
-  
+  const onSubmit = () => {
 
-  const handleSubmit = () => {
+    const payload = { title:movieData.title, mec:mecJSON, mmc:mmcJSON };
 
-    console.log('movieData ==>', movieData);
-
-    const payload:any = {};
-    if(movieData.title !== ''){
-      payload.title = movieData.title;
-    }else{
-      if(formRef.current) formRef.current.submit();
-      return;
-    }
-
-    if(MECFormRef.current){
-      payload.mec = MECFormRef.current.getFormData();
-    }
-
-    if(MMCFormRef.current){
-      payload.mmc = MMCFormRef.current.getFormData();
-    }
     if(payload.title && payload.mmc && payload.mec){
-      // setIsRequesting(true);
       if(movieData.id){
         updateMovie(movieData.id, payload).then((res:any)=>{
           setIsRequesting(false);
-          // location.href = '/';
         }).catch(err=>{
           setIsRequesting(false);
           console.log(err);
         });
       }else{
-        console.log('payload ===>', payload);
         createNewMovie(payload).then((res:any)=>{
           location.href = '/';
           setIsRequesting(false);
@@ -95,15 +75,13 @@ export default function CreateForm() {
           <Button  variant='outlined'>Back</Button>
         </Link>
       </Box>
-      <Box>
-        <Box sx = {{ mb:'20px', mt:'20px' }}>
-          <ValidatorForm
-            ref = {formRef}
-            autoComplete="off"
-            onSubmit = {()=>{
-              return false;
-            }}
-          >
+      <ValidatorForm
+        ref = {formRef}
+        autoComplete="off"
+        onSubmit = {onSubmit}
+      >
+        <Box>
+          <Box sx = {{ mb:'20px', mt:'20px' }}>
             <Typography variant='h5'>{(id)?'Update':'New Movie'}</Typography>
             <br/>
             <CustomTextValidator
@@ -112,32 +90,35 @@ export default function CreateForm() {
               errorMessages={['this field is required']}
               onBlur = {(e:any)=>{
                 setMovieData({ ...movieData, title:e.target.value });
-                MECFormRef.current.setMovieTitle(e.target.value);
+                const contentID = `md:cid:org:amzn_studios:${e.target.value}`;
+                _.set(mecJSON, 'BasicMetadata-type.@ContentID', contentID);
+                setMECJSON({ ...mecJSON });
               }}
               name="title" 
               label="Movie Title *" />
-          </ValidatorForm>
-        </Box>
-        <Divider />
-        <Box sx={{ width: '100%', mt:'20px' }}>
-          <Grid container spacing={2}>
-            <Grid item xs={12}>
-              <MECContext.Provider value={mecCxtValue}>
-                <MECForm ref = {MECFormRef} data = {movieData.mec} />
-              </MECContext.Provider>
+          
+          </Box>
+          <Divider />
+          <Box sx={{ width: '100%', mt:'20px' }}>
+            <Grid container spacing={2}>
+              <Grid item xs={12}>
+                <MECContext.Provider value={mecCxtValue}>
+                  <MECForm movieTitle = {movieData.title} />
+                </MECContext.Provider>
+              </Grid>
+              <Grid item xs={12}>
+                <Divider />
+                <MMCContext.Provider value={mmcCxtValue}>
+                  <MMCForm />
+                </MMCContext.Provider>
+              </Grid>
             </Grid>
-            <Grid item xs={12}>
-              <Divider />
-              <MMCContext.Provider value={mmcCxtValue}>
-                <MMCForm ref = {MMCFormRef} data = {movieData.mmc} />
-              </MMCContext.Provider>
-            </Grid>
-          </Grid>
+          </Box>
         </Box>
-      </Box>
-      <Box>
-        <Button onClick={handleSubmit} variant="outlined" disabled = {isRequesting}>Submit</Button>
-      </Box>
+        <Box>
+          <Button type='submit' variant="outlined" disabled = {isRequesting}>Submit</Button>
+        </Box>
+      </ValidatorForm>
     </Box>
   );
 }

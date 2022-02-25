@@ -23,7 +23,8 @@ export default function({ parentKey, data }:Props){
           label="@VideoTrackID *"/><br/>
 
         <SelectValidator 
-          name={`${parentKey}.Video.Type`} 
+          name={`${parentKey}.Video.Type`}
+          value = {_.get(mmcJSON, `${parentKey}.Video.Type`, '')}
           label="Type *"
           onChange = {(e:any) => {
             _.set(mmcJSON, e.target.name, e.target.value);
@@ -176,6 +177,7 @@ export default function({ parentKey, data }:Props){
           label="@AudioTrackID *"/><br/>
         <SelectValidator 
           name={`${parentKey}.Audio.Type`} 
+          value = {_.get(mmcJSON, `${parentKey}.Audio.Type`, '')}
           onChange = {(e:any) => {
             _.set(mmcJSON, e.target.name, e.target.value);
             setMMCJSON({ ...mmcJSON });
@@ -222,13 +224,16 @@ export default function({ parentKey, data }:Props){
           name={`${parentKey}.Subtitle.Format`} 
           label="Format *"/><br/>
         <SelectValidator 
-          validators={['required']} 
-          errorMessages={['this field is required']} 
           name={`${parentKey}.Subtitle.Type`} 
+          value = {_.get(mmcJSON, `${parentKey}.Subtitle.Type`, '')}
+          onChange = {(e:any) => {
+            _.set(mmcJSON, e.target.name, e.target.value);
+            setMMCJSON({ ...mmcJSON });
+          }}
           label="Type *">
           <MenuItem value="Normal">Normal</MenuItem>
           <MenuItem value="SDH">SDH</MenuItem>
-          <MenuItem value="SDH">Forced</MenuItem>
+          <MenuItem value="Forced">Forced</MenuItem>
         </SelectValidator>
           
         <SelectValidator

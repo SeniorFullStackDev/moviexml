@@ -12,7 +12,7 @@ import ArtReferenceForm from './ArtReferenceForm';
 import GenreForm from './GenreForm';
 import MECContext from 'context/MECContext';
 import _ from 'lodash';
-
+import iso from 'iso-3166-1';
 import MECContextTextValidator from 'component/ContextTextValidator/MECContextTextValidator';
 
 
@@ -84,16 +84,19 @@ export default ({ parentKey, data }:Props) => {
       />
       <GenreForm parentKey = {`${parentKey}.Genre`} />
 
-      {/* <MECContextTextValidator
-        name="Keyword" label="Keyword" />
-      <br />
-      <MECContextTextValidator
-        name="VersionNotes" label="VersionNotes" /> */}
-
       <Typography >Region</Typography>
       <Box sx = {{ pl:4 }}>
-        <MECContextTextValidator 
-          name={`${parentKey}Region.Country`} label="Country" />
+        <SelectValidator
+          name={`${parentKey}.Region.Country`}
+          label="Country"
+          value = {_.get(mecJSON, `${parentKey}.Region.Country`, '' )}
+          onChange = {(e:any) => {
+            _.set(mecJSON, e.target.name, e.target.value);
+            setMECJSON({ ...mecJSON });
+          }}
+        >
+          { iso.all().map((ele:any, index:number)=><MenuItem key={index} value={ele.alpha2}>{ele.country}</MenuItem>) }
+        </SelectValidator>
       </Box>
 
       <MECContextTextValidator
@@ -106,38 +109,6 @@ export default ({ parentKey, data }:Props) => {
         name={`${parentKey}PeopleLocal`} label="PeopleLocal" />
       <MECContextTextValidator
         name={`${parentKey}Description`} label="Description" />
-
-      {/* <Typography >ReleaseOrg</Typography>
-            <Box sx = {{ pl:4 }}>
-              <MECContextTextValidator
-              name="ReleaseOrg.@organizationID" label="@organizationID"/>
-              <MECContextTextValidator
-              name="ReleaseOrg.@idType" label="@idType"/>
-              <MECContextTextValidator
-              name="ReleaseOrg.@role" label="@role"/>
-              <br/>
-              <MECContextTextValidator
-              
-                name="ReleaseOrg.DisplayName" 
-                label="DisplayName *" 
-                validators={['required']}
-                errorMessages={['this field is required']}/>
-              <br/>
-              <MECContextTextValidator
-              name="ReleaseOrg.SortName" label="SortName" />
-              <br/>
-              <MECContextTextValidator
-              name="ReleaseOrg.AlternateName" label="AlternateName" />
-              <br/>
-              <MECContextTextValidator
-              
-                name="ReleaseOrg.WorkTypeDetail" 
-                label="WorkTypeDetail" />
-              <br/>
-            </Box> */}
-            
-      {/* <MECContextTextValidator
-        name={`${parentKey}Location`} label="Location" /> */}
     </Box>
   )
 }

@@ -19,12 +19,13 @@ const Index = React.forwardRef((props:any, ref) => {
 
   useEffect(()=>{
     setValue(_.get(mecJSON, props.name, ''));
+    console.log(mecJSON);
+    console.log(props.name, ' ==== ', _.get(mecJSON, props.name, ''));
   }, [_.get(mecJSON, props.name, '')])
 
 
   return <TextValidator {...props} ref = {inputRef}
     style = {(props.style)?{ ...props.style, minWidth:'500px' }:{ minWidth:'500px' }}
-    defaultValue = {_.get(mecJSON, props.name, '')}
     value = {value}
     onChange = {(e:any)=>{
       setValue(e.target.value);

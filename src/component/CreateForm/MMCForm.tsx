@@ -10,75 +10,31 @@ import PlayableSequencesForm from 'component/MMC/PlayableSequencesForm';
 import ExperiencesForm from 'component/MMC/ExperiencesForm';
 import ALIDExperienceMapsForm from 'component/MMC/ALIDExperienceMapsForm';
 
-
-interface Props {
-  data?:any
-}
-
-const Index = React.forwardRef(({ data }:Props, ref) => {
-
-  // const [formData, setFormData] = useState(data);
-  const formDataRef = React.useRef(data || {});
-  const formRef = React.useRef<any>();
-  const { mmcJSON, setMMCJSON } = React.useContext(MMCContext);
-
-  const [count, setCount] = useState(0);
-
-  useEffect(()=>{
-    formDataRef.current = data;
-    setCount(count + 1);
-  }, [data])
-
-  useImperativeHandle(ref, () => (
-    {
-      getFormData: () => {
-        if(formRef.current){
-          formRef.current.isFormValid().then((isValid:boolean)=>{
-            if(!isValid){
-              formRef.current.submit();
-              return;
-            }
-          })
-          return mmcJSON;
-        }
-        return {};
-      }
-    }
-  ), [data]);
-
+const Index = () => {
   return (
     <Box>
       <Typography variant="h5">MMC</Typography>
-      <ValidatorForm
-        ref = {formRef}
-        autoComplete="off"
-        onSubmit = {()=>{
-          return false;
+      <Box
+        sx={{
+          '& .MuiTextField-root': { m: 1, width: '25ch' },
         }}
       >
-        <Box
-          sx={{
-            '& .MuiTextField-root': { m: 1, width: '25ch' },
-          }}
-        >
-          <Typography >MediaManifest-type</Typography>
-          <Box sx = {{ pl:4 }}>
+        <Typography >MediaManifest-type</Typography>
+        <Box sx = {{ pl:4 }}>
 
-            <InventoryForm parentKey='Inventory'/>
+          <InventoryForm parentKey='Inventory'/>
 
-            <PresentationsForm />
+          <PresentationsForm />
 
-            <PlayableSequencesForm />
+          <PlayableSequencesForm />
 
-            <ExperiencesForm />
+          <ExperiencesForm />
 
-            <ALIDExperienceMapsForm />
-            
-          </Box>
+          <ALIDExperienceMapsForm />
         </Box>
-      </ValidatorForm>
+      </Box>
     </Box>
   )
-});
+}
 
 export default Index;
