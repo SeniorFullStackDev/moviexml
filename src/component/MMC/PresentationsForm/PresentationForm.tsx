@@ -4,17 +4,13 @@ import { PresentationType, FormType } from 'utils/types';
 import AudioTrackReferenceForm from './TrackReference/AudioTrackReferenceForm';
 import SubTitleTrackReferenceForm from './TrackReference/SubTitleTrackReferenceForm';
 
-interface Props extends FormType {
-    data:PresentationType;
-}
-
-export default function({ parentKey, data }:Props){
+export default function({ parentKey }:FormType){
   return (
     <Box sx = {{ pl:4 }}>
       <MMCContextTextValidator 
         validators={['required']} 
         errorMessages={['this field is required']} 
-        name="parentKey.@PresentationID" 
+        name={`${parentKey}.Presentation.@PresentationID`} 
         label="@PresentationID *"/><br/>
 
       <Typography >TrackMetadata</Typography>
@@ -22,19 +18,8 @@ export default function({ parentKey, data }:Props){
         <MMCContextTextValidator 
           validators={['required']} 
           errorMessages={['this field is required']} 
-          name="parentKey.TrackMetadata.TrackSelectionNumber" 
+          name={`${parentKey}.Presentation.TrackMetadata.TrackSelectionNumber`} 
           label="TrackSelectionNumber *"/><br/>
-        <Box sx = {{ pl:4 }}>
-          <Typography >VideoTrackReference</Typography>
-          {/* <MMCContextTextValidator 
-            validators={['required']} 
-            errorMessages={['this field is required']} 
-            name="parentKey.TrackMetadata.VideoTrackReference.VideoTrackID" 
-            label="VideoTrackID *"/><br/> */}
-
-          {/* <AudioTrackReferenceForm parentKey = "parentKey.TrackMetadata" /> */}
-          {/* <SubTitleTrackReferenceForm parentKey = "parentKey.TrackMetadata" /> */}
-        </Box>
       </Box>
     </Box>
   );
