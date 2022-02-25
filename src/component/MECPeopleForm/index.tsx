@@ -9,6 +9,7 @@ import AddIcon from '@mui/icons-material/Add';
 import PeopleForm from './PeopleForm';
 import MECContext from 'context/MECContext';
 import _ from 'lodash';
+import { removeEmptyObjects } from 'utils';
 
 export default function({ parentKey }:FormType){
 
@@ -38,7 +39,7 @@ export default function({ parentKey }:FormType){
 
   const peoples = _.get(mecJSON, `${parentKey}.People`, []);
 
-  console.log('peoples --->', peoples);
+  // const peoples = _.get(mecJSON, `${parentKey}.People`, []).filter((ele:any)=>(ele));
 
   return (
     <Box sx = {{ m:1 }}>
