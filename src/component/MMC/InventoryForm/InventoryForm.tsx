@@ -50,7 +50,7 @@ export default function({ parentKey, data }:Props){
 
         <Typography >Picture</Typography>
         <Box sx = {{ pl:4 }}>
-          <MMCContextTextValidator 
+          {/* <MMCContextTextValidator 
             validators={['required']} 
             errorMessages={['this field is required']} 
             name={`${parentKey}.Video.Picture.AspectRatio`} 
@@ -64,9 +64,7 @@ export default function({ parentKey, data }:Props){
             validators={['required']} 
             errorMessages={['this field is required']} 
             name={`${parentKey}.Video.Picture.HeightPixels`} 
-            label="HeightPixels *"/><br/>
-
-
+            label="HeightPixels *"/><br/> */}
           <Typography >MasteredColorVolume</Typography>
           <Box sx = {{ pl:4 }}>
 

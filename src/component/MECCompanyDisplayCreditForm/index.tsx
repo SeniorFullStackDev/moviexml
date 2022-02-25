@@ -21,6 +21,7 @@ export default function({ parentKey }:FormType){
           <SelectValidator
             defaultValue = "en-US"
             name={`${parentKey}.DisplayString.@language`} 
+            value = {_.get(mecJSON,`${parentKey}.DisplayString.@language` )}
             validators={['required']}
             errorMessages={['this field is required']}
             onChange = {(e:any) => {
@@ -32,19 +33,11 @@ export default function({ parentKey }:FormType){
             { languages.map((ele:any, index:number)=><MenuItem key={index} value={ele.code}>{ele.language}</MenuItem>) }
           </SelectValidator>
           <br/>
-          <SelectValidator
-            value = {_.get(mecJSON,`${parentKey}.DisplayString.value`,'')}
+          <MECContextTextValidator
             name={`${parentKey}.DisplayString.value`} 
-            onChange = {(e:any) => {
-              _.set(mecJSON, e.target.name, e.target.value);
-              setMECJSON({ ...mecJSON });
-            }}
+            label="DisplayString *" 
             validators={['required']}
-            errorMessages={['this field is required']}
-          >
-            <MenuItem value="isepisodeof">isepisodeof</MenuItem>
-            <MenuItem value="ispromotionfor">ispromotionfor</MenuItem>
-          </SelectValidator>
+            errorMessages={['this field is required']} />
         </Box>
       </Box>
     </>

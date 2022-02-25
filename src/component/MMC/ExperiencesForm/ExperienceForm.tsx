@@ -48,7 +48,7 @@ export default function({ parentKey, data }:Props){
         
         <SelectValidator
           name={`${parentKey}.Audiovisual.SubType`} 
-          value = {_.get(mmcJSON, `${parentKey}.Audiovisual.Type`)}
+          value = {_.get(mmcJSON, `${parentKey}.Audiovisual.SubType`)}
           onChange = {(e:any) => {
             _.set(mmcJSON, e.target.name, e.target.value);
             setMMCJSON({ ...mmcJSON });
