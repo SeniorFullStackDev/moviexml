@@ -55,18 +55,7 @@ const Index = ({ movieTitle }:Props) => {
           />
 
           <MECLocalizedInfoForm parentKey='BasicMetadata-type' />
-
-          <DesktopDatePicker 
-            label="ReleaseYear"
-            inputFormat="yyyy"
-            value = {_.get(mecJSON, 'BasicMetadata-type.ReleaseYear', Date())}
-            onChange={(newVal:any)=>{
-              _.set(mecJSON, 'BasicMetadata-type.ReleaseYear', newVal.format('yyyy'));
-              setMECJSON({ ...mecJSON });
-            }}
-            renderInput={(params:any) => <TextValidator {...params} />}
-          />
-          <br/>
+          
           <DesktopDatePicker 
             label="ReleaseDate"
             inputFormat="yyyy-MM-DD"
@@ -85,7 +74,6 @@ const Index = ({ movieTitle }:Props) => {
             name="BasicMetadata-type.WorkType" 
             label="WorkType *" 
             validators={['required']}
-            defaultValue = "movie"
             value = {_.get(mecJSON, 'BasicMetadata-type.WorkType', 'movie')}
             errorMessages={['this field is required']} 
             onChange = {(e:any) => {

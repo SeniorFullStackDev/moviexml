@@ -13,6 +13,7 @@ import _ from 'lodash';
 
 import MECContext from 'context/MECContext';
 import MMCContext from 'context/MMCContext';
+import moment from 'moment';
 
 export default function CreateForm() {
 
@@ -24,7 +25,13 @@ export default function CreateForm() {
   const [isRequesting, setIsRequesting] = React.useState(false);
   const [movieData, setMovieData] = React.useState<any>({ title:'' });
 
-  const [mecJSON, setMECJSON] = React.useState<any>({});
+  const [mecJSON, setMECJSON] = React.useState<any>({
+    ReleaseDate:moment().format('yyyy-MM-DD'),
+    ReleaseYear:moment().format('yyyy'),
+    ReleaseHistory: {
+      Date:moment().format('yyyy-MM-DD')
+    }
+  });
 
   console.log('mecJSON ===>', mecJSON);
 

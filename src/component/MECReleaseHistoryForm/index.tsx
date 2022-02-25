@@ -58,7 +58,7 @@ export default function({ parentKey }: FormType){
           </SelectValidator>
         </Box>
         <DesktopDatePicker 
-          label="Date desktop"
+          label="Date"
           inputFormat="yyyy-MM-DD"
           value = {formData.Date}
           onChange={(newval:any)=>{

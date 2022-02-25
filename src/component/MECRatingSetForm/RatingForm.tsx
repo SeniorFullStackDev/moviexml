@@ -47,7 +47,7 @@ export default ({ parentKey }:FormType) => {
       <Typography >Region</Typography>
       <Box sx = {{ pl:4 }}>
         <SelectValidator
-          name = {`${parentKey}.Rating.Region.Country`}
+          name = {`${parentKey}.Rating.Region.country`}
           value = {country}
           label = "Country *" 
           validators={['required']}
