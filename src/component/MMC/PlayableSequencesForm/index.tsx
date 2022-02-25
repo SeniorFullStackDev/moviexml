@@ -22,8 +22,8 @@ export default function(){
     const arr = _.get(mmcJSON, 'PlayableSequences.PlayableSequence.Clips', []);
     const newIndex = arr.length;
     const newItem:ClipType = {
-      '@sequence':'string',
-      PresentationID:'string'
+      '@sequence':'',
+      PresentationID:''
     }
     _.set(mmcJSON, `PlayableSequences.PlayableSequence.Clips[${newIndex}]`, newItem);
     setMMCJSON({ ...mmcJSON });
