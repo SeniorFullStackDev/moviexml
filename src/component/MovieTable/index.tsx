@@ -114,10 +114,12 @@ export default function MovieTable() {
           setActiveMovie(0);
         }}
         onOkay  = {()=>{
-          if(activeMovie) deleteMovie(activeMovie);
+          if(activeMovie) 
+            deleteMovie(activeMovie).then(()=>{
+              loadTable();
+            });
           setActiveMovie(0);
           setOpenDialog(false);
-          loadTable();
         }}
       />
     </Box>

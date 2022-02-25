@@ -47,7 +47,7 @@ export default function({ parentKey }:FormType){
       <Box sx = {{ mt:1 }}>
         {
           peoples.map((ele:PeopleType, index:number)=>
-            <Accordion 
+            ele && <Accordion 
               key = {index} 
               expanded={expanded === `people-panel-${index}`} 
               onChange={handleChange(`people-panel-${index}`)}>

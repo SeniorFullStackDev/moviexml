@@ -47,7 +47,7 @@ export default function(){
       <Box sx = {{ mt:1 }}>
         {
           experiences.map((ele:ExperienceType, index:number)=>
-            <Accordion 
+            ele && <Accordion 
               key = {`${ele['@ExperienceID']}-${index}`} 
               expanded={expanded === `panel-${index}`} 
               onChange={handleChange(`panel-${index}`)}>

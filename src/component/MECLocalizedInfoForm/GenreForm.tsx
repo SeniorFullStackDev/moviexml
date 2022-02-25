@@ -47,7 +47,7 @@ export default ({ parentKey }:FormType) => {
         <Box sx = {{ mt:1 }}>
           {
             genres.map((ele:GenreType, index:number)=>
-              <Accordion 
+              ele && <Accordion 
                 key = {`${ele['@id']}`} 
                 expanded={expanded === `panel-${index}`} 
                 onChange={handleChange(`panel-${index}`)}>

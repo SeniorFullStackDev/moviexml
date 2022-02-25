@@ -45,7 +45,7 @@ export default function MECLocalizedInForm({ parentKey }:FormType) {
       <Box sx = {{ mt:1 }}>
         {
           localizedInfos.map((ele:LocalizedInfoType, index:number)=>
-            <Accordion 
+            ele && <Accordion 
               key = {`${ele['@Language']}-${index}`} 
               expanded={expanded === `panel-${index}`} 
               onChange={handleChange(`panel-${index}`)}>

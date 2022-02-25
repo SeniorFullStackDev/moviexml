@@ -56,7 +56,7 @@ export default ({ parentKey, artreferences }:Props) => {
         <Box sx = {{ mt:1 }}>
           {
             artReferences.map((ele:ArtReferenceType, index:number)=>
-              <Accordion 
+              ele && <Accordion 
                 key = {`${ele['@purpose']}-${ele['@resolution']}-${index}`} 
                 expanded={expanded === `panel-${index}`} 
                 onChange={handleChange(`panel-${index}`)}>

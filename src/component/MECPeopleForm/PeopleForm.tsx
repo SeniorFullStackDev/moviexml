@@ -27,6 +27,7 @@ export default ({ data, parentKey }:PeopleFormType) => {
         <SelectValidator
           name = {`${parentKey}.Job.JobFunction`} 
           label = "JobFunction *" 
+          value = {_.get( mecJSON,`${parentKey}.Job.JobFunction`)} 
           defaultValue="Director"
           validators={['required']}
           errorMessages={['this field is required']}

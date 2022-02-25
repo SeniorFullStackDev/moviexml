@@ -42,7 +42,7 @@ export default function({ parentKey }:FormType){
       <Box sx = {{ m:1 }}>
         {
           altIdentifires.map((ele:AltIdentifierType, index:number)=>
-            <Accordion 
+            ele && <Accordion 
               key = {`#${index}`} 
               expanded={expanded === `panel-${index}`} 
               onChange={handleChange(`panel-${index}`)}>

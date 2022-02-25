@@ -46,7 +46,7 @@ export default function(){
         <Box sx = {{ m:1 }}>
           {
             arr.map((ele:ClipType, index:number)=>
-              <Accordion 
+              ele && <Accordion 
                 key = {`${ele['@sequence']}-${index}`} 
                 expanded={expanded === `panel-${index}`} 
                 onChange={handleChange(`panel-${index}`)}>

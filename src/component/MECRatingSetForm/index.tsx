@@ -41,7 +41,7 @@ export default function MECRatingSetForm({ parentKey }:FormType) {
       <Box sx = {{ mt:1 }}>
         {
           ratings.map((ele:RatingType, index:number)=>
-            <Accordion 
+            ele && <Accordion 
               key = {index} 
               expanded={expanded === `panel-${index}`} 
               onChange={handleChange(`panel-${index}`)}>
