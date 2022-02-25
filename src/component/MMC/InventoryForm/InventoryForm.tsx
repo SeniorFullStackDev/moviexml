@@ -218,11 +218,7 @@ export default function({ parentKey, data }:Props){
           errorMessages={['this field is required']} 
           name={`${parentKey}.Subtitle.@SubtitleTrackID`} 
           label="@SubtitleTrackID *"/><br/>
-        <MMCContextTextValidator 
-          validators={['required']} 
-          errorMessages={['this field is required']} 
-          name={`${parentKey}.Subtitle.Format`} 
-          label="Format *"/><br/>
+          
         <SelectValidator 
           name={`${parentKey}.Subtitle.Type`} 
           value = {_.get(mmcJSON, `${parentKey}.Subtitle.Type`, '')}

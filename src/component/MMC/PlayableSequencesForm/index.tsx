@@ -71,11 +71,6 @@ export default function(){
                     <MMCContextTextValidator 
                       validators={['required']} 
                       errorMessages={['this field is required']} 
-                      name={`PlayableSequences.PlayableSequence.Clips[${index}].@audioLanguage`} 
-                      label="@audioLanguage *"/><br/>
-                    <MMCContextTextValidator 
-                      validators={['required']} 
-                      errorMessages={['this field is required']} 
                       name={`PlayableSequences.PlayableSequence.Clips[${index}].PresentationID`} 
                       label="PresentationID *"/><br/>
                   </Box>
