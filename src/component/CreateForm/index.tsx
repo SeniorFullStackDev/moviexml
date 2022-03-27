@@ -21,7 +21,7 @@ import MMCContext from 'context/MMCContext';
 import moment from 'moment';
 import AppMenu from 'component/AppMenu';
 
-const drawerWidth = 480;
+const drawerWidth = 360;
 
 export default function CreateForm() {
 

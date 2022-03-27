@@ -11,13 +11,11 @@ import { LocalizationProvider } from '@mui/lab';
 function App() {
   return (
     <LocalizationProvider dateAdapter={DateAdapter}>
-      <Container maxWidth="lg">
-        <Routes>
-          <Route path="/" element={<MovieTable />} />
-          <Route path="/movies/create" element={<CreateForm />} />
-          <Route path="/movies/edit/:id" element={<CreateForm />} />
-        </Routes>
-      </Container>
+      <Routes>
+        <Route path="/" element={<MovieTable />} />
+        <Route path="/movies/create" element={<CreateForm />} />
+        <Route path="/movies/edit/:id" element={<CreateForm />} />
+      </Routes>
     </LocalizationProvider>
   );
 }
