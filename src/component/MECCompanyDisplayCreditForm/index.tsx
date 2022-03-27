@@ -13,7 +13,7 @@ export default function({ parentKey }:FormType){
   const { mecJSON, setMECJSON } = React.useContext(MECContext);
 
   return (
-    <>
+    <Box id="mec-CompanyDisplayCredit">
       <Typography >CompanyDisplayCredit</Typography>
       <Box sx = {{ pl: 4 }}>
         <Typography >DisplayString</Typography>
@@ -40,6 +40,6 @@ export default function({ parentKey }:FormType){
             errorMessages={['this field is required']} />
         </Box>
       </Box>
-    </>
+    </Box>
   )
 }

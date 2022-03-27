@@ -35,7 +35,7 @@ export default function MECRatingSetForm({ parentKey }:FormType) {
   const ratings = _.get(mecJSON, `${parentKey}.RatingSet`, []);
 
   return (
-    <Box sx = {{ m:1 }}>
+    <Box sx = {{ m:1 }} id = "mec-MECRatingSetForm">
       <Typography >RatingSet</Typography>
       <Button variant='outlined' onClick={addMoreItem} startIcon = {<AddIcon />}>Add Rating</Button>
       <Box sx = {{ mt:1 }}>

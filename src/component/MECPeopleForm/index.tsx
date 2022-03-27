@@ -42,7 +42,7 @@ export default function({ parentKey }:FormType){
   // const peoples = _.get(mecJSON, `${parentKey}.People`, []).filter((ele:any)=>(ele));
 
   return (
-    <Box sx = {{ m:1 }}>
+    <Box sx = {{ m:1 }} id = "mec-MECPeopleForm">
       <Typography >People</Typography>
       <Button variant='outlined' onClick={addMoreItem} startIcon = {<AddIcon />}>Add People</Button>
       <Box sx = {{ mt:1 }}>

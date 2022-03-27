@@ -16,7 +16,7 @@ export default function({ parentKey }: FormType){
 
   // Original, Broadcast, DVD, Blu-ray, PayTV, InternetBuy, InternetRent, Theatrical, SVOD
   return (
-    <Box sx = {{ m:1 }}>
+    <Box sx = {{ m:1 }} id="mec-MECReleaseHistoryForm">
       <Typography >Release History</Typography>
       <Box sx = {{ pl:4 }}>
         <SelectValidator

@@ -1,6 +1,11 @@
 import * as React from 'react';
-import { Button, Grid, Typography,Box,  Link } from '@mui/material';
-
+import { 
+  Button,
+  Grid,
+  Typography,
+  Box,
+  Link
+} from '@mui/material';
 import MMCForm from './MMCForm';
 import MECForm from './MECForm';
 import { Divider } from '@mui/material';
@@ -14,14 +19,15 @@ import _ from 'lodash';
 import MECContext from 'context/MECContext';
 import MMCContext from 'context/MMCContext';
 import moment from 'moment';
+import AppMenu from 'component/AppMenu';
+
+const drawerWidth = 480;
 
 export default function CreateForm() {
 
   const { id } = useParams();
 
   const formRef = React.useRef<any>();
-  const MMCFormRef = React.useRef<any>();
-  const MECFormRef = React.useRef<any>();
   const [isRequesting, setIsRequesting] = React.useState(false);
   const [movieData, setMovieData] = React.useState<any>({ title:'' });
 
@@ -32,9 +38,6 @@ export default function CreateForm() {
       Date:moment().format('yyyy-MM-DD')
     }
   });
-
-  console.log('mecJSON ===>', mecJSON);
-
   const mecCxtValue = React.useMemo(() => ({ mecJSON, setMECJSON }), [mecJSON, movieData]);
 
   const [mmcJSON, setMMCJSON] = React.useState<any>({});
@@ -77,55 +80,62 @@ export default function CreateForm() {
 
   return (
     <Box sx = {{ pt:'20px' }}>
-      <Box sx = {{ mb:'8px', display:'flex' }}>
-        <Link href='/' underline="none">
-          <Button  variant='outlined'>Back</Button>
-        </Link>
-      </Box>
-      <ValidatorForm
-        ref = {formRef}
-        autoComplete="off"
-        onSubmit = {onSubmit}
-      >
-        <Box>
-          <Box sx = {{ mb:'20px', mt:'20px' }}>
-            <Typography variant='h5'>{(id)?'Update':'New Movie'}</Typography>
-            <br/>
-            <CustomTextValidator
-              value = {movieData.title}
-              validators={['required']} 
-              errorMessages={['this field is required']}
-              onBlur = {(e:any)=>{
-                setMovieData({ ...movieData, title:e.target.value });
-                const contentID = `md:cid:org:amzn_studios:${e.target.value}`;
-                _.set(mecJSON, 'BasicMetadata-type.@ContentID', contentID);
-                setMECJSON({ ...mecJSON });
-              }}
-              name="title" 
-              label="Movie Title *" />
+      
+      <Box sx = {{ display:'flex' }}>
+        <AppMenu drawerWidth = {drawerWidth} />
+        <Box  component="main"
+          sx={{ flexGrow: 1, p: 3, width: { sm: `calc(100% - ${drawerWidth}px)` } }}>
+          <Box sx = {{ mb:'8px', display:'flex' }}>
+            <Link href='/' underline="none">
+              <Button  variant='outlined'>Back</Button>
+            </Link>
+          </Box>
+          <ValidatorForm
+            ref = {formRef}
+            autoComplete="off"
+            onSubmit = {onSubmit}
+          >
+            <Box>
+              <Box sx = {{ mb:'20px', mt:'20px' }}>
+                <Typography variant='h5'>{(id)?'Update':'New Movie'}</Typography>
+                <br/>
+                <CustomTextValidator
+                  value = {movieData.title}
+                  validators={['required']} 
+                  errorMessages={['this field is required']}
+                  onBlur = {(e:any)=>{
+                    setMovieData({ ...movieData, title:e.target.value });
+                    const contentID = `md:cid:org:amzn_studios:${e.target.value}`;
+                    _.set(mecJSON, 'BasicMetadata-type.@ContentID', contentID);
+                    setMECJSON({ ...mecJSON });
+                  }}
+                  name="title" 
+                  label="Movie Title *" />
           
-          </Box>
-          <Divider />
-          <Box sx={{ width: '100%', mt:'20px' }}>
-            <Grid container spacing={2}>
-              <Grid item xs={12}>
-                <MECContext.Provider value={mecCxtValue}>
-                  <MECForm movieTitle = {movieData.title} />
-                </MECContext.Provider>
-              </Grid>
-              <Grid item xs={12}>
-                <Divider />
-                <MMCContext.Provider value={mmcCxtValue}>
-                  <MMCForm />
-                </MMCContext.Provider>
-              </Grid>
-            </Grid>
-          </Box>
+              </Box>
+              <Divider />
+              <Box sx={{ width: '100%', mt:'20px' }}>
+                <Grid container spacing={2}>
+                  <Grid item xs={12} id="mec-form">
+                    <MECContext.Provider value={mecCxtValue}>
+                      <MECForm movieTitle = {movieData.title} />
+                    </MECContext.Provider>
+                  </Grid>
+                  <Grid item xs={12} id="mmc-form">
+                    <Divider />
+                    <MMCContext.Provider value={mmcCxtValue}>
+                      <MMCForm />
+                    </MMCContext.Provider>
+                  </Grid>
+                </Grid>
+              </Box>
+            </Box>
+            <Box>
+              <Button type='submit' variant="outlined" disabled = {isRequesting}>Submit</Button>
+            </Box>
+          </ValidatorForm>
         </Box>
-        <Box>
-          <Button type='submit' variant="outlined" disabled = {isRequesting}>Submit</Button>
-        </Box>
-      </ValidatorForm>
+      </Box>
     </Box>
   );
 }

@@ -105,7 +105,6 @@ const Index = ({ movieTitle }:Props) => {
           <SequenceInfoForm parentKey='BasicMetadata-type' />
 
           <MECParentForm parentKey='BasicMetadata-type' />
-
         </Box>
         <MECCompanyDisplayCreditForm parentKey='CompanyDisplayCredit' />
       </Box>

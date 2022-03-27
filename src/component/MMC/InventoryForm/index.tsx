@@ -95,7 +95,7 @@ export default function({ parentKey }:FormType){
   console.log('mmcJSON -->', mmcJSON);
 
   return (
-    <Box sx={{ m:1 }}>
+    <Box sx={{ m:1 }} id="mmc-InventoryForm">
       <Typography >Inventory</Typography>
       <Button variant='outlined' onClick={addMoreItem} startIcon = {<AddIcon />}>Add Inventory</Button>
       <Box sx = {{ mt:1 }}>

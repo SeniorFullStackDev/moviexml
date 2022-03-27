@@ -39,7 +39,7 @@ export default function MECLocalizedInForm({ parentKey }:FormType) {
   const localizedInfos = _.get(mecJSON, `${parentKey}.LocalizedInfo`, []);
 
   return (
-    <Box sx = {{ m:1 }}>
+    <Box sx = {{ m:1 }} id="mec-MECLocalizedInfoForm">
       <Typography >LocalizedInfo</Typography>
       <Button variant='outlined' onClick={addMoreItem} startIcon = {<AddIcon />}>Add LocalizedInfo</Button>
       <Box sx = {{ mt:1 }}>

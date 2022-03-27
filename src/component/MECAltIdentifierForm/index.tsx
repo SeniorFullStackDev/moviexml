@@ -36,7 +36,7 @@ export default function({ parentKey }:FormType){
   const altIdentifires = _.get(mecJSON, `${parentKey}.AltIdentifier`, []);
 
   return (
-    <Box sx = {{ m:1 }}>
+    <Box sx = {{ m:1 }} id="mec-AltIdentifierForm">
       <Typography>AltIdentifier</Typography>
       <Button variant='outlined' onClick={addMoreItem} startIcon = {<AddIcon />}>Add AltIdentifier</Button>
       <Box sx = {{ m:1 }}>

@@ -33,7 +33,7 @@ export default function(){
 
 
   return (
-    <Box sx = {{ mt:1 }}>
+    <Box sx = {{ mt:1 }} id = "mmc-PlayableSequencesForm">
       <Typography sx = {{ ml:1 }}>PlayableSequences</Typography>
       <MMCContextTextValidator 
         validators={['required']}
@@ -46,7 +46,7 @@ export default function(){
         <Box sx = {{ m:1 }}>
           {
             arr.map((ele:ClipType, index:number)=>
-              ele && <Accordion 
+              ele && <Accordion
                 key = {`${ele['@sequence']}-${index}`} 
                 expanded={expanded === `panel-${index}`} 
                 onChange={handleChange(`panel-${index}`)}>

@@ -4,7 +4,7 @@ import { FormType } from 'utils/types';
 
 export default function(){
   return (
-    <Box sx = {{ m:1 }}>
+    <Box sx = {{ m:1 }} id="mmc-ALIDExperienceMapsForm">
       <Typography >ALIDExperienceMaps</Typography>
       <Box>
         <MMCContextTextValidator 
