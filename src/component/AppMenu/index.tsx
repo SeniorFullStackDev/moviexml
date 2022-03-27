@@ -1,5 +1,6 @@
 import * as React from 'react';
 import {
+  Button,
   Box,
   Link, 
   Drawer, 
@@ -89,7 +90,13 @@ export default function({ drawerWidth }:{ drawerWidth:number }){
 
   const drawer = (
     <>
-      <Toolbar />
+      <Toolbar>
+        <Box sx = {{ mb:'8px', display:'flex' }}>
+          <Link href='/' underline="none">
+            <Button  variant='outlined'>Back</Button>
+          </Link>
+        </Box>
+      </Toolbar>
       <Divider />
       <List>
         {

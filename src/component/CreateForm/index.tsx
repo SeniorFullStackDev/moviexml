@@ -49,6 +49,7 @@ export default function CreateForm() {
         setMovieData(res.data);
         setMECJSON(res.data.mec);
         setMMCJSON(res.data.mmc);
+        document.title = res.data.title
       }).catch((err)=>console.log);
     }
   }, [id]);
@@ -85,11 +86,6 @@ export default function CreateForm() {
         <AppMenu drawerWidth = {drawerWidth} />
         <Box  component="main"
           sx={{ flexGrow: 1, p: 3, width: { sm: `calc(100% - ${drawerWidth}px)` } }}>
-          <Box sx = {{ mb:'8px', display:'flex' }}>
-            <Link href='/' underline="none">
-              <Button  variant='outlined'>Back</Button>
-            </Link>
-          </Box>
           <ValidatorForm
             ref = {formRef}
             autoComplete="off"
