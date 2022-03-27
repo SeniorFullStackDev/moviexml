@@ -9,6 +9,8 @@ import _ from 'lodash';
 export default ({ parentKey }:FormType) => {
 
   const { mecJSON, setMECJSON } = React.useContext(MECContext);
+
+  console.log('mecJSON -->', mecJSON);
   
   const country = _.get(mecJSON, `${parentKey}.Rating.Region.Country`);
 
@@ -22,6 +24,7 @@ export default ({ parentKey }:FormType) => {
 
 
   const systems:any[] = [];
+  console.log('country ==>', country);
   ratings.forEach(element => {
     const index = systems.indexOf(element.system);
     if(element.region == country && index == -1){
@@ -47,7 +50,7 @@ export default ({ parentKey }:FormType) => {
       <Typography >Region</Typography>
       <Box sx = {{ pl:4 }}>
         <SelectValidator
-          name = {`${parentKey}.Rating.Region.country`}
+          name = {`${parentKey}.Rating.Region.Country`}
           value = {country}
           label = "Country *" 
           validators={['required']}
