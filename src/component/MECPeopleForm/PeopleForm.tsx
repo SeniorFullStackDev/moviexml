@@ -26,7 +26,8 @@ export default ({ data, parentKey }:PeopleFormType) => {
       <Box sx = {{ pl:4 }}>
         <SelectValidator
           name = {`${parentKey}.Job.JobFunction`} 
-          label = "JobFunction *" 
+          required
+          label = "JobFunction" 
           value = {_.get( mecJSON,`${parentKey}.Job.JobFunction`)} 
           defaultValue="Director"
           validators={['required']}

@@ -81,7 +81,6 @@ export default function CreateForm() {
 
   return (
     <Box sx = {{ pt:'20px' }}>
-      
       <Box sx = {{ display:'flex' }}>
         <AppMenu drawerWidth = {drawerWidth} />
         <Box  component="main"
@@ -96,7 +95,8 @@ export default function CreateForm() {
                 <Typography variant='h5'>{(id)?'Update':'New Movie'}</Typography>
                 <br/>
                 <CustomTextValidator
-                  value = {movieData.title}
+                  required
+                  value = {movieData.title}                  
                   validators={['required']} 
                   errorMessages={['this field is required']}
                   onBlur = {(e:any)=>{
@@ -106,7 +106,7 @@ export default function CreateForm() {
                     setMECJSON({ ...mecJSON });
                   }}
                   name="title" 
-                  label="Movie Title *" />
+                  label="Movie Title" />
           
               </Box>
               <Divider />
