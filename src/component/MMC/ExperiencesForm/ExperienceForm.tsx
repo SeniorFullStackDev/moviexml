@@ -36,7 +36,7 @@ export default function({ parentKey, data }:Props){
           <MenuItem value = "Main">Main experience</MenuItem>
           <MenuItem value = "Promotion">Movie trailer experience</MenuItem>
         </SelectValidator>
-        
+        <br/>
         <SelectValidator
           name={`${parentKey}.Audiovisual.SubType`} 
           value = {_.get(mmcJSON, `${parentKey}.Audiovisual.SubType`)}
@@ -50,7 +50,7 @@ export default function({ parentKey, data }:Props){
           <MenuItem value = "Default">Default </MenuItem>
           <MenuItem value = "Trailer">Trailer </MenuItem>
         </SelectValidator>
-
+        <br/>
         <MMCContextTextValidator 
           validators={['required']} 
           errorMessages={['this field is required']} 

@@ -11,7 +11,7 @@ export default function({ parentKey }:FormType){
       <MMCContextTextValidator 
         validators={['required']} 
         errorMessages={['this field is required']} 
-        name={`${parentKey}.Presentation.@PresentationID`} 
+        name={`${parentKey}.@PresentationID`} 
         label="@PresentationID *"/><br/>
 
       <Typography >TrackMetadata</Typography>
@@ -19,7 +19,7 @@ export default function({ parentKey }:FormType){
         <MMCContextTextValidator 
           validators={['required']} 
           errorMessages={['this field is required']} 
-          name={`${parentKey}.Presentation.TrackMetadata.TrackSelectionNumber`} 
+          name={`${parentKey}.TrackMetadata.TrackSelectionNumber`} 
           label="TrackSelectionNumber *"/><br/>
         <br/>
         <VideoTrackReferenceForm parentKey={`${parentKey}.TrackMetadata`} />

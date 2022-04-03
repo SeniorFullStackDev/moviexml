@@ -97,14 +97,14 @@ const Index = ({ movieTitle }:Props) => {
           <MECRatingSetForm parentKey='BasicMetadata-type' />
           <br/>
           <MECPeopleForm parentKey='BasicMetadata-type' />
-            
+          <br/>
           <MECContextTextValidator
             name="BasicMetadata-type.OriginalLanguage" 
             label="OriginalLanguage *" 
             validators={['required']}
             errorMessages={['this field is required']} />
-
         </Box>
+        <br/>
         <MECCompanyDisplayCreditForm parentKey='CompanyDisplayCredit' />
       </Box>
     </Box>

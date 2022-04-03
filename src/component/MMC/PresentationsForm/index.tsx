@@ -2,9 +2,8 @@ import React from 'react';
 import _ from 'lodash';
 import PresentationForm from './PresentationForm';
 
-import { Box, TextField, Typography, Button, IconButton  } from '@mui/material';
-import MMCContextTextValidator from 'component/ContextTextValidator/MMCContextTextValidator';
-import { PresentationType, FormType } from 'utils/types';
+import { Box, Typography, Button, IconButton  } from '@mui/material';
+import { PresentationType } from 'utils/types';
 import { Accordion, AccordionSummary, AccordionDetails } from 'component/CustomAccordion'
 import MMCContext from 'context/MMCContext';
 import AddIcon from '@mui/icons-material/Add';
@@ -38,6 +37,8 @@ export default function(){
 
   const arr = _.get(mmcJSON, 'Presentations', []);
 
+  console.log('Presentation ==>', arr)
+
 
   return (
     <Box sx = {{ m:1 }} id="mmc-PresentationsForm">
@@ -63,7 +64,7 @@ export default function(){
                 </Box>
               </AccordionSummary>
               <AccordionDetails>
-                <PresentationForm parentKey={'Presentations'} />
+                <PresentationForm parentKey={`Presentations[${index}]`} />
               </AccordionDetails>
             </Accordion>
           )}

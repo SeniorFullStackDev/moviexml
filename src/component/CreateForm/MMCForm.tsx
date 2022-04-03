@@ -23,9 +23,13 @@ const Index = () => {
 
         <Box sx = {{ pl:4 }}>
           <InventoryForm parentKey='Inventory'/>
+          <br/>
           <PresentationsForm />
+          <br/>
           <PlayableSequencesForm />
+          <br/>
           <ExperiencesForm />
+          <br/>
           <ALIDExperienceMapsForm />
         </Box>
       </Box>
