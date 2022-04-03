@@ -19,18 +19,9 @@ export default function({ parentKey, data }:Props){
         errorMessages={['this field is required']} 
         name={`${parentKey}.@ExperienceID`} 
         label="@ExperienceID *"/><br/>
-      <MMCContextTextValidator 
-        validators={['required']} 
-        errorMessages={['this field is required']} 
-        name={`${parentKey}.@version`} 
-        label="@version *"/><br/>
+      
       <Typography >Audiovisual</Typography>
       <Box sx = {{ pl:4 }}>
-        <MMCContextTextValidator 
-          validators={['required']} 
-          errorMessages={['this field is required']} 
-          name={`${parentKey}.Audiovisual.@ContentID`} 
-          label="@ContentID *"/><br/>
         <SelectValidator
           validators={['required']} 
           errorMessages={['this field is required']} 
@@ -42,8 +33,8 @@ export default function({ parentKey, data }:Props){
           }}
           value = {_.get(mmcJSON, `${parentKey}.Audiovisual.Type`)}
         >
-          <MenuItem value = "Main">Main</MenuItem>
-          <MenuItem value = "Promotion">Promotion</MenuItem>
+          <MenuItem value = "Main">Main experience</MenuItem>
+          <MenuItem value = "Promotion">Movie trailer experience</MenuItem>
         </SelectValidator>
         
         <SelectValidator
