@@ -95,7 +95,7 @@ export type PresentationType = {
 }
 
 export type PresentationsType = {
-    Presentation:PresentationType
+    Presentations:PresentationType[]
 }
 
 export type ClipType = {
