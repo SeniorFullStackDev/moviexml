@@ -20,22 +20,35 @@ import MECCompanyDisplayCreditForm from 'component/MECCompanyDisplayCreditForm'
 import { SelectValidator } from 'react-material-ui-form-validator';
 import MECContext from 'context/MECContext';
 import MECContextTextValidator from 'component/ContextTextValidator/MECContextTextValidator';
+import MECBasicMetadata from 'models/MECBasicMetadata'
+import FormData from 'models/FormData';
+import ChildForm from './ChildForm';
 
 interface Props {
   movieTitle?:string;
 }
 
 const Index = ({ movieTitle }:Props) => {
+
   const { mecJSON, setMECJSON } = React.useContext(MECContext);
+
+  const mecForm = new FormData('mec', 'mec', 'form', true, []);
+
+  const basicMetaDataForm = new FormData('BasicMetadata-type', 'BasicMetadata-type','form', true)
+  basicMetaDataForm.addChildForm(new FormData('@ContentID', '@ContentID','text-field', true));
   
-  // useEffect(()=>{
-  //   if(movieTitle){
-  //     const contentID = `md:cid:org:amzn_studios:${movieTitle}`;
-  //     _.set(mecJSON, 'BasicMetadata-type.@ContentID', contentID);
-  //     setMECJSON({ ...mecJSON });
-  //     if(contentIDRef.current) contentIDRef.current.setValue(contentID);
-  //   }
-  // }, [movieTitle])
+  const localizedInfoForm = new FormData('LocalizedInfo', 'LocalizedInfo', 'array', true)
+  basicMetaDataForm.addChildForm(localizedInfoForm);
+
+  mecForm.addChildForm(basicMetaDataForm);
+  console.log('mecForm ===>', mecForm);
+
+  useEffect(()=>{
+    console.log('initialize');
+    
+    // mmcSchema.ReleaseDate = new ChildFormType();
+
+  }, [])
 
   return (
     <Box>
@@ -45,6 +58,8 @@ const Index = ({ movieTitle }:Props) => {
           '& .MuiTextField-root': { m: 1, width: '25ch' },
         }}
       >
+        {/* <ChildForm formData={mecForm} /> */}
+
         <Typography >BasicMetadata-type</Typography>
         <Box sx = {{ pl:4 }}>
           <MECContextTextValidator
@@ -69,7 +84,9 @@ const Index = ({ movieTitle }:Props) => {
           <br/>
           <MECReleaseHistoryForm parentKey='BasicMetadata-type' />
           <br/>
+
           {/* movie, episode, promotion, season, series. */}
+
           <SelectValidator
             name="BasicMetadata-type.WorkType" 
             label="WorkType *" 

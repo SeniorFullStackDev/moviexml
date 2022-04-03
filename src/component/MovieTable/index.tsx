@@ -54,7 +54,7 @@ export default function MovieTable() {
     saveAs(mmcLink, `${data.title}-MMC.xml`);
   }
   return (
-    <Box sx = {{ pt:'20px' }}>
+    <Box sx = {{ pt:'20px', px:'40px' }}>
       <Box sx = {{ mb:'8px', display:'flex' }}>
         <Link href='/movies/create' underline="none" sx = {{ ml:'auto', mr:'0' }}>
           <Button  variant='outlined'>New</Button>

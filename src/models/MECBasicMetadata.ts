@@ -11,7 +11,7 @@ import SequenceInfo from './SequenceInfo';
 export default class MECBasicMetadata {  
 
   @JsonProperty('@ContentID', String)
-  public ContentID: string;
+  public ContentID = '';
 
   @JsonProperty('LocalizedInfo', [LocalizedInfo])
   public LocalizedInfos: LocalizedInfo[] = [];
@@ -32,10 +32,11 @@ export default class MECBasicMetadata {
   public RatingSet: Rating[] = [];
 
   @JsonProperty('OriginalLanguage', String)
-  public OriginalLanguage: string;
+  public OriginalLanguage = '';
   
   @JsonProperty('AssociatedOrg')
-  public AssociatedOrg: AssociatedOrg;
+  public AssociatedOrg: AssociatedOrg = new AssociatedOrg('', '');
+  // public AssociatedOrg: AssociatedOrg = new AssociatedOrg('Prime Video Partner Alias', 'licensor');
 
   @JsonProperty('SequenceInfo')
   public SequenceInfo?: SequenceInfo;
@@ -43,9 +44,9 @@ export default class MECBasicMetadata {
   @JsonProperty('Parent', Parent)
   public Parent?: Parent;
 
-  constructor(contentID: string, originalLanguage: string, associatedOrg: AssociatedOrg) {
-    this.ContentID = contentID;
-    this.OriginalLanguage = originalLanguage;
-    this.AssociatedOrg = associatedOrg;
+  constructor() {
+    // this.ContentID = contentID;
+    // this.OriginalLanguage = originalLanguage;
+    // this.AssociatedOrg = associatedOrg;
   }
 }

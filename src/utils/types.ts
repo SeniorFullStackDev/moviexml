@@ -196,3 +196,10 @@ export type SubtitleType = {
         ContainerLocation:string;
     }
 }
+
+// export type ChildFormType = {
+//     name:'string'
+//     type:'form'|'text-field'|'select'|'date-fielld';
+//     required: boolean;
+//     children: ChildFormType[]
+// }
