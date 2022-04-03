@@ -13,16 +13,13 @@ interface Props extends FormType {
 export default function({ parentKey, data }:Props){
 
   const { mmcJSON, setMMCJSON } = React.useContext(MMCContext);
-  
+
+  const tvType = _.get(mmcJSON, `${parentKey}.TvType`);
+
   return (
     <Box>
       <Typography >Video</Typography>
       <Box sx = {{ pl:4 }}>
-        <MMCContextTextValidator 
-          validators={['required']} 
-          errorMessages={['this field is required']} 
-          name={`${parentKey}.Video.@VideoTrackID`} 
-          label="@VideoTrackID *"/><br/>
 
         <SelectValidator
           name={`${parentKey}.TvType`}
@@ -37,6 +34,12 @@ export default function({ parentKey, data }:Props){
           <MenuItem value="SDR">SDR</MenuItem>
         </SelectValidator>
         <br/>
+
+        <MMCContextTextValidator 
+          validators={['required']} 
+          errorMessages={['this field is required']} 
+          name={`${parentKey}.Video.@VideoTrackID`} 
+          label="@VideoTrackID *"/><br/>
 
         <SelectValidator
           name={`${parentKey}.Video.Type`}
@@ -64,9 +67,12 @@ export default function({ parentKey, data }:Props){
           { languages.map((ele:any, index:number)=><MenuItem key={index} value={ele.code}>{ele.language}</MenuItem>) }
         </SelectValidator>
 
-        <Typography >Picture</Typography>
-        <Box sx = {{ pl:4 }}>
-          {/* <MMCContextTextValidator 
+        {
+          tvType == 'HDR' && 
+          <>
+            <Typography >Picture</Typography>
+            <Box sx = {{ pl:4 }}>
+              {/* <MMCContextTextValidator 
             validators={['required']} 
             errorMessages={['this field is required']} 
             name={`${parentKey}.Video.Picture.AspectRatio`} 
@@ -81,95 +87,95 @@ export default function({ parentKey, data }:Props){
             errorMessages={['this field is required']} 
             name={`${parentKey}.Video.Picture.HeightPixels`} 
             label="HeightPixels *"/><br/> */}
-          <Typography >MasteredColorVolume</Typography>
-          <Box sx = {{ pl:4 }}>
+              <Typography >MasteredColorVolume</Typography>
+              <Box sx = {{ pl:4 }}>
 
-            <Typography >PrimaryRChromaticity</Typography>
-            <Box sx = {{ pl:4 }}>
-              <MMCContextTextValidator 
-                validators={['required']} 
-                errorMessages={['this field is required']} 
-                name={`${parentKey}.Video.Picture.MasteredColorVolume.PrimaryRChromaticity.ChromaticityCIEx`} 
-                label="ChromaticityCIEx *"/><br/>
-              <MMCContextTextValidator 
-                validators={['required']} 
-                errorMessages={['this field is required']} 
-                name={`${parentKey}.Video.Picture.MasteredColorVolume.PrimaryRChromaticity.ChromaticityCIEy`} 
-                label="ChromaticityCIEy *"/><br/>
+                <Typography >PrimaryRChromaticity</Typography>
+                <Box sx = {{ pl:4 }}>
+                  <MMCContextTextValidator 
+                    validators={['required']} 
+                    errorMessages={['this field is required']} 
+                    name={`${parentKey}.Video.Picture.MasteredColorVolume.PrimaryRChromaticity.ChromaticityCIEx`} 
+                    label="ChromaticityCIEx *"/><br/>
+                  <MMCContextTextValidator 
+                    validators={['required']} 
+                    errorMessages={['this field is required']} 
+                    name={`${parentKey}.Video.Picture.MasteredColorVolume.PrimaryRChromaticity.ChromaticityCIEy`} 
+                    label="ChromaticityCIEy *"/><br/>
+                </Box>
+
+                <Typography >PrimaryGChromaticity</Typography>
+                <Box sx = {{ pl:4 }}>
+                  <MMCContextTextValidator 
+                    validators={['required']} 
+                    errorMessages={['this field is required']} 
+                    name={`${parentKey}.Video.Picture.MasteredColorVolume.PrimaryGChromaticity.ChromaticityCIEx`} 
+                    label="ChromaticityCIEx *"/><br/>
+                  <MMCContextTextValidator 
+                    validators={['required']} 
+                    errorMessages={['this field is required']} 
+                    name={`${parentKey}.Video.Picture.MasteredColorVolume.PrimaryGChromaticity.ChromaticityCIEy`} 
+                    label="ChromaticityCIEy *"/><br/>
+                </Box>
+
+                <Typography >PrimaryBChromaticity</Typography>
+                <Box sx = {{ pl:4 }}>
+                  <MMCContextTextValidator 
+                    validators={['required']} 
+                    errorMessages={['this field is required']} 
+                    name={`${parentKey}.Video.Picture.MasteredColorVolume.PrimaryBChromaticity.ChromaticityCIEx`} 
+                    label="ChromaticityCIEx *"/><br/>
+                  <MMCContextTextValidator 
+                    validators={['required']} 
+                    errorMessages={['this field is required']} 
+                    name={`${parentKey}.Video.Picture.MasteredColorVolume.PrimaryBChromaticity.ChromaticityCIEy`} 
+                    label="ChromaticityCIEy *"/><br/>
+                </Box>
+
+                <Typography >WhitePointChromaticity</Typography>
+                <Box sx = {{ pl:4 }}>
+                  <MMCContextTextValidator 
+                    validators={['required']} 
+                    errorMessages={['this field is required']} 
+                    name={`${parentKey}.Video.Picture.MasteredColorVolume.WhitePointChromaticity.ChromaticityCIEx`} 
+                    label="ChromaticityCIEx *"/><br/>
+                  <MMCContextTextValidator 
+                    validators={['required']} 
+                    errorMessages={['this field is required']} 
+                    name={`${parentKey}.Video.Picture.MasteredColorVolume.WhitePointChromaticity.ChromaticityCIEy`} 
+                    label="ChromaticityCIEy *"/><br/>
+                </Box>
+
+                <MMCContextTextValidator 
+                  validators={['required']} 
+                  errorMessages={['this field is required']} 
+                  name={`${parentKey}.Video.Picture.MasteredColorVolume.LuminanceMin`} 
+                  label="LuminanceMin *"/><br/>
+                <MMCContextTextValidator 
+                  validators={['required']} 
+                  errorMessages={['this field is required']} 
+                  name={`${parentKey}.Video.Picture.MasteredColorVolume.LuminanceMax`} 
+                  label="LuminanceMax *"/><br/>
+
+              </Box>
+
+              <Typography >LightLevel</Typography>
+              <Box sx = {{ pl:4 }}>
+                <MMCContextTextValidator 
+                  validators={['required']} 
+                  errorMessages={['this field is required']} 
+                  name={`${parentKey}.Video.Picture.LightLevel.ContentMax`} 
+                  label="ContentMax *"/><br/>
+                <MMCContextTextValidator 
+                  validators={['required']} 
+                  errorMessages={['this field is required']} 
+                  name={`${parentKey}.Video.Picture.LightLevel.FrameAverageMax`} 
+                  label="FrameAverageMax *"/><br/>
+              </Box>
+
             </Box>
-
-            <Typography >PrimaryGChromaticity</Typography>
-            <Box sx = {{ pl:4 }}>
-              <MMCContextTextValidator 
-                validators={['required']} 
-                errorMessages={['this field is required']} 
-                name={`${parentKey}.Video.Picture.MasteredColorVolume.PrimaryGChromaticity.ChromaticityCIEx`} 
-                label="ChromaticityCIEx *"/><br/>
-              <MMCContextTextValidator 
-                validators={['required']} 
-                errorMessages={['this field is required']} 
-                name={`${parentKey}.Video.Picture.MasteredColorVolume.PrimaryGChromaticity.ChromaticityCIEy`} 
-                label="ChromaticityCIEy *"/><br/>
-            </Box>
-
-            <Typography >PrimaryBChromaticity</Typography>
-            <Box sx = {{ pl:4 }}>
-              <MMCContextTextValidator 
-                validators={['required']} 
-                errorMessages={['this field is required']} 
-                name={`${parentKey}.Video.Picture.MasteredColorVolume.PrimaryBChromaticity.ChromaticityCIEx`} 
-                label="ChromaticityCIEx *"/><br/>
-              <MMCContextTextValidator 
-                validators={['required']} 
-                errorMessages={['this field is required']} 
-                name={`${parentKey}.Video.Picture.MasteredColorVolume.PrimaryBChromaticity.ChromaticityCIEy`} 
-                label="ChromaticityCIEy *"/><br/>
-            </Box>
-
-            <Typography >WhitePointChromaticity</Typography>
-            <Box sx = {{ pl:4 }}>
-              <MMCContextTextValidator 
-                validators={['required']} 
-                errorMessages={['this field is required']} 
-                name={`${parentKey}.Video.Picture.MasteredColorVolume.WhitePointChromaticity.ChromaticityCIEx`} 
-                label="ChromaticityCIEx *"/><br/>
-              <MMCContextTextValidator 
-                validators={['required']} 
-                errorMessages={['this field is required']} 
-                name={`${parentKey}.Video.Picture.MasteredColorVolume.WhitePointChromaticity.ChromaticityCIEy`} 
-                label="ChromaticityCIEy *"/><br/>
-            </Box>
-
-            <MMCContextTextValidator 
-              validators={['required']} 
-              errorMessages={['this field is required']} 
-              name={`${parentKey}.Video.Picture.MasteredColorVolume.LuminanceMin`} 
-              label="LuminanceMin *"/><br/>
-            <MMCContextTextValidator 
-              validators={['required']} 
-              errorMessages={['this field is required']} 
-              name={`${parentKey}.Video.Picture.MasteredColorVolume.LuminanceMax`} 
-              label="LuminanceMax *"/><br/>
-
-          </Box>
-
-          <Typography >LightLevel</Typography>
-          <Box sx = {{ pl:4 }}>
-            <MMCContextTextValidator 
-              validators={['required']} 
-              errorMessages={['this field is required']} 
-              name={`${parentKey}.Video.Picture.LightLevel.ContentMax`} 
-              label="ContentMax *"/><br/>
-            <MMCContextTextValidator 
-              validators={['required']} 
-              errorMessages={['this field is required']} 
-              name={`${parentKey}.Video.Picture.LightLevel.FrameAverageMax`} 
-              label="FrameAverageMax *"/><br/>
-          </Box>
-
-        </Box>
-
-        
+          </>
+        }
 
         <Typography >ContainerReference</Typography>
         <Box sx = {{ pl:4 }}>
@@ -179,7 +185,6 @@ export default function({ parentKey, data }:Props){
             name={`${parentKey}.Video.ContainerReference.ContainerLocation`} 
             label="ContainerLocation *"/><br/>
         </Box>
-
       </Box>
         
       <Typography >Audio</Typography>

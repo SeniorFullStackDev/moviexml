@@ -67,6 +67,10 @@ export type InventoryType = {
     Subtitle:SubtitleType;
 }
 
+export type VideoTrackReferenceType = {
+    VideoTrackID:string;
+};
+
 export type AudioTrackReferenceType = {
     AudioTrackID:string;
 };
@@ -76,9 +80,7 @@ export type SubtitleTrackReferenceType = {
 
 export type TrackReferenceType = {
     VideoTrackReference: {
-        VideoTrackReference?:{
-            VideoTrackID:string;
-        };
+        VideoTrackReference?:VideoTrackReferenceType[];
         AudioTrackReferences?:AudioTrackReferenceType[];
         SubtitleTrackReference?: SubtitleTrackReferenceType[];
     }
