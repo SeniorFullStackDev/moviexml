@@ -20,16 +20,12 @@ const Index = () => {
         }}
       >
         <Typography >MediaManifest-type</Typography>
+
         <Box sx = {{ pl:4 }}>
-
           <InventoryForm parentKey='Inventory'/>
-
           <PresentationsForm />
-
           <PlayableSequencesForm />
-
           <ExperiencesForm />
-
           <ALIDExperienceMapsForm />
         </Box>
       </Box>

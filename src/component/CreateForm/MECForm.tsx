@@ -32,22 +32,19 @@ const Index = ({ movieTitle }:Props) => {
 
   const { mecJSON, setMECJSON } = React.useContext(MECContext);
 
-  const mecForm = new FormData('mec', 'mec', 'form', true, []);
+  // const mecForm = new FormData('mec', 'mec', 'form', true, []);
 
-  const basicMetaDataForm = new FormData('BasicMetadata-type', 'BasicMetadata-type','form', true)
-  basicMetaDataForm.addChildForm(new FormData('@ContentID', '@ContentID','text-field', true));
+  // const basicMetaDataForm = new FormData('BasicMetadata-type', 'BasicMetadata-type','form', true)
+  // basicMetaDataForm.addChildForm(new FormData('@ContentID', '@ContentID','text-field', true));
   
-  const localizedInfoForm = new FormData('LocalizedInfo', 'LocalizedInfo', 'array', true)
-  basicMetaDataForm.addChildForm(localizedInfoForm);
+  // const localizedInfoForm = new FormData('LocalizedInfo', 'LocalizedInfo', 'array', true)
+  // basicMetaDataForm.addChildForm(localizedInfoForm);
 
-  mecForm.addChildForm(basicMetaDataForm);
-  console.log('mecForm ===>', mecForm);
+  // mecForm.addChildForm(basicMetaDataForm);
+  // console.log('mecForm ===>', mecForm);
 
   useEffect(()=>{
     console.log('initialize');
-    
-    // mmcSchema.ReleaseDate = new ChildFormType();
-
   }, [])
 
   return (
@@ -69,24 +66,6 @@ const Index = ({ movieTitle }:Props) => {
             label="@ContentID *"
           />
 
-          <MECLocalizedInfoForm parentKey='BasicMetadata-type' />
-          
-          <DesktopDatePicker 
-            label="ReleaseDate"
-            inputFormat="yyyy-MM-DD"
-            value = {_.get(mecJSON, 'BasicMetadata-type.ReleaseDate', Date())}
-            onChange={(newVal:any)=>{
-              _.set(mecJSON, 'BasicMetadata-type.ReleaseDate', newVal.format('yyyy-MM-DD'));
-              setMECJSON({ ...mecJSON });
-            }}
-            renderInput={(params:any) => <TextValidator {...params} />}
-          />
-          <br/>
-          <MECReleaseHistoryForm parentKey='BasicMetadata-type' />
-          <br/>
-
-          {/* movie, episode, promotion, season, series. */}
-
           <SelectValidator
             name="BasicMetadata-type.WorkType" 
             label="WorkType *" 
@@ -104,7 +83,22 @@ const Index = ({ movieTitle }:Props) => {
             <MenuItem value = "season">Season</MenuItem>
             <MenuItem value = "series">Series</MenuItem>
           </SelectValidator>
-            
+
+          <MECLocalizedInfoForm parentKey='BasicMetadata-type' />
+          
+          <DesktopDatePicker 
+            label="ReleaseDate"
+            inputFormat="yyyy-MM-DD"
+            value = {_.get(mecJSON, 'BasicMetadata-type.ReleaseDate', Date())}
+            onChange={(newVal:any)=>{
+              _.set(mecJSON, 'BasicMetadata-type.ReleaseDate', newVal.format('yyyy-MM-DD'));
+              setMECJSON({ ...mecJSON });
+            }}
+            renderInput={(params:any) => <TextValidator {...params} />}
+          />
+          <br/>
+          <MECReleaseHistoryForm parentKey='BasicMetadata-type' />
+          <br/>
           <AltIdentifierForm parentKey='BasicMetadata-type' />
 
           <MECRatingSetForm parentKey='BasicMetadata-type' />

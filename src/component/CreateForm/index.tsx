@@ -54,7 +54,18 @@ export default function CreateForm() {
     }
   }, [id]);
 
-  const onSubmit = () => {
+  const onSubmit = (e:any) => {
+
+    // e.preventDefault();
+    // Object.keys(e.target.elements).map((key:any)=>{
+    //   const input = e.target.elements[key];
+    //   if(input.name){
+    //     console.log('element.name ===>', input.name);
+    //     console.log('element.name ===>', input.value);
+    //   }
+    // })
+
+    // return;
 
     const payload = { title:movieData.title, mec:mecJSON, mmc:mmcJSON };
 
@@ -75,7 +86,6 @@ export default function CreateForm() {
           console.log(err);
         });
       }
-
     }
   }
 
@@ -117,12 +127,12 @@ export default function CreateForm() {
                       <MECForm movieTitle = {movieData.title} />
                     </MECContext.Provider>
                   </Grid>
-                  {/* <Grid item xs={12} id="mmc-form">
+                  <Grid item xs={12} id="mmc-form">
                     <Divider />
                     <MMCContext.Provider value={mmcCxtValue}>
                       <MMCForm />
                     </MMCContext.Provider>
-                  </Grid> */}
+                  </Grid>
                 </Grid>
               </Box>
             </Box>

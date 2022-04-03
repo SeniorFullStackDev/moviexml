@@ -11,7 +11,7 @@ export default function({ parentKey }:FormType){
       <Box sx = {{ pl:4 }}>
         <MECContextTextValidator
           name = {`${parentKey}.AssociatedOrg.@organizationID`}
-          label = "@organizationID *" 
+          label = "@organizationID *"
           validators={['required']}
           errorMessages={['this field is required']} />
         <br/>

@@ -11,7 +11,9 @@ interface Props extends FormType {
  data:InventoryType
 }
 export default function({ parentKey, data }:Props){
+
   const { mmcJSON, setMMCJSON } = React.useContext(MMCContext);
+  
   return (
     <Box>
       <Typography >Video</Typography>
@@ -22,7 +24,21 @@ export default function({ parentKey, data }:Props){
           name={`${parentKey}.Video.@VideoTrackID`} 
           label="@VideoTrackID *"/><br/>
 
-        <SelectValidator 
+        <SelectValidator
+          name={`${parentKey}.TvType`}
+          value = {_.get(mmcJSON, `${parentKey}.TvType`, '')}
+          label="TvType *"
+          onChange = {(e:any) => {
+            _.set(mmcJSON, e.target.name, e.target.value);
+            setMMCJSON({ ...mmcJSON });
+          }}
+        >
+          <MenuItem value="HDR">HDR</MenuItem>
+          <MenuItem value="SDR">SDR</MenuItem>
+        </SelectValidator>
+        <br/>
+
+        <SelectValidator
           name={`${parentKey}.Video.Type`}
           value = {_.get(mmcJSON, `${parentKey}.Video.Type`, '')}
           label="Type *"
