@@ -65,14 +65,12 @@ export default ({ data, parentKey }:PeopleFormType) => {
           <SelectValidator
             defaultValue = "en-US"
             value={peopleData.Name['@language']}
-            validators={['required']}
-            errorMessages={['this field is required']}
             onChange = {(event:any)=>{
               _.set(mecJSON, event.target.name, event.target.value);
               setMECJSON({ ...mecJSON });
             }}
             name = {`${parentKey}.Name.@language`}
-            label="@Language *"
+            label="@Language"
           >
             { languages.map((ele:any, index:number)=><MenuItem key={index} value={ele.code}>{ele.language}</MenuItem>) }
           </SelectValidator>

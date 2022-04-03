@@ -1,10 +1,10 @@
-import React, { useEffect, useImperativeHandle, useRef } from 'react';
+import React, { useEffect } from 'react';
 import { 
   Box, 
   MenuItem, 
   Typography
 } from '@mui/material';
-import { ValidatorForm, TextValidator } from 'react-material-ui-form-validator';
+import { TextValidator } from 'react-material-ui-form-validator';
 import _ from 'lodash';
 
 import MECLocalizedInfoForm from 'component/MECLocalizedInfoForm';
@@ -13,16 +13,12 @@ import MECPeopleForm from 'component/MECPeopleForm';
 import MECReleaseHistoryForm from 'component/MECReleaseHistoryForm';
 import AltIdentifierForm from 'component/MECAltIdentifierForm';
 import DesktopDatePicker from '@mui/lab/DesktopDatePicker';
-import MECAssociatedOrgForm from 'component/MECAssociatedOrgForm';
 import SequenceInfoForm from 'component/MECSequenceInfoForm';
 import MECParentForm from 'component/MECParentForm';
 import MECCompanyDisplayCreditForm from 'component/MECCompanyDisplayCreditForm'
 import { SelectValidator } from 'react-material-ui-form-validator';
 import MECContext from 'context/MECContext';
 import MECContextTextValidator from 'component/ContextTextValidator/MECContextTextValidator';
-import MECBasicMetadata from 'models/MECBasicMetadata'
-import FormData from 'models/FormData';
-import ChildForm from './ChildForm';
 
 interface Props {
   movieTitle?:string;
@@ -31,17 +27,6 @@ interface Props {
 const Index = ({ movieTitle }:Props) => {
 
   const { mecJSON, setMECJSON } = React.useContext(MECContext);
-
-  // const mecForm = new FormData('mec', 'mec', 'form', true, []);
-
-  // const basicMetaDataForm = new FormData('BasicMetadata-type', 'BasicMetadata-type','form', true)
-  // basicMetaDataForm.addChildForm(new FormData('@ContentID', '@ContentID','text-field', true));
-  
-  // const localizedInfoForm = new FormData('LocalizedInfo', 'LocalizedInfo', 'array', true)
-  // basicMetaDataForm.addChildForm(localizedInfoForm);
-
-  // mecForm.addChildForm(basicMetaDataForm);
-  // console.log('mecForm ===>', mecForm);
 
   useEffect(()=>{
     console.log('initialize');
@@ -65,7 +50,6 @@ const Index = ({ movieTitle }:Props) => {
             name="BasicMetadata-type.@ContentID"
             label="@ContentID *"
           />
-
           <SelectValidator
             name="BasicMetadata-type.WorkType" 
             label="WorkType *" 
@@ -78,16 +62,25 @@ const Index = ({ movieTitle }:Props) => {
             }}
           >
             <MenuItem value = "movie">Movie</MenuItem>
-            <MenuItem value = "episode">Eovie</MenuItem>
+            <MenuItem value = "episode">Episode</MenuItem>
             <MenuItem value = "promotion">Promotion</MenuItem>
             <MenuItem value = "season">Season</MenuItem>
             <MenuItem value = "series">Series</MenuItem>
           </SelectValidator>
 
+          {(_.get(mecJSON, 'BasicMetadata-type.WorkType') == 'episode' || _.get(mecJSON, 'BasicMetadata-type.WorkType') == 'season') && <SequenceInfoForm parentKey='BasicMetadata-type' /> }
+
+          {
+            (_.get(mecJSON, 'BasicMetadata-type.WorkType') == 'episode' ||
+           _.get(mecJSON, 'BasicMetadata-type.WorkType') == 'season' || 
+           _.get(mecJSON, 'BasicMetadata-type.WorkType') == 'promotion')
+           && <MECParentForm parentKey='BasicMetadata-type' /> 
+          }
+
           <MECLocalizedInfoForm parentKey='BasicMetadata-type' />
           
           <DesktopDatePicker 
-            label="ReleaseDate"
+            label="ReleaseDate *"
             inputFormat="yyyy-MM-DD"
             value = {_.get(mecJSON, 'BasicMetadata-type.ReleaseDate', Date())}
             onChange={(newVal:any)=>{
@@ -111,11 +104,6 @@ const Index = ({ movieTitle }:Props) => {
             validators={['required']}
             errorMessages={['this field is required']} />
 
-          <MECAssociatedOrgForm parentKey='BasicMetadata-type' />
-
-          <SequenceInfoForm parentKey='BasicMetadata-type' />
-
-          <MECParentForm parentKey='BasicMetadata-type' />
         </Box>
         <MECCompanyDisplayCreditForm parentKey='CompanyDisplayCredit' />
       </Box>

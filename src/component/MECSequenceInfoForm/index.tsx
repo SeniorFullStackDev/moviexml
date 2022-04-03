@@ -10,6 +10,7 @@ export default function({ parentKey }:FormType){
       <Typography >SequenceInfo</Typography>
       <Box sx = {{ pl:4 }}>
         <MECContextTextValidator
+          type = "number"
           name = {`${parentKey}.SequenceInfo.Number`} 
           label = "Number *" 
           validators={['required']}

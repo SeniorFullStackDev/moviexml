@@ -8,7 +8,8 @@ import MECContext from 'context/MECContext';
 import _ from 'lodash';
 
 export default function({ parentKey }:FormType){
-  const { mecJSON, setMECJSON } = React.useContext(MECContext)
+  const { mecJSON, setMECJSON } = React.useContext(MECContext);
+  const workType = _.get(mecJSON, 'BasicMetadata-type.WorkType');
   return (
     <Box id="mec-MECParentForm">
       <Typography >Parent</Typography>
@@ -28,9 +29,9 @@ export default function({ parentKey }:FormType){
             setMECJSON({ ...mecJSON });
           }}
           errorMessages={['this field is required']}>
-          <MenuItem value="isepisodeof">isepisodeof</MenuItem>
-          <MenuItem value="isseasonof">isseasonof</MenuItem>
-          <MenuItem value="ispromotionfor">ispromotionfor</MenuItem>
+          <MenuItem value="isepisodeof">Episode of a season</MenuItem>
+          <MenuItem value="isseasonof">Season of a series</MenuItem>
+          <MenuItem value="ispromotionfor">Bonus or promotional material for a season</MenuItem>
         </SelectValidator>
         <MECContextTextValidator
           name = {`${parentKey}.Parent.ParentContentID`} 
