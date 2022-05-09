@@ -38,8 +38,7 @@ export default function(){
   const arr = _.get(mmcJSON, 'Presentations', []);
 
   console.log('Presentation ==>', arr)
-
-
+  
   return (
     <Box sx = {{ m:1 }} id="mmc-PresentationsForm">
       <Typography >Presentations *</Typography>

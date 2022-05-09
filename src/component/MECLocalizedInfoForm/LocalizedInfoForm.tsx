@@ -42,7 +42,7 @@ export default ({ parentKey, data }:Props) => {
         name={`${parentKey}.@Language`}
         label="@Language *"
       >
-        { languages.map((ele:any, index:number)=><MenuItem key={index} value={ele.code}>{ele.language}</MenuItem>) }
+        { languages.map((ele:any, index:number)=><MenuItem key={index} value={ele.code}>{ele.code}</MenuItem>) }
       </SelectValidator>
       <br/>
       <MECContextTextValidator
@@ -95,7 +95,7 @@ export default ({ parentKey, data }:Props) => {
             setMECJSON({ ...mecJSON });
           }}
         >
-          { iso.all().map((ele:any, index:number)=><MenuItem key={index} value={ele.alpha2}>{ele.country}</MenuItem>) }
+          { iso.all().map((ele:any, index:number)=><MenuItem key={index} value={ele.alpha2}>{ele.alpha2}</MenuItem>) }
         </SelectValidator>
       </Box>
 

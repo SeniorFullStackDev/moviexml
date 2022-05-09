@@ -19,9 +19,15 @@ export default function({ parentKey, data }:Props){
         errorMessages={['this field is required']} 
         name={`${parentKey}.@ExperienceID`} 
         label="@ExperienceID *"/><br/>
-      
+
       <Typography >Audiovisual</Typography>
       <Box sx = {{ pl:4 }}>
+        <MMCContextTextValidator 
+          validators={['required']} 
+          errorMessages={['this field is required']} 
+          name={`${parentKey}.Audiovisual.@ContentID`} 
+          label="@ContentID *"/><br/>
+        
         <SelectValidator
           validators={['required']} 
           errorMessages={['this field is required']} 
@@ -51,11 +57,18 @@ export default function({ parentKey, data }:Props){
           <MenuItem value = "Trailer">Trailer </MenuItem>
         </SelectValidator>
         <br/>
-        <MMCContextTextValidator 
+
+        {/* <MMCContextTextValidator 
           validators={['required']} 
           errorMessages={['this field is required']} 
           name={`${parentKey}.Audiovisual.PlayableSequenceID`} 
-          label="PlayableSequenceID *"/><br/>
+          label="PlayableSequenceID *"/><br/> */}
+
+        <MMCContextTextValidator 
+          validators={['required']} 
+          errorMessages={['this field is required']} 
+          name={`${parentKey}.Audiovisual.PresentationID`} 
+          label="PresentationID *"/><br/>
       </Box>
     </Box>
   );

@@ -21,10 +21,11 @@ export default function({ parentKey }: FormType){
       <Box sx = {{ pl:4 }}>
         <SelectValidator
           name={`${parentKey}.ReleaseHistory.ReleaseType`} 
-          label="ReleaseType *" 
+          // label="ReleaseType *" 
+          label="ReleaseType" 
           value = {formData.ReleaseType?formData.ReleaseType:''}
           defaultValue = "Original"
-          validators={['required']}
+          // validators={['required']}
           errorMessages={['this field is required']}
           onChange = {(e:any) => {
             _.set(mecJSON, e.target.name, e.target.value);
@@ -46,9 +47,10 @@ export default function({ parentKey }: FormType){
         <Box sx = {{ pl:4 }}>
           <SelectValidator
             name={`${parentKey}.ReleaseHistory.DistrTerritory.country`}
-            label="country *" 
+            label="country" 
+            // label="country *" 
             value = {(formData.DistrTerritory)?formData.DistrTerritory.country:''}
-            validators={['required']}
+            // validators={['required']}
             onChange = {(e:any) => {
               _.set(mecJSON, e.target.name, e.target.value);
               setMECJSON({ ...mecJSON });

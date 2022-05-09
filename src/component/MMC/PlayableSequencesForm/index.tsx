@@ -34,12 +34,12 @@ export default function(){
 
   return (
     <Box sx = {{ mt:1 }} id = "mmc-PlayableSequencesForm">
-      <Typography sx = {{ ml:1 }}>PlayableSequences</Typography>
+      {/* <Typography sx = {{ ml:1 }}>PlayableSequences</Typography>
       <MMCContextTextValidator 
         validators={['required']}
         errorMessages={['this field is required']} 
         name="PlayableSequences.PlayableSequence.@PlayableSequenceID" 
-        label="PlayableSequenceID *"/>
+        label="PlayableSequenceID *"/> */}
       <Box sx = {{ m:1 }}>
         <Typography >Clip</Typography>
         <Button variant='outlined' onClick={addMoreItem} startIcon = {<AddIcon />}>Add Clip</Button>

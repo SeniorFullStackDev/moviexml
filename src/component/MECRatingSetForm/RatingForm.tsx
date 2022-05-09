@@ -22,7 +22,6 @@ export default ({ parentKey }:FormType) => {
     }
   });
 
-
   const systems:any[] = [];
   console.log('country ==>', country);
   ratings.forEach(element => {

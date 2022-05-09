@@ -77,7 +77,7 @@ export default ({ parentKey }:FormType) => {
                       }}
                     >
                       {
-                        genresList.map((ele, index)=><MenuItem key = {index} value = {ele.one_ring_code}>{ele.one_ring_string}</MenuItem>)
+                        genresList.map((ele, index)=><MenuItem key = {index} value = {ele.one_ring_code}>{ele.one_ring_code}</MenuItem>)
                       }
                     </SelectValidator>
                   </Box>

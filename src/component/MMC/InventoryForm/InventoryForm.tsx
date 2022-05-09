@@ -72,22 +72,19 @@ export default function({ parentKey, data }:Props){
           <>
             <Typography >Picture</Typography>
             <Box sx = {{ pl:4 }}>
-              {/* <MMCContextTextValidator 
-            validators={['required']} 
-            errorMessages={['this field is required']} 
-            name={`${parentKey}.Video.Picture.AspectRatio`} 
-            label="AspectRatio *"/><br/>
-          <MMCContextTextValidator 
-            validators={['required']} 
-            errorMessages={['this field is required']} 
-            name={`${parentKey}.Video.Picture.WidthPixels`} 
-            label="WidthPixels *"/><br/>
-          <MMCContextTextValidator 
-            validators={['required']} 
-            errorMessages={['this field is required']} 
-            name={`${parentKey}.Video.Picture.HeightPixels`} 
-            label="HeightPixels *"/><br/> */}
-              <Typography >MasteredColorVolume</Typography>
+              
+              <MMCContextTextValidator 
+                validators={['required']} 
+                errorMessages={['this field is required']} 
+                name={`${parentKey}.Video.Picture.WidthPixels`} 
+                label="WidthPixels *"/><br/>
+              <MMCContextTextValidator 
+                validators={['required']} 
+                errorMessages={['this field is required']} 
+                name={`${parentKey}.Video.Picture.HeightPixels`} 
+                label="HeightPixels *"/><br/>
+
+              {/* <Typography >MasteredColorVolume</Typography>
               <Box sx = {{ pl:4 }}>
 
                 <Typography >PrimaryRChromaticity</Typography>
@@ -157,9 +154,9 @@ export default function({ parentKey, data }:Props){
                   name={`${parentKey}.Video.Picture.MasteredColorVolume.LuminanceMax`} 
                   label="LuminanceMax *"/><br/>
 
-              </Box>
+              </Box> */}
 
-              <Typography >LightLevel</Typography>
+              {/* <Typography >LightLevel</Typography>
               <Box sx = {{ pl:4 }}>
                 <MMCContextTextValidator 
                   validators={['required']} 
@@ -171,7 +168,7 @@ export default function({ parentKey, data }:Props){
                   errorMessages={['this field is required']} 
                   name={`${parentKey}.Video.Picture.LightLevel.FrameAverageMax`} 
                   label="FrameAverageMax *"/><br/>
-              </Box>
+              </Box> */}
 
             </Box>
           </>
@@ -255,6 +252,7 @@ export default function({ parentKey, data }:Props){
           defaultValue = "en-US"
           name={`${parentKey}.Subtitle.Language`}
           onChange = {(e:any) => {
+            console.log('language ==>', e.target.value);
             _.set(mmcJSON, e.target.name, e.target.value);
             setMMCJSON({ ...mmcJSON });
           }}

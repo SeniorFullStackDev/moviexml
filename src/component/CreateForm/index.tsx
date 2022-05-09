@@ -110,8 +110,10 @@ export default function CreateForm() {
                   validators={['required']} 
                   errorMessages={['this field is required']}
                   onBlur = {(e:any)=>{
-                    setMovieData({ ...movieData, title:e.target.value });
-                    const contentID = `md:cid:org:amzn_studios:${e.target.value}`;
+                    const title = e.target.value.replace(/\s/g, '').toLowerCase();
+                    setMovieData({ ...movieData, title });
+
+                    const contentID = `md:cid:org:amzn_studios:${title}`;
                     _.set(mecJSON, 'BasicMetadata-type.@ContentID', contentID);
                     setMECJSON({ ...mecJSON });
                   }}
