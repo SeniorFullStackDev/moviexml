@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Box, Button, IconButton } from '@mui/material';
+import { Grid, Box, Button, IconButton } from '@mui/material';
 import Typography from '@mui/material/Typography';
 import AddIcon from '@mui/icons-material/Add';
 import { Accordion, AccordionSummary, AccordionDetails } from 'component/CustomAccordion'
@@ -40,7 +40,7 @@ export default ({ parentKey, artreferences }:Props) => {
     const newItem:ArtReferenceType = {
       '@purpose':'cover',
       '@resolution':'3840x2160',
-      'value':'TheGreatMovie-US-16x9.jpg'
+      'value':''
     };
     _.set(mecJSON, `${parentKey}[${newIndex}]`, newItem);
     setMECJSON({ ...mecJSON });
@@ -104,12 +104,38 @@ export default ({ parentKey, artreferences }:Props) => {
                         purposes.map((ele, index)=><MenuItem key = {index} value = {ele}>{ele}</MenuItem>)
                       } 
                     </SelectValidator>
-                    <MECContextTextValidator
-                      label = "ArtReference *" 
-                      name = {`${parentKey}[${index}].value`} 
-                      validators={['required']}
-                      defaultValue= {ele['value']}
-                      errorMessages={['this field is required']} />
+
+                    <Grid container spacing={2} alignItems="center">
+                      <Grid item xs = {8}>
+                        <MECContextTextValidator
+                          label = "ArtReference *" 
+                          name = {`${parentKey}[${index}].value`}
+                          disabled
+                        />
+                      </Grid>
+                      <Grid item xs = {4}>
+                        <label htmlFor={`${ele['@purpose']}-file`}>
+                          <input
+                            id={`${ele['@purpose']}-file`}
+                            name={`${ele['@purpose']}-file`}
+                            style={{ display: 'none' }}
+                            type="file"
+                            accept="image/png, image/gif, image/jpeg"
+                            onChange={(event:any)=>{
+                              // setFiles(event.target.files);
+                              _.set(mecJSON, `${parentKey}[${index}].value`, event.target.files[0].name );
+                              setMECJSON({ ...mecJSON });
+                              // setFilesJSON({ ...filesJSON, [fileFeature]: event.target.files[0].name });
+                            }} />
+                          <Button
+                            variant="outlined"
+                            startIcon = {<AddIcon />}
+                            component="span" >
+                              Choose Files
+                          </Button>
+                        </label>
+                      </Grid>
+                    </Grid>
                   </Box>
                 </AccordionDetails>
               </Accordion>

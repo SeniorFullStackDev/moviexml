@@ -1,10 +1,11 @@
 import React from 'react';
-import { Box, MenuItem, TextField, Typography  } from '@mui/material';
+import { Box, MenuItem, TextField, Typography, Grid, Button  } from '@mui/material';
 import MMCContextTextValidator from 'component/ContextTextValidator/MMCContextTextValidator';
 import { SelectValidator } from 'react-material-ui-form-validator';
 import { FormType, InventoryType } from 'utils/types';
 import MMCContext from 'context/MMCContext';
 import languages from 'config/languages.json';
+import AddIcon from '@mui/icons-material/Add';
 import _ from 'lodash';
 
 interface Props extends FormType {
@@ -176,11 +177,40 @@ export default function({ parentKey, data }:Props){
 
         <Typography >ContainerReference</Typography>
         <Box sx = {{ pl:4 }}>
-          <MMCContextTextValidator 
+          {/* <MMCContextTextValidator 
             validators={['required']} 
             errorMessages={['this field is required']} 
             name={`${parentKey}.Video.ContainerReference.ContainerLocation`} 
-            label="ContainerLocation *"/><br/>
+            label="ContainerLocation *"/><br/> */}
+          <Grid container spacing={2} alignItems="center">
+            <Grid item xs = {8}>
+              <MMCContextTextValidator
+                label = "ContainerLocation *"
+                name={`${parentKey}.Video.ContainerReference.ContainerLocation`}
+                disabled
+              />
+            </Grid>
+            <Grid item xs = {4}>
+              <label htmlFor={'video-file'}>
+                <input
+                  id='video-file'
+                  name='video-file'
+                  style={{ display: 'none' }}
+                  type="file"
+                  onChange={(event:any)=>{
+                    _.set(mmcJSON, `${parentKey}.Video.ContainerReference.ContainerLocation`, `file://${event.target.files[0].name}` );
+                    _.set(mmcJSON, `${parentKey}.Audio.ContainerReference.ContainerLocation`, `file://${event.target.files[0].name}` );
+                    setMMCJSON({ ...mmcJSON });
+                  }} />
+                <Button
+                  variant="outlined"
+                  startIcon = {<AddIcon />}
+                  component="span" >
+                              Choose File
+                </Button>
+              </label>
+            </Grid>
+          </Grid>
         </Box>
       </Box>
         
@@ -219,11 +249,43 @@ export default function({ parentKey, data }:Props){
 
         <Typography >ContainerReference</Typography>
         <Box sx = {{ pl:4 }}>
-          <MMCContextTextValidator 
+
+          {/* <MMCContextTextValidator 
             validators={['required']} 
             errorMessages={['this field is required']} 
             name={`${parentKey}.Audio.ContainerReference.ContainerLocation`} 
-            label="ContainerLocation *"/><br/>
+            label="ContainerLocation *"/><br/> */}
+
+          <Grid container spacing={2} alignItems="center">
+            <Grid item xs = {8}>
+              <MMCContextTextValidator
+                label = "ContainerLocation *"
+                name={`${parentKey}.Audio.ContainerReference.ContainerLocation`}
+                disabled
+              />
+            </Grid>
+            <Grid item xs = {4}>
+              <label htmlFor={'audio-file'}>
+                <input
+                  id='audio-file'
+                  name='audio-file'
+                  style={{ display: 'none' }}
+                  type="file"
+                  onChange={(event:any)=>{
+                    _.set(mmcJSON, `${parentKey}.Audio.ContainerReference.ContainerLocation`, `file://${event.target.files[0].name}` );
+                    setMMCJSON({ ...mmcJSON });
+                  }} />
+                <Button
+                  variant="outlined"
+                  startIcon = {<AddIcon />}
+                  component="span" >
+                              Choose File
+                </Button>
+              </label>
+            </Grid>
+          </Grid>
+
+
         </Box>
       </Box>
 
@@ -285,11 +347,39 @@ export default function({ parentKey, data }:Props){
 
         <Typography >ContainerReference</Typography>
         <Box sx = {{ pl:4 }}>
-          <MMCContextTextValidator 
+          {/* <MMCContextTextValidator 
             validators={['required']} 
             errorMessages={['this field is required']} 
             name={`${parentKey}.Subtitle.ContainerReference.ContainerLocation`} 
-            label="ContainerLocation *"/><br/>
+            label="ContainerLocation *"/><br/> */}
+          <Grid container spacing={2} alignItems="center">
+            <Grid item xs = {8}>
+              <MMCContextTextValidator
+                label = "ContainerLocation *"
+                name={`${parentKey}.Audio.ContainerReference.ContainerLocation`}
+                disabled
+              />
+            </Grid>
+            <Grid item xs = {4}>
+              <label htmlFor={'subtitle-file'}>
+                <input
+                  id='subtitle-file'
+                  name='subtitle-file'
+                  style={{ display: 'none' }}
+                  type="file"
+                  onChange={(event:any)=>{
+                    _.set(mmcJSON, `${parentKey}.Subtitle.ContainerReference.ContainerLocation`, `file://${event.target.files[0].name}` );
+                    setMMCJSON({ ...mmcJSON });
+                  }} />
+                <Button
+                  variant="outlined"
+                  startIcon = {<AddIcon />}
+                  component="span" >
+                              Choose File
+                </Button>
+              </label>
+            </Grid>
+          </Grid>
         </Box>
       </Box>
     </Box>

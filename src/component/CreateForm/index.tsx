@@ -142,20 +142,20 @@ export default function CreateForm() {
                       <MMCForm />
                     </MMCContext.Provider>
                   </Grid>
-                  <Grid item xs={12} id="files-form">
+                  {/* <Grid item xs={12} id="files-form">
                     <Divider />
                     <FilesContext.Provider value={filesCxtValue}>
                       <Box sx = {{ mt:1 }}>
                         <Typography variant="h5">Files</Typography>
-                        <FilesForm fileFeature='quicktime_feature' label="#1 Quicktime Feature" />
-                        <FilesForm fileFeature='quicktime_trailer' label="#2 Quicktime Trailer" />
-                        <FilesForm fileFeature='box_art' label="#3 Box art" />
-                        <FilesForm fileFeature='hero_art' label="#4 Hero art" />
-                        <FilesForm fileFeature='post_image' label="#5 Post Image" />
-                        <FilesForm fileFeature='subtitle' label="#6 Subtitle" />
+                        <FilesForm fileFeature='quicktime_feature' label="#1 Quicktime Feature" fileType='file' />
+                        <FilesForm fileFeature='quicktime_trailer' label="#2 Quicktime Trailer" fileType='file' />
+                        <FilesForm fileFeature='box_art' label="#3 Box art" fileType='image'/>
+                        <FilesForm fileFeature='hero_art' label="#4 Hero art" fileType='image'/>
+                        <FilesForm fileFeature='cover_art' label="#5 Cover art" fileType='image'/>
+                        <FilesForm fileFeature='subtitle' label="#6 Subtitle" fileType='file'/>
                       </Box>
                     </FilesContext.Provider>
-                  </Grid>
+                  </Grid> */}
                 </Grid>
               </Box>
             </Box>

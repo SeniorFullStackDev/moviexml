@@ -14,17 +14,20 @@ import FilesContext from 'context/FilesContext';
 interface Props {
     fileFeature:string;
     label:string;
+    fileType:'image'|'file'
 }
 
-export default ({ label, fileFeature }:Props) => {
+export default ({ label, fileFeature, fileType }:Props) => {
 
-  const [files, setFiles]  = useState([]);
+  const [files, setFiles]  = useState<any[]>([]);
   const [isProgress, setIsProgress] = useState(false);
   const [response, setResponse] = useState<any>({});
   const { filesJSON, setFilesJSON } = React.useContext(FilesContext);
 
   const onSelectFile = (event:any) => {
+    console.log('---onSelectFile---', fileFeature);
     setFiles(event.target.files);
+    setFilesJSON({ ...filesJSON, [fileFeature]: event.target.files[0].name });
   }
 
   const uploadFile = () => {
@@ -42,7 +45,7 @@ export default ({ label, fileFeature }:Props) => {
     })
   }
 
-  console.log('response ==>', response);
+  console.log('filesJSON ==>', filesJSON);
 
   return (
     <Box
@@ -54,9 +57,9 @@ export default ({ label, fileFeature }:Props) => {
       <Box sx = {{ pl:4 }}>
         <Grid container spacing={2} alignItems="center">
           <Grid item xs = {4}>{label}</Grid>
-          <Grid item xs = {4}>{response.fileName}.{response.extension}</Grid>
+          <Grid item xs = {4}>{files[0]?files[0].name:''}</Grid>
           <Grid item xs = {4}>
-            {
+            {/* {
               files[0] && 
                   <Button
                     variant="contained"
@@ -67,22 +70,21 @@ export default ({ label, fileFeature }:Props) => {
                   >
                     Upload
                   </Button>
-            }
-            <label htmlFor="btn-upload">
+            } */}
+            <label htmlFor={fileFeature}>
               <input
-                id="btn-upload"
-                name="btn-upload"
+                id={fileFeature}
+                name={fileFeature}
                 style={{ display: 'none' }}
                 type="file"
+                accept={fileType == 'image'? 'image/png, image/gif, image/jpeg': ''}
                 onChange={onSelectFile} />
-              {
-                !files[0] && <Button
-                  variant="outlined"
-                  startIcon = {<AddIcon />}
-                  component="span" >
+              <Button
+                variant="outlined"
+                startIcon = {<AddIcon />}
+                component="span" >
                     Choose Files
-                </Button>
-              }
+              </Button>
             </label>
           </Grid>
         </Grid>

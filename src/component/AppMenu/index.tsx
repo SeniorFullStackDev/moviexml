@@ -87,37 +87,37 @@ export default function({ drawerWidth }:{ drawerWidth:number }){
         },
       ]
     },
-    {
-      name: 'Files',
-      href:'#files-form',
-      Icon: DriveFolderUploadIcon,
-      items: [
-        {
-          name:'Quicktime feature',
-          href:'#quicktime-featureForm'
-        },
-        {
-          name:'Quicktime trailer',
-          href:'#quicktime-trailerForm'
-        },
-        {
-          name:'Box Art',
-          href:'#box-artForm'
-        },
-        {
-          name:'Hero Art',
-          href:'#hero-artForm'
-        },
-        {
-          name:'Maybe Post Image?',
-          href:'#maybe-postImageForm'
-        },
-        {
-          name:'Subtitle',
-          href:'#subtitleForm'
-        },
-      ]
-    },
+    // {
+    //   name: 'Files',
+    //   href:'#files-form',
+    //   Icon: DriveFolderUploadIcon,
+    //   items: [
+    //     {
+    //       name:'Quicktime feature',
+    //       href:'#quicktime-featureForm'
+    //     },
+    //     {
+    //       name:'Quicktime trailer',
+    //       href:'#quicktime-trailerForm'
+    //     },
+    //     {
+    //       name:'Box Art',
+    //       href:'#box-artForm'
+    //     },
+    //     {
+    //       name:'Hero Art',
+    //       href:'#hero-artForm'
+    //     },
+    //     {
+    //       name:'Cover Art',
+    //       href:'#cover-artForm'
+    //     },
+    //     {
+    //       name:'Subtitle',
+    //       href:'#subtitleForm'
+    //     },
+    //   ]
+    // },
   ]
 
   const drawer = (
