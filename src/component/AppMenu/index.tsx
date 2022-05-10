@@ -12,6 +12,7 @@ import { Divider } from '@mui/material';
 import DataObjectIcon from '@mui/icons-material/DataObject';
 import ArticleIcon from '@mui/icons-material/Article';
 import AppMenuItem from 'component/AppMenuItem';
+import DriveFolderUploadIcon from '@mui/icons-material/DriveFolderUpload';
 
 export default function({ drawerWidth }:{ drawerWidth:number }){
 
@@ -83,6 +84,37 @@ export default function({ drawerWidth }:{ drawerWidth:number }){
         {
           name:'ALIDExperienceMaps',
           href:'#mmc-ALIDExperienceMapsForm'
+        },
+      ]
+    },
+    {
+      name: 'Files',
+      href:'#files-form',
+      Icon: DriveFolderUploadIcon,
+      items: [
+        {
+          name:'Quicktime feature',
+          href:'#quicktime-featureForm'
+        },
+        {
+          name:'Quicktime trailer',
+          href:'#quicktime-trailerForm'
+        },
+        {
+          name:'Box Art',
+          href:'#box-artForm'
+        },
+        {
+          name:'Hero Art',
+          href:'#hero-artForm'
+        },
+        {
+          name:'Maybe Post Image?',
+          href:'#maybe-postImageForm'
+        },
+        {
+          name:'Subtitle',
+          href:'#subtitleForm'
         },
       ]
     },

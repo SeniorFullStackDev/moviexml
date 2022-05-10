@@ -20,6 +20,7 @@ import { SelectValidator } from 'react-material-ui-form-validator';
 import MECContext from 'context/MECContext';
 import MECContextTextValidator from 'component/ContextTextValidator/MECContextTextValidator';
 
+
 interface Props {
   movieTitle?:string;
 }

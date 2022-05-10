@@ -8,6 +8,7 @@ import {
 } from '@mui/material';
 import MMCForm from './MMCForm';
 import MECForm from './MECForm';
+import FilesForm from './FilesForm';
 import { Divider } from '@mui/material';
 import { ValidatorForm, TextValidator } from 'react-material-ui-form-validator';
 import { useParams } from 'react-router-dom';
@@ -18,6 +19,7 @@ import _ from 'lodash';
 
 import MECContext from 'context/MECContext';
 import MMCContext from 'context/MMCContext';
+import FilesContext from 'context/FilesContext';
 import moment from 'moment';
 import AppMenu from 'component/AppMenu';
 
@@ -42,6 +44,9 @@ export default function CreateForm() {
 
   const [mmcJSON, setMMCJSON] = React.useState<any>({});
   const mmcCxtValue = React.useMemo(() => ({ mmcJSON, setMMCJSON }), [mmcJSON, movieData]);
+
+  const [filesJSON, setFilesJSON] = React.useState<any>({});
+  const filesCxtValue = React.useMemo(() => ({ filesJSON, setFilesJSON }), [filesJSON, movieData]);
 
   React.useEffect(()=>{
     if(id){
@@ -89,6 +94,8 @@ export default function CreateForm() {
     }
   }
 
+  console.log('filesJSON ==>', filesJSON);
+
   return (
     <Box sx = {{ pt:'20px' }}>
       <Box sx = {{ display:'flex' }}>
@@ -134,6 +141,20 @@ export default function CreateForm() {
                     <MMCContext.Provider value={mmcCxtValue}>
                       <MMCForm />
                     </MMCContext.Provider>
+                  </Grid>
+                  <Grid item xs={12} id="files-form">
+                    <Divider />
+                    <FilesContext.Provider value={filesCxtValue}>
+                      <Box sx = {{ mt:1 }}>
+                        <Typography variant="h5">Files</Typography>
+                        <FilesForm fileFeature='quicktime_feature' label="#1 Quicktime Feature" />
+                        <FilesForm fileFeature='quicktime_trailer' label="#2 Quicktime Trailer" />
+                        <FilesForm fileFeature='box_art' label="#3 Box art" />
+                        <FilesForm fileFeature='hero_art' label="#4 Hero art" />
+                        <FilesForm fileFeature='post_image' label="#5 Post Image" />
+                        <FilesForm fileFeature='subtitle' label="#6 Subtitle" />
+                      </Box>
+                    </FilesContext.Provider>
                   </Grid>
                 </Grid>
               </Box>
