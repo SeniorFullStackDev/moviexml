@@ -86,6 +86,7 @@ const Index = ({ movieTitle }:Props) => {
             value = {_.get(mecJSON, 'BasicMetadata-type.ReleaseDate', Date())}
             onChange={(newVal:any)=>{
               _.set(mecJSON, 'BasicMetadata-type.ReleaseDate', newVal.format('yyyy-MM-DD'));
+              _.set(mecJSON, 'BasicMetadata-type.ReleaseYear', newVal.format('yyyy'));
               setMECJSON({ ...mecJSON });
             }}
             renderInput={(params:any) => <TextValidator {...params} />}
