@@ -34,10 +34,12 @@ export default function CreateForm() {
   const [movieData, setMovieData] = React.useState<any>({ title:'' });
 
   const [mecJSON, setMECJSON] = React.useState<any>({
-    ReleaseDate:moment().format('yyyy-MM-DD'),
-    ReleaseYear:moment().format('yyyy'),
-    ReleaseHistory: {
-      Date:moment().format('yyyy-MM-DD')
+    'BasicMetadata-type':{
+      ReleaseDate:moment().format('yyyy-MM-DD'),
+      ReleaseYear:moment().format('yyyy'),
+      ReleaseHistory: {
+        Date:moment().format('yyyy-MM-DD')
+      }
     }
   });
   const mecCxtValue = React.useMemo(() => ({ mecJSON, setMECJSON }), [mecJSON, movieData]);
