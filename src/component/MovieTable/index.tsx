@@ -22,8 +22,10 @@ import DeleteIcon from '@mui/icons-material/Delete';
 
 import { saveAs } from 'file-saver';
 import config from 'api/config';
-import { getAllMovies, deleteMovie } from 'api';
+import { getAllMovies, deleteMovie, getMECXML, getMMCXML } from 'api';
 import ConfirmDialog from 'component/ConfirmDialog';
+
+import beautify from 'xml-beautifier';
 
 export default function MovieTable() {
 
@@ -47,11 +49,25 @@ export default function MovieTable() {
 
   const downloadXML = (data:any) => {
 
-    const mecLink = `${config.host}/api/movies/xml/download/mec/${data.id}`;
-    saveAs(mecLink, `${data.title}-MEC.xml`);
+    getMECXML(data.id).then((res:any)=>{
+      const xml = beautify(res.data);
+      console.log('getMECXML ===>', xml);
+      const blob = new Blob([xml], { type: 'text/xml;charset=utf-8' });
+      saveAs(blob, `${data.title}-MEC.xml`);
+    })
 
-    const mmcLink = `${config.host}/api/movies/xml/download/mmc/${data.id}`;
-    saveAs(mmcLink, `${data.title}-MMC.xml`);
+    getMMCXML(data.id).then((res:any)=>{
+      const xml = beautify(res.data);
+      console.log('getMMCXML ===>', xml);
+      const blob = new Blob([xml], { type: 'text/xml;charset=utf-8' });
+      saveAs(blob, `${data.title}-MMC.xml`);
+    })
+
+    // const mecLink = `${config.host}/api/movies/xml/download/mec/${data.id}.xml`;
+    // saveAs(mecLink, `${data.title}-MEC.xml`);
+
+    // const mmcLink = `${config.host}/api/movies/xml/download/mmc/${data.id}`;
+    // saveAs(mmcLink, `${data.title}-MMC.xml`);
   }
   return (
     <Box sx = {{ pt:'20px', px:'40px' }}>

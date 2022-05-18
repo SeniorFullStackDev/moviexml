@@ -20,3 +20,11 @@ export const deleteMovie = (id) => {
 export const getMovieDetail = (id) => {
   return  getRequest(`${config.host}/api/movies/${id}`)
 }
+
+export const getMECXML = (id) => {
+  return  getRequest(`${config.host}/api/movies/xml/download/mec/${id}.xml`)
+}
+
+export const getMMCXML = (id) => {
+  return  getRequest(`${config.host}/api/movies/xml/download/mmc/${id}.xml`)
+}
