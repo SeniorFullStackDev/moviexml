@@ -50,14 +50,16 @@ export default function MovieTable() {
   const downloadXML = (data:any) => {
 
     getMECXML(data.id).then((res:any)=>{
-      const xml = beautify(res.data);
+      // const xml = beautify(res.data);
+      const xml = res.data;
       console.log('getMECXML ===>', xml);
       const blob = new Blob([xml], { type: 'text/xml;charset=utf-8' });
       saveAs(blob, `${data.title}-MEC.xml`);
     })
 
     getMMCXML(data.id).then((res:any)=>{
-      const xml = beautify(res.data);
+      // const xml = beautify(res.data);
+      const xml = res.data;
       console.log('getMMCXML ===>', xml);
       const blob = new Blob([xml], { type: 'text/xml;charset=utf-8' });
       saveAs(blob, `${data.title}-MMC.xml`);
