@@ -31,6 +31,7 @@ export default function({ parentKey }:FormType){
   }
 
   const arr = _.get(mmcJSON, `${parentKey}.VideoTrackReferences`, []);
+  // console.log("arr ===>", );
 
   return (
     <Box sx = {{ m:1 }}>
@@ -39,7 +40,7 @@ export default function({ parentKey }:FormType){
       <Box sx = {{ mt:1 }}>
         {
           arr.map((ele:VideoTrackReferenceType, index:number)=>
-            <Accordion
+            ele && <Accordion
               key = {`${ele['VideoTrackID']}-${index}`} 
               expanded={expanded === `panel-${index}`} 
               onChange={handleChange(`panel-${index}`)}>
